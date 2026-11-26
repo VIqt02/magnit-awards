@@ -2773,7 +2773,6 @@
         <div id="preview-switcher" class="preview-switcher hidden" role="group" aria-label="Превью режимов">
           <button type="button" class="preview-tab is-active" data-preview-mode="OPEN">ГОЛОСОВАНИЕ</button>
           <button type="button" class="preview-tab" data-preview-mode="WAITING">ОЖИДАНИЕ</button>
-          <button type="button" class="preview-tab" data-preview-mode="RESULTS">ИТОГИ</button>
         </div>
 
         <!-- Переключатель тихого звука -->
@@ -2862,7 +2861,7 @@
 
           <h2 class="title-fiery submitted-title">ТВОЙ ГОЛОС ПРИНЯТ</h2>
           <p class="submitted-sub">
-            Твой выбор надёжно записан. Как только администратор закроет голосование, на этой же странице откроется Зал Славы победителей!
+            Твой выбор надёжно записан. Итоги премии будут торжественно объявлены на корпоративе!
           </p>
 
           <div class="ballot-box">
@@ -2874,7 +2873,7 @@
           </div>
 
           <div class="submitted-actions">
-            <div id="submitted-check-mount"></div>
+            <div id="submitted-check-mount" class="hidden"></div>
             <div id="submitted-copy-mount"></div>
           </div>
 
@@ -2896,7 +2895,7 @@
       <div id="waiting-crystal" class="pulse-crystal-wrap"></div>
       <h1 class="title-fiery waiting-title">ГОЛОСОВАНИЕ ЗАВЕРШЕНО</h1>
       <p class="waiting-sub">
-        Идёт подсчёт голосов. Совсем скоро мы объявим легенд 2026 года.
+        Голосование закрыто. Итоги премии МАГНИТ LEGENDS 2026 будут торжественно объявлены на корпоративе!
       </p>
       <div id="waiting-refresh-mount"></div>
     </section>
@@ -6001,34 +6000,15 @@
         setSyncBadge('connected', 'Таблица подключена');
 
         const rawStatus = String(data.status || 'OPEN').trim().toUpperCase();
-        const mappedStatus =
-          rawStatus === 'WAITING' || rawStatus === 'CLOSED'
-            ? 'WAITING'
-            : rawStatus === 'RESULTS'
-              ? 'RESULTS'
-              : 'OPEN';
-
-        if (typeof data.totalVoters === 'number') {
-          state.totalVoters = data.totalVoters;
-        }
-        if (data.winners && typeof data.winners === 'object') {
-          state.winners = data.winners;
-        }
+        const mappedStatus = rawStatus === 'OPEN' ? 'OPEN' : 'WAITING';
 
         if (mappedStatus !== state.mode) {
           applyMode(mappedStatus);
-          if (manual && mappedStatus === 'RESULTS') {
-            SoundFX.reveal();
-            launchFireworksSalute(1.1);
-            showToast('Итоги премии открыты — добро пожаловать в Зал Славы!');
-          }
-        } else if (mappedStatus === 'RESULTS') {
-          renderResultsMode();
         } else if (manual) {
           showToast(
             mappedStatus === 'OPEN'
-              ? 'Голосование всё ещё открыто — итоги появятся позже'
-              : 'Итоги ещё подсчитываются — проверь чуть позже'
+              ? 'Голосование всё ещё открыто'
+              : 'Голосование завершено — итоги объявим на корпоративе!'
           );
         }
       } catch (err) {
@@ -6360,14 +6340,9 @@
         )
         .join('');
 
-      document.getElementById('submitted-check-mount').innerHTML = btnRubyHTML({
-        label: state.isCheckingStatus ? 'ПРОВЕРЯЕМ...' : 'ПРОВЕРИТЬ, ОТКРЫЛИСЬ ЛИ ИТОГИ',
-        size: 'sm',
-        loading: state.isCheckingStatus,
-        attrs: `id="submitted-check-btn" ${state.isCheckingStatus ? 'disabled' : ''}`,
-      });
+      document.getElementById('submitted-check-mount').innerHTML = '';
 
-      document.getElementById('submitted-copy-mount').innerHTML = btnStoneHTML({
+      document.getElementById('submitted-copy-mount').innerHTML = btnRubyHTML({
         label: 'СКОПИРОВАТЬ ИТОГ',
         size: 'sm',
         attrs: 'id="submitted-copy-btn"',
