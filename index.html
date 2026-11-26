@@ -49,7 +49,7 @@
 
   <style>
     /* =========================================================================
-       1. БАЗОВЫЕ ПЕРЕМЕННЫЕ И СБРОС (SLAY 2026: OBSIDIAN × AMBER × RUBY)
+       1. БАЗОВЫЕ ПЕРЕМЕННЫЕ И СБРОС (SLAY 2026: OBSIDIAN × RUBY × CHAMPAGNE)
        ========================================================================= */
     :root {
       --bg-obsidian: #050507;
@@ -58,12 +58,14 @@
       --text-main: #f5efe9;
       --text-muted: #9f938b;
       --text-dim: #6c625b;
-      --amber-light: #ffd78c;
-      --amber-mid: #ff9a2e;
-      --ember-core: #e63418;
-      --ruby-deep: #9e120a;
-      --border-orange: #c95a1e;
-      --border-soft: rgba(201, 90, 30, 0.34);
+      --amber-light: #ffe2e6;
+      --amber-mid: #ff2e47;
+      --ember-core: #e30613;
+      --ruby-deep: #7a0014;
+      --champagne: #e8b874;
+      --champagne-light: #fff3cf;
+      --border-orange: #b80d26;
+      --border-soft: rgba(227, 6, 19, 0.34);
       --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -78,15 +80,19 @@
       color: var(--text-main);
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      overflow-x: clip;
       -webkit-tap-highlight-color: transparent;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
+      max-width: 100%;
       background-color: var(--bg-obsidian);
       color: var(--text-main);
       overflow-x: hidden;
+      overflow-x: clip;
       position: relative;
       line-height: 1.45;
       opacity: 1;
@@ -108,15 +114,15 @@
     }
 
     ::selection {
-      background: rgba(230, 52, 24, 0.45);
-      color: #fff6e6;
+      background: rgba(227, 6, 19, 0.52);
+      color: #ffffff;
     }
 
     .hidden {
       display: none !important;
     }
 
-    /* Тонкий светящийся оранжевый скроллбар */
+    /* Тонкий светящийся рубиновый скроллбар */
     ::-webkit-scrollbar {
       width: 5px;
       height: 5px;
@@ -127,27 +133,27 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #ffae42 0%, #e63418 62%, #7d0c07 100%);
-      box-shadow: 0 0 8px rgba(255, 136, 40, 0.72);
+      background: linear-gradient(180deg, #ff4d63 0%, #e30613 58%, #5e0010 100%);
+      box-shadow: 0 0 8px rgba(227, 6, 19, 0.78);
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, #ffd480 0%, #ff5e1f 100%);
+      background: linear-gradient(180deg, #ff8594 0%, #ff243d 100%);
     }
 
     /* =========================================================================
-       2. ТИПОГРАФИКА С ОГНЕННЫМ ГРАДИЕНТОМ
+       2. ТИПОГРАФИКА С РУБИНОВО-ЗОЛОТЫМ ГРАДИЕНТОМ
        ========================================================================= */
     .title-fiery {
       font-family: 'Forum', Georgia, 'Times New Roman', serif;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.13em;
-      background: linear-gradient(180deg, #ffdd96 0%, #ff9a2e 38%, #e63418 76%, #b8190b 100%);
+      background: linear-gradient(180deg, #fff3e4 0%, #ff5c70 42%, #e30613 76%, #7d0014 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      filter: drop-shadow(0 2px 18px rgba(230, 52, 24, 0.28));
+      filter: drop-shadow(0 2px 20px rgba(227, 6, 19, 0.4));
       margin: 0;
     }
 
@@ -156,7 +162,7 @@
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.11em;
-      background: linear-gradient(180deg, #ffd180 0%, #f56a22 58%, #c9220e 100%);
+      background: linear-gradient(180deg, #ffecee 0%, #ff3b53 56%, #9c001a 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -164,14 +170,14 @@
     }
 
     /* =========================================================================
-       3. СТРОГИЕ ОБСИДИАНОВЫЕ ПАНЕЛИ (1PX ОРАНЖЕВАЯ РАМКА, БЕЗ СКРУГЛЕНИЙ)
+       3. СТРОГИЕ ОБСИДИАНОВЫЕ ПАНЕЛИ (1PX РУБИНОВАЯ РАМКА + УГОЛКИ ШАМПАНЬ)
        ========================================================================= */
     .obsidian-panel {
       position: relative;
       background: var(--bg-panel);
       border: 1px solid var(--border-orange);
       box-shadow:
-        inset 0 36px 68px -34px rgba(235, 92, 26, 0.42),
+        inset 0 36px 68px -34px rgba(227, 6, 19, 0.38),
         0 24px 70px rgba(0, 0, 0, 0.94);
     }
 
@@ -185,14 +191,33 @@
       background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(255, 194, 102, 0.95) 50%,
+        rgba(255, 224, 186, 0.72) 22%,
+        rgba(255, 138, 152, 0.95) 50%,
+        rgba(255, 224, 186, 0.72) 78%,
         transparent 100%
       );
       pointer-events: none;
     }
 
+    .obsidian-panel::after,
+    .hof-showcase::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(232, 184, 116, 0.58), rgba(232, 184, 116, 0.58)) top left / 14px 1px no-repeat,
+        linear-gradient(180deg, rgba(232, 184, 116, 0.58), rgba(232, 184, 116, 0.58)) top left / 1px 14px no-repeat,
+        linear-gradient(90deg, rgba(232, 184, 116, 0.58), rgba(232, 184, 116, 0.58)) top right / 14px 1px no-repeat,
+        linear-gradient(180deg, rgba(232, 184, 116, 0.58), rgba(232, 184, 116, 0.58)) top right / 1px 14px no-repeat,
+        linear-gradient(90deg, rgba(232, 184, 116, 0.42), rgba(232, 184, 116, 0.42)) bottom left / 14px 1px no-repeat,
+        linear-gradient(180deg, rgba(232, 184, 116, 0.42), rgba(232, 184, 116, 0.42)) bottom left / 1px 14px no-repeat,
+        linear-gradient(90deg, rgba(232, 184, 116, 0.42), rgba(232, 184, 116, 0.42)) bottom right / 14px 1px no-repeat,
+        linear-gradient(180deg, rgba(232, 184, 116, 0.42), rgba(232, 184, 116, 0.42)) bottom right / 1px 14px no-repeat;
+    }
+
     /* =========================================================================
-       4. ФОНОВЫЕ СЛОИ: УГЛИ, ВУЛКАНИЧЕСКИЕ СКАЛЫ, САЛЮТ
+       4. ФОНОВЫЕ СЛОИ: УГЛИ, ВУЛКАНИЧЕСКИЕ СКАЛЫ, ЗЕРНО КИНОПЛЁНКИ, САЛЮТ
        ========================================================================= */
     .bg-atmosphere {
       position: fixed;
@@ -211,20 +236,30 @@
       height: 440px;
       background: radial-gradient(
         ellipse at center,
-        rgba(216, 52, 18, 0.34) 0%,
-        rgba(122, 16, 8, 0.12) 55%,
+        rgba(227, 6, 19, 0.34) 0%,
+        rgba(122, 0, 20, 0.14) 55%,
         transparent 78%
       );
       filter: blur(72px);
+    }
+
+    .cinema-grain {
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
     }
 
     .side-rock {
       position: fixed;
       top: 50%;
       transform: translateY(-50%);
-      height: 82vh;
+      height: 84vh;
       width: auto;
-      opacity: 0.9;
+      opacity: 0.92;
       display: none;
     }
 
@@ -274,12 +309,12 @@
       user-select: none;
       outline: none;
       transition: transform 0.24s var(--ease-cinema), filter 0.28s ease, opacity 0.25s ease;
-      filter: drop-shadow(0 0 14px rgba(230, 52, 24, 0.48));
+      filter: drop-shadow(0 0 14px rgba(227, 6, 19, 0.52));
     }
 
     .btn-ruby:hover:not(:disabled) {
       transform: translateY(-2px) scale(1.025);
-      filter: drop-shadow(0 0 26px rgba(255, 134, 34, 0.8));
+      filter: drop-shadow(0 0 28px rgba(255, 46, 71, 0.85));
     }
 
     .btn-ruby:active:not(:disabled) {
@@ -310,14 +345,15 @@
         0% 50%
       );
       background:
-        linear-gradient(124deg, rgba(255, 238, 178, 0.52) 0%, rgba(255, 152, 46, 0.14) 34%, transparent 35%),
-        linear-gradient(236deg, rgba(255, 204, 106, 0.36) 0%, transparent 42%),
-        linear-gradient(54deg, rgba(114, 9, 8, 0.74) 0%, transparent 45%),
-        linear-gradient(308deg, rgba(160, 18, 10, 0.66) 0%, transparent 48%),
-        radial-gradient(ellipse at 50% 40%, #ffd274 0%, #ff6c16 36%, #db210c 72%, #750705 100%);
-      border-top: 1px solid rgba(255, 230, 162, 0.9);
-      border-bottom: 1px solid rgba(255, 134, 46, 0.74);
+        linear-gradient(124deg, rgba(255, 232, 236, 0.46) 0%, rgba(255, 46, 71, 0.14) 34%, transparent 35%),
+        linear-gradient(236deg, rgba(255, 178, 188, 0.32) 0%, transparent 42%),
+        linear-gradient(54deg, rgba(92, 0, 14, 0.82) 0%, transparent 45%),
+        linear-gradient(308deg, rgba(138, 0, 22, 0.7) 0%, transparent 48%),
+        radial-gradient(ellipse at 50% 38%, #ff7a8b 0%, #e30613 42%, #9e0018 76%, #4a000b 100%);
+      border-top: 1px solid rgba(255, 206, 212, 0.9);
+      border-bottom: 1px solid rgba(255, 58, 82, 0.74);
       overflow: hidden;
+      pointer-events: none;
     }
 
     .btn-ruby--sm .btn-ruby-core {
@@ -341,7 +377,6 @@
       pointer-events: none;
     }
 
-    /* Анимированный диагональный блик */
     .btn-ruby-core::after {
       content: '';
       position: absolute;
@@ -399,8 +434,9 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #ffffff;
-      text-shadow: 0 1px 6px rgba(58, 7, 2, 0.94), 0 0 12px rgba(255, 186, 98, 0.45);
+      text-shadow: 0 1px 6px rgba(48, 0, 8, 0.95), 0 0 12px rgba(255, 148, 162, 0.45);
       white-space: nowrap;
+      pointer-events: none;
     }
 
     .btn-ruby--sm .btn-ruby-label {
@@ -445,6 +481,7 @@
       );
       background: linear-gradient(180deg, #868d98 0%, #3d424a 32%, #1b1d22 68%, #636972 100%);
       transition: background 0.28s ease;
+      pointer-events: none;
     }
 
     .btn-stone-inner {
@@ -464,6 +501,7 @@
         radial-gradient(ellipse at 50% 0%, #3a3f46 0%, #1d1f24 50%, #0d0e11 100%);
       overflow: hidden;
       transition: background 0.28s ease;
+      pointer-events: none;
     }
 
     .btn-stone-texture {
@@ -488,23 +526,24 @@
       line-height: 1.2;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.96);
       white-space: nowrap;
+      pointer-events: none;
     }
 
     .btn-stone:hover:not(:disabled) {
       transform: translateY(-1px);
-      filter: drop-shadow(0 0 14px rgba(230, 68, 24, 0.48));
+      filter: drop-shadow(0 0 14px rgba(227, 6, 19, 0.54));
     }
 
     .btn-stone:hover:not(:disabled)::before {
-      background: linear-gradient(180deg, #ffba60 0%, #e63418 52%, #8c130a 100%);
+      background: linear-gradient(180deg, #ff7a8a 0%, #e30613 52%, #690012 100%);
     }
 
     .btn-stone:hover:not(:disabled) .btn-stone-inner {
       background: radial-gradient(
         ellipse at 50% 0%,
-        rgba(230, 68, 24, 0.34) 0%,
-        #1c110f 55%,
-        #0b0605 100%
+        rgba(227, 6, 19, 0.36) 0%,
+        #1a0a0d 55%,
+        #0a0406 100%
       );
     }
 
@@ -545,6 +584,7 @@
       z-index: 60;
       background: rgba(5, 5, 7, 0.92);
       border-bottom: 1px solid var(--border-soft);
+      backdrop-filter: blur(10px);
     }
 
     .topbar-inner {
@@ -576,7 +616,7 @@
       width: 26px;
       height: 26px;
       flex-shrink: 0;
-      filter: drop-shadow(0 0 10px rgba(230, 52, 24, 0.65));
+      filter: drop-shadow(0 0 10px rgba(227, 6, 19, 0.72));
     }
 
     .brand-text-wrap {
@@ -606,13 +646,12 @@
       margin-top: 2px;
     }
 
-    /* Компактный неблокирующий бейдж статуса связи с таблицей */
     .sync-badge {
       display: inline-flex;
       align-items: center;
       gap: 7px;
       padding: 4px 10px;
-      border: 1px solid rgba(255, 160, 64, 0.34);
+      border: 1px solid rgba(227, 6, 19, 0.38);
       background: #0a0707;
       font-size: 0.58rem;
       font-weight: 600;
@@ -628,8 +667,8 @@
       height: 7px;
       border-radius: 50%;
       flex-shrink: 0;
-      background: #ff9a2e;
-      box-shadow: 0 0 8px rgba(255, 154, 46, 0.9);
+      background: #ff2e47;
+      box-shadow: 0 0 8px rgba(255, 46, 71, 0.9);
     }
 
     .sync-badge.is-syncing .sync-dot {
@@ -679,7 +718,7 @@
     .preview-switcher {
       display: inline-flex;
       align-items: center;
-      border: 1px solid rgba(201, 90, 30, 0.42);
+      border: 1px solid rgba(227, 6, 19, 0.44);
       background: #090606;
       padding: 2px;
       gap: 2px;
@@ -704,9 +743,9 @@
     }
 
     .preview-tab.is-active {
-      background: linear-gradient(180deg, rgba(255, 140, 42, 0.28) 0%, rgba(190, 28, 14, 0.4) 100%);
-      color: #ffe4ab;
-      box-shadow: inset 0 0 0 1px rgba(255, 154, 46, 0.55);
+      background: linear-gradient(180deg, rgba(255, 46, 71, 0.32) 0%, rgba(152, 0, 24, 0.48) 100%);
+      color: #ffe6ea;
+      box-shadow: inset 0 0 0 1px rgba(255, 64, 88, 0.6);
     }
 
     .sound-btn {
@@ -716,7 +755,7 @@
       gap: 6px;
       height: 29px;
       padding: 0 9px;
-      border: 1px solid rgba(201, 90, 30, 0.4);
+      border: 1px solid rgba(227, 6, 19, 0.42);
       background: #090606;
       color: var(--text-muted);
       font-size: 0.58rem;
@@ -752,11 +791,14 @@
     }
 
     /* =========================================================================
-       7. ОСНОВНОЙ КОНТЕЙНЕР И РЕЖИМ 1 (OPEN): HERO-КАРУСЕЛЬ
+       7. ОСНОВНОЙ КОНТЕЙНЕР И РЕЖИМ 1 (OPEN): HERO-КАРУСЕЛЬ И 3D-СЦЕНА
        ========================================================================= */
     main {
       position: relative;
       z-index: 10;
+      max-width: 100%;
+      overflow-x: hidden;
+      overflow-x: clip;
     }
 
     .hero-section {
@@ -765,7 +807,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 102px 16px 42px;
+      padding: 98px 16px 42px;
       position: relative;
     }
 
@@ -776,13 +818,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
     .hero-vignette {
       position: relative;
-      width: min(720px, 90vw);
-      height: min(410px, 48vh);
-      min-height: 250px;
+      width: min(740px, 92vw);
+      height: min(420px, 49vh);
+      min-height: 260px;
       user-select: none;
     }
 
@@ -816,9 +859,9 @@
       justify-content: center;
       background: radial-gradient(
         circle at 50% 42%,
-        rgba(255, 134, 42, 0.34) 0%,
-        rgba(176, 26, 12, 0.22) 38%,
-        rgba(10, 5, 5, 0.94) 76%,
+        rgba(227, 6, 19, 0.3) 0%,
+        rgba(120, 0, 18, 0.22) 38%,
+        rgba(10, 4, 6, 0.94) 76%,
         #050507 100%
       );
     }
@@ -839,37 +882,27 @@
     .hero-ring-outer {
       width: 300px;
       height: 300px;
-      border: 1px solid rgba(255, 146, 44, 0.18);
+      border: 1px solid rgba(255, 46, 71, 0.16);
     }
 
     .hero-ring-inner {
       width: 205px;
       height: 205px;
-      border: 1px solid rgba(255, 194, 102, 0.14);
+      border: 1px solid rgba(232, 184, 116, 0.18);
     }
 
     .hero-crystal-box {
-      position: relative;
-      z-index: 2;
-      width: 192px;
-      height: 180px;
-      margin-top: -26px;
-      filter: drop-shadow(0 0 38px rgba(230, 52, 24, 0.66));
-      animation: crystalFloat 5.6s ease-in-out infinite;
+      display: none;
     }
 
     @media (min-width: 640px) {
-      .hero-crystal-box {
-        width: 240px;
-        height: 222px;
-      }
       .hero-ring-outer {
-        width: 370px;
-        height: 370px;
+        width: 376px;
+        height: 376px;
       }
       .hero-ring-inner {
-        width: 256px;
-        height: 256px;
+        width: 260px;
+        height: 260px;
       }
     }
 
@@ -878,9 +911,113 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: 126px;
+      height: 118px;
       background: linear-gradient(to top, #050507 14%, rgba(5, 5, 7, 0.72) 56%, transparent 100%);
       pointer-events: none;
+      z-index: 6;
+    }
+
+    /* Контейнер WebGL Hero-сцены */
+    .hero-3d-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-3d-pivot {
+      position: relative;
+      width: min(420px, 84vw);
+      height: min(370px, 44vh);
+      min-height: 240px;
+      margin-top: -28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-volumetric-rays {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background:
+        conic-gradient(
+          from 18deg at 50% 50%,
+          transparent 0deg,
+          rgba(232, 184, 116, 0.08) 20deg,
+          transparent 44deg,
+          rgba(227, 6, 19, 0.11) 96deg,
+          transparent 132deg,
+          rgba(255, 224, 186, 0.07) 190deg,
+          transparent 225deg,
+          rgba(227, 6, 19, 0.1) 290deg,
+          transparent 335deg
+        );
+      filter: blur(18px);
+      animation: raysRotate 36s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes raysRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hero-3d-core-glow {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(255, 42, 68, 0.44) 0%,
+        rgba(232, 184, 116, 0.14) 36%,
+        rgba(176, 0, 24, 0.18) 56%,
+        transparent 76%
+      );
+      filter: blur(24px);
+      animation: heroGlowPulse 4.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes heroGlowPulse {
+      0%, 100% { opacity: 0.72; transform: scale(1); }
+      50%      { opacity: 1;    transform: scale(1.1); }
+    }
+
+    .hero-3d-canvas {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: auto;
+      cursor: grab;
+      touch-action: pan-y;
+      filter: drop-shadow(0 16px 36px rgba(227, 6, 19, 0.36));
+    }
+
+    .hero-3d-canvas:active {
+      cursor: grabbing;
+    }
+
+    .hero-3d-fallback {
+      position: absolute;
+      width: 196px;
+      height: 184px;
+      z-index: 2;
+      pointer-events: none;
+      filter: drop-shadow(0 0 34px rgba(227, 6, 19, 0.65));
+      animation: crystalFloat 5.6s ease-in-out infinite;
+    }
+
+    .hero-3d-pivot.is-3d-ready .hero-3d-fallback {
+      display: none;
     }
 
     .chevron-btn {
@@ -889,13 +1026,13 @@
       padding: 8px;
       cursor: pointer;
       transition: transform 0.24s var(--ease-cinema), filter 0.28s ease;
-      filter: drop-shadow(0 0 10px rgba(230, 52, 24, 0.42));
+      filter: drop-shadow(0 0 10px rgba(227, 6, 19, 0.48));
       z-index: 15;
     }
 
     .chevron-btn:hover {
       transform: scale(1.12);
-      filter: drop-shadow(0 0 22px rgba(255, 128, 36, 0.92));
+      filter: drop-shadow(0 0 22px rgba(255, 46, 71, 0.92));
     }
 
     .chevron-btn:active {
@@ -937,7 +1074,7 @@
     .hero-copy {
       position: relative;
       z-index: 10;
-      margin-top: -52px;
+      margin-top: -46px;
       text-align: center;
       max-width: 840px;
       padding: 0 8px;
@@ -989,8 +1126,8 @@
 
     .hero-dot.is-active {
       width: 38px;
-      background: linear-gradient(90deg, #ffcf7d 0%, #ff6b1a 55%, #c91d0e 100%);
-      box-shadow: 0 0 12px rgba(255, 118, 32, 0.85);
+      background: linear-gradient(90deg, #ffb8c1 0%, #ff2e47 52%, #a8001a 100%);
+      box-shadow: 0 0 12px rgba(255, 46, 71, 0.88);
     }
 
     .hero-scroll-link {
@@ -1022,7 +1159,7 @@
     }
 
     /* =========================================================================
-       8. СЕКЦИЯ «НОМИНАЦИИ 2026» (ПРЯМО НА ОБСИДИАНОВОМ ФОНЕ)
+       8. СЕКЦИЯ «НОМИНАЦИИ 2026» И УНИВЕРСАЛЬНЫЙ 3D-ХОЛСТ ТРОФЕЕВ
        ========================================================================= */
     .nominations-section {
       max-width: 1020px;
@@ -1066,56 +1203,102 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      min-width: 0;
     }
 
     .crystal-tilt-wrap {
       position: relative;
-      width: 164px;
-      height: 152px;
-      margin-bottom: 20px;
-      perspective: 900px;
+      width: 192px;
+      height: 178px;
+      margin-bottom: 18px;
       cursor: pointer;
     }
 
     @media (min-width: 640px) {
       .crystal-tilt-wrap {
-        width: 184px;
-        height: 170px;
+        width: 216px;
+        height: 200px;
       }
     }
 
-    .crystal-tilt-stage {
+    .crystal-3d-shell {
       position: relative;
       width: 100%;
       height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.35s var(--ease-cinema), filter 0.38s ease;
-      filter: drop-shadow(0 12px 26px rgba(220, 52, 16, 0.38));
-      will-change: transform;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .crystal-tilt-glint {
+    .crystal-floor-glow {
       position: absolute;
-      inset: 8%;
+      bottom: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72%;
+      height: 28px;
       border-radius: 50%;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(227, 6, 19, 0.34) 0%,
+        rgba(232, 184, 116, 0.14) 44%,
+        transparent 75%
+      );
+      filter: blur(8px);
       pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      mix-blend-mode: screen;
+      transition: transform 0.38s var(--ease-cinema), opacity 0.38s ease, background 0.38s ease;
     }
 
-    .nom-card:hover .crystal-tilt-stage {
-      filter: drop-shadow(0 16px 42px rgba(255, 134, 38, 0.7));
+    .nom-card:hover .crystal-floor-glow {
+      transform: translateX(-50%) scale(1.18);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 56, 82, 0.54) 0%,
+        rgba(232, 184, 116, 0.24) 48%,
+        transparent 78%
+      );
     }
 
-    .nom-card.is-voted .crystal-tilt-stage {
-      filter: drop-shadow(0 14px 40px rgba(255, 174, 72, 0.74));
+    .nom-card.is-voted .crystal-floor-glow {
+      transform: translateX(-50%) scale(1.22);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(232, 184, 116, 0.56) 0%,
+        rgba(255, 46, 71, 0.42) 52%,
+        transparent 80%
+      );
     }
 
-    .crystal-float {
+    .trophy-3d-canvas {
+      position: relative;
+      z-index: 2;
       width: 100%;
       height: 100%;
+      display: block;
+      transition: filter 0.35s ease;
+      filter: drop-shadow(0 12px 24px rgba(227, 6, 19, 0.32));
+    }
+
+    .nom-card:hover .trophy-3d-canvas {
+      filter: drop-shadow(0 16px 34px rgba(255, 46, 71, 0.6));
+    }
+
+    .nom-card.is-voted .trophy-3d-canvas {
+      filter: drop-shadow(0 14px 36px rgba(232, 184, 116, 0.55));
+    }
+
+    .crystal-svg-fallback {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
       animation: crystalFloat 5.6s ease-in-out infinite;
+    }
+
+    .crystal-3d-shell.is-3d-ready .crystal-svg-fallback {
+      display: none;
     }
 
     @keyframes crystalFloat {
@@ -1135,9 +1318,10 @@
     }
 
     .nom-desc {
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      max-width: 310px;
+      max-width: 390px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-size: 0.79rem;
       margin: 0 auto 12px;
     }
 
@@ -1192,7 +1376,7 @@
       align-items: center;
       gap: 10px;
       padding: 7px 16px;
-      border: 1px solid rgba(201, 90, 30, 0.65);
+      border: 1px solid rgba(227, 6, 19, 0.58);
       background: #060405;
       font-size: 0.65rem;
       font-weight: 700;
@@ -1215,7 +1399,7 @@
     }
 
     .ballot-box {
-      border: 1px solid rgba(201, 90, 30, 0.42);
+      border: 1px solid rgba(227, 6, 19, 0.52);
       background: #040304;
       padding: 20px;
       text-align: left;
@@ -1229,7 +1413,7 @@
       gap: 12px;
       padding-bottom: 14px;
       margin-bottom: 16px;
-      border-bottom: 1px solid rgba(201, 90, 30, 0.24);
+      border-bottom: 1px solid rgba(227, 6, 19, 0.22);
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.18em;
@@ -1250,7 +1434,7 @@
 
     .ballot-row {
       padding-bottom: 10px;
-      border-bottom: 1px solid rgba(201, 90, 30, 0.16);
+      border-bottom: 1px solid rgba(227, 6, 19, 0.2);
     }
 
     .ballot-row-nom {
@@ -1258,7 +1442,7 @@
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #eb7d2e;
+      color: #ff4d63;
       margin-bottom: 3px;
     }
 
@@ -1281,12 +1465,12 @@
     .test-reset-row {
       margin-top: 26px;
       padding-top: 18px;
-      border-top: 1px solid rgba(201, 90, 30, 0.18);
+      border-top: 1px solid rgba(227, 6, 19, 0.22);
     }
 
     .test-reset-link {
       background: transparent;
-      border: 1px solid rgba(201, 90, 30, 0.35);
+      border: 1px solid rgba(227, 6, 19, 0.4);
       color: var(--text-muted);
       font-size: 0.65rem;
       font-weight: 600;
@@ -1314,7 +1498,7 @@
       background: rgba(7, 5, 6, 0.96);
       border-top: 1px solid var(--border-orange);
       box-shadow:
-        inset 0 22px 42px -26px rgba(235, 92, 26, 0.36),
+        inset 0 22px 42px -26px rgba(227, 6, 19, 0.36),
         0 -16px 46px rgba(0, 0, 0, 0.95);
       transform: translateY(110%);
       opacity: 0;
@@ -1377,20 +1561,21 @@
     .progress-pips {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
+      flex-wrap: wrap;
     }
 
     .progress-pip {
-      width: 8px;
-      height: 12px;
+      width: 7px;
+      height: 11px;
       clip-path: polygon(50% 0%, 100% 36%, 50% 100%, 0% 36%);
       background: rgba(255, 255, 255, 0.16);
       transition: all 0.3s var(--ease-cinema);
     }
 
     .progress-pip.is-lit {
-      background: linear-gradient(180deg, #ffd480 0%, #ff6b1a 56%, #c81d11 100%);
-      box-shadow: 0 0 10px rgba(255, 118, 30, 0.95);
+      background: linear-gradient(90deg, #ffb8c1 0%, #ff2e47 52%, #a8001a 100%);
+      box-shadow: 0 0 12px rgba(255, 46, 71, 0.88);
       transform: scale(1.16);
     }
 
@@ -1411,7 +1596,7 @@
     .dock-name-input {
       width: 100%;
       background: #040304;
-      border: 1px solid rgba(201, 90, 30, 0.55);
+      border: 1px solid rgba(227, 6, 19, 0.54);
       color: #ffffff;
       font-size: 0.78rem;
       padding: 10px 13px;
@@ -1425,7 +1610,7 @@
 
     .dock-name-input:focus {
       border-color: var(--amber-mid);
-      box-shadow: 0 0 12px rgba(255, 140, 42, 0.26);
+      box-shadow: 0 0 12px rgba(227, 6, 19, 0.32);
     }
 
     @media (min-width: 560px) {
@@ -1435,7 +1620,7 @@
     }
 
     /* =========================================================================
-       11. ДВУХПАНЕЛЬНОЕ МОДАЛЬНОЕ ОКНО ВЫБОРА КАНДИДАТОВ (SLAY 2026)
+       11. ДВУХПАНЕЛЬНОЕ МОДАЛЬНОЕ ОКНО ВЫБОРА КАНДИДАТОВ + МЕДАЛЬОНЫ
        ========================================================================= */
     .modal-backdrop {
       position: fixed;
@@ -1513,10 +1698,10 @@
 
     .modal-emblem-right {
       display: none;
-      width: 116px;
-      height: 108px;
+      width: 132px;
+      height: 122px;
       flex-shrink: 0;
-      filter: drop-shadow(0 0 24px rgba(230, 52, 24, 0.56));
+      filter: drop-shadow(0 0 24px rgba(227, 6, 19, 0.56));
     }
 
     @media (min-width: 680px) {
@@ -1539,14 +1724,14 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      filter: drop-shadow(0 0 10px rgba(230, 42, 20, 0.78));
+      filter: drop-shadow(0 0 10px rgba(227, 6, 19, 0.8));
       transition: transform 0.28s var(--ease-cinema), filter 0.28s ease;
       z-index: 5;
     }
 
     .modal-close-btn:hover {
       transform: rotate(90deg) scale(1.14);
-      filter: drop-shadow(0 0 18px rgba(255, 140, 44, 0.96));
+      filter: drop-shadow(0 0 18px rgba(255, 64, 88, 0.98));
     }
 
     .modal-bottom-panel {
@@ -1568,6 +1753,34 @@
       }
     }
 
+    .modal-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+    }
+
+    .modal-limit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border: 1px solid rgba(227, 6, 19, 0.48);
+      background: #060305;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      white-space: nowrap;
+    }
+
+    .modal-limit-badge.is-full {
+      border-color: rgba(255, 130, 146, 0.85);
+      background: rgba(227, 6, 19, 0.22);
+      color: #ffffff;
+    }
+
     .nominees-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1582,6 +1795,15 @@
       }
     }
 
+    .nominees-grid.is-max-picked .nominee-card:not(.is-selected) {
+      opacity: 0.56;
+      transition: opacity 0.25s ease;
+    }
+
+    .nominees-grid.is-max-picked .nominee-card:not(.is-selected):hover {
+      opacity: 0.85;
+    }
+
     .nominee-card {
       display: flex;
       flex-direction: column;
@@ -1589,6 +1811,11 @@
       text-align: center;
       opacity: 0;
       animation: fadeUpItem 0.42s var(--ease-cinema) forwards;
+    }
+
+    .nominee-card.no-anim {
+      animation: none;
+      opacity: 1;
     }
 
     @keyframes fadeUpItem {
@@ -1602,96 +1829,96 @@
       }
     }
 
-    /* Портрет/силуэт в янтарном ореоле */
     .portrait-stage {
       position: relative;
-      width: 144px;
-      height: 158px;
-      margin: 0 auto 12px;
+      width: 128px;
+      height: 134px;
+      margin: 0 auto 10px;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
       cursor: pointer;
+      perspective: 620px;
     }
 
     @media (min-width: 640px) {
       .portrait-stage {
-        width: 166px;
-        height: 180px;
+        width: 148px;
+        height: 154px;
       }
     }
 
     .portrait-stage--lg {
-      width: 182px;
-      height: 196px;
+      width: 170px;
+      height: 176px;
       cursor: default;
     }
 
     .portrait-stage--tie {
-      width: 136px;
-      height: 150px;
+      width: 134px;
+      height: 140px;
       cursor: default;
     }
 
     @media (min-width: 640px) {
       .portrait-stage--lg {
-        width: 204px;
-        height: 218px;
+        width: 192px;
+        height: 198px;
       }
       .portrait-stage--tie {
-        width: 160px;
-        height: 174px;
+        width: 152px;
+        height: 158px;
       }
     }
 
     .portrait-halo {
       position: absolute;
-      bottom: 8px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
-      width: 82%;
+      transform: translate(-50%, -50%);
+      width: 84%;
       aspect-ratio: 1 / 1;
       border-radius: 50%;
       background: radial-gradient(
         circle at 50% 45%,
-        rgba(255, 162, 68, 0.36) 0%,
-        rgba(196, 68, 20, 0.2) 52%,
-        rgba(24, 8, 4, 0.05) 78%,
+        rgba(227, 6, 19, 0.34) 0%,
+        rgba(148, 0, 22, 0.2) 52%,
+        rgba(24, 4, 8, 0.05) 78%,
         transparent 100%
       );
       transition: transform 0.42s var(--ease-cinema), box-shadow 0.42s ease, background 0.42s ease;
     }
 
     .nominee-card:hover .portrait-halo {
-      transform: translateX(-50%) scale(1.06);
+      transform: translate(-50%, -50%) scale(1.08);
       background: radial-gradient(
         circle at 50% 45%,
-        rgba(255, 178, 86, 0.48) 0%,
-        rgba(224, 74, 22, 0.28) 54%,
+        rgba(255, 52, 76, 0.48) 0%,
+        rgba(196, 6, 26, 0.28) 54%,
         transparent 94%
       );
     }
 
     .nominee-card.is-selected .portrait-halo,
     .portrait-stage--winner .portrait-halo {
-      transform: translateX(-50%) scale(1.1);
+      transform: translate(-50%, -50%) scale(1.14);
       background: radial-gradient(
         circle at 50% 44%,
-        rgba(255, 212, 110, 0.72) 0%,
-        rgba(235, 80, 24, 0.46) 52%,
-        rgba(176, 20, 12, 0.16) 76%,
+        rgba(255, 130, 146, 0.64) 0%,
+        rgba(227, 6, 19, 0.46) 52%,
+        rgba(122, 0, 20, 0.16) 76%,
         transparent 94%
       );
-      box-shadow: 0 0 42px rgba(255, 134, 38, 0.52);
+      box-shadow: 0 0 42px rgba(227, 6, 19, 0.56);
     }
 
     .portrait-ring {
       position: absolute;
-      bottom: 5px;
+      top: 50%;
       left: 50%;
-      width: 86%;
+      width: 90%;
       aspect-ratio: 1 / 1;
-      transform: translateX(-50%) scale(0.88);
+      transform: translate(-50%, -50%) scale(0.88);
       border-radius: 50%;
       border: 1px solid rgba(255, 186, 90, 0);
       opacity: 0;
@@ -1702,22 +1929,24 @@
     .nominee-card.is-selected .portrait-ring,
     .portrait-stage--winner .portrait-ring {
       opacity: 1;
-      transform: translateX(-50%) scale(1);
-      border-color: rgba(255, 190, 96, 0.88);
+      transform: translate(-50%, -50%) scale(1);
+      border-color: rgba(255, 180, 146, 0.9);
       box-shadow:
-        0 0 22px rgba(255, 132, 38, 0.56),
-        inset 0 0 18px rgba(255, 140, 42, 0.35);
+        0 0 22px rgba(227, 6, 19, 0.58),
+        inset 0 0 18px rgba(255, 46, 71, 0.36);
     }
 
     .portrait-media {
       position: relative;
       z-index: 2;
-      width: 88%;
-      height: 94%;
+      width: 90%;
+      height: 90%;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      overflow: hidden;
+      overflow: visible;
+      transform-style: preserve-3d;
+      transition: transform 0.35s var(--ease-cinema);
     }
 
     .portrait-photo {
@@ -1742,22 +1971,45 @@
       );
     }
 
+    .portrait-stage--monogram .portrait-fade {
+      display: none;
+    }
+
+    .monogram-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 12px rgba(227, 6, 19, 0.25));
+      transition: transform 0.35s var(--ease-cinema), filter 0.35s ease;
+    }
+
+    .nominee-card:hover .monogram-svg {
+      transform: translateY(-4px) scale(1.045);
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 22px rgba(255, 46, 71, 0.56));
+    }
+
+    .nominee-card.is-selected .monogram-svg,
+    .portrait-stage--winner .monogram-svg {
+      transform: translateY(-2px) scale(1.055);
+      filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.92)) drop-shadow(0 0 28px rgba(255, 64, 88, 0.78));
+    }
+
     .selected-pill {
       position: absolute;
-      top: 0;
+      top: -6px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 5;
       padding: 3px 10px;
-      background: linear-gradient(90deg, #b8190b 0%, #f0651d 50%, #b8190b 100%);
-      border: 1px solid #ffd480;
+      background: linear-gradient(90deg, #8a0016 0%, #e30613 50%, #8a0016 100%);
+      border: 1px solid #ffccd2;
       font-size: 0.56rem;
       font-weight: 800;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: #ffffff;
       white-space: nowrap;
-      box-shadow: 0 0 14px rgba(255, 128, 36, 0.72);
+      box-shadow: 0 0 14px rgba(227, 6, 19, 0.78);
     }
 
     .nominee-name {
@@ -1778,7 +2030,7 @@
     .nominee-role {
       font-size: 0.7rem;
       font-weight: 500;
-      color: #eb7d2e;
+      color: #ff4d63;
       margin-bottom: 6px;
     }
 
@@ -1795,7 +2047,7 @@
       width: 72%;
       max-width: 130px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201, 90, 30, 0.55), transparent);
+      background: linear-gradient(90deg, transparent, rgba(227, 6, 19, 0.58), transparent);
       margin-bottom: 14px;
     }
 
@@ -1813,22 +2065,10 @@
     }
 
     .pulse-crystal-wrap {
-      width: 162px;
-      height: 152px;
-      margin-bottom: 28px;
-      animation: pulseCrystal 2.8s ease-in-out infinite;
-    }
-
-    @keyframes pulseCrystal {
-      0%,
-      100% {
-        transform: translateY(0) scale(1);
-        filter: drop-shadow(0 0 22px rgba(230, 52, 24, 0.48));
-      }
-      50% {
-        transform: translateY(-6px) scale(1.045);
-        filter: drop-shadow(0 0 42px rgba(255, 148, 44, 0.8));
-      }
+      width: 220px;
+      height: 210px;
+      margin-bottom: 22px;
+      filter: drop-shadow(0 0 28px rgba(227, 6, 19, 0.45));
     }
 
     .waiting-title {
@@ -1870,8 +2110,8 @@
       height: 260px;
       background: radial-gradient(
         ellipse at center,
-        rgba(255, 148, 42, 0.24) 0%,
-        rgba(200, 32, 16, 0.14) 45%,
+        rgba(227, 6, 19, 0.28) 0%,
+        rgba(140, 0, 22, 0.16) 45%,
         transparent 76%
       );
       filter: blur(42px);
@@ -1909,7 +2149,7 @@
       align-items: center;
       gap: 9px;
       padding: 6px 16px;
-      border: 1px solid rgba(201, 90, 30, 0.65);
+      border: 1px solid rgba(227, 6, 19, 0.56);
       background: #080506;
       font-size: 0.68rem;
       font-weight: 700;
@@ -1943,10 +2183,11 @@
 
     .hof-showcase {
       position: relative;
+      min-width: 0;
       background: var(--bg-panel);
       border: 1px solid var(--border-orange);
       box-shadow:
-        inset 0 42px 84px -36px rgba(255, 134, 38, 0.42),
+        inset 0 42px 84px -36px rgba(227, 6, 19, 0.4),
         0 20px 58px rgba(0, 0, 0, 0.94);
       padding: 26px 20px 30px;
       text-align: center;
@@ -1965,17 +2206,19 @@
       background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(255, 204, 114, 0.95) 50%,
+        rgba(255, 224, 186, 0.72) 22%,
+        rgba(255, 138, 152, 0.95) 50%,
+        rgba(255, 224, 186, 0.72) 78%,
         transparent 100%
       );
       pointer-events: none;
     }
 
     .hof-showcase:hover {
-      border-color: rgba(255, 168, 76, 0.9);
+      border-color: rgba(255, 86, 108, 0.92);
       box-shadow:
-        inset 0 48px 92px -34px rgba(255, 154, 46, 0.56),
-        0 22px 66px rgba(230, 52, 24, 0.24);
+        inset 0 48px 92px -34px rgba(255, 46, 71, 0.52),
+        0 22px 66px rgba(227, 6, 19, 0.28);
       transform: translateY(-3px);
     }
 
@@ -1988,10 +2231,10 @@
     }
 
     .hof-mini-crystal {
-      width: 34px;
-      height: 32px;
+      width: 50px;
+      height: 48px;
       flex-shrink: 0;
-      filter: drop-shadow(0 0 12px rgba(255, 128, 36, 0.68));
+      filter: drop-shadow(0 0 12px rgba(255, 46, 71, 0.68));
     }
 
     .hof-nom-title {
@@ -2016,13 +2259,13 @@
       align-items: center;
       gap: 6px;
       padding: 4px 12px;
-      border: 1px solid rgba(255, 184, 88, 0.55);
-      background: rgba(230, 52, 24, 0.2);
+      border: 1px solid rgba(255, 140, 154, 0.55);
+      background: rgba(227, 6, 19, 0.22);
       font-size: 0.58rem;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #ffe2a3;
+      color: #ffe2e6;
     }
 
     .votes-badge {
@@ -2030,7 +2273,7 @@
       align-items: center;
       gap: 6px;
       padding: 4px 11px;
-      border: 1px solid rgba(201, 90, 30, 0.5);
+      border: 1px solid rgba(227, 6, 19, 0.52);
       background: #050405;
       font-size: 0.58rem;
       font-weight: 700;
@@ -2071,7 +2314,7 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #eb7d2e;
+      color: #ff4d63;
       margin-bottom: 6px;
     }
 
@@ -2091,7 +2334,8 @@
       inset: 0;
       z-index: 95;
       background:
-        radial-gradient(ellipse at 50% 35%, rgba(168, 30, 12, 0.24) 0%, #050507 66%);
+        radial-gradient(ellipse at 50% 35%, rgba(168, 0, 24, 0.30) 0%, transparent 66%),
+        #050507;
       display: flex;
       flex-direction: column;
       opacity: 0;
@@ -2111,9 +2355,9 @@
       z-index: 105;
       background: radial-gradient(
         circle at 50% 45%,
-        rgba(255, 224, 146, 0.92) 0%,
-        rgba(255, 118, 30, 0.58) 38%,
-        rgba(190, 22, 12, 0.25) 68%,
+        rgba(255, 224, 228, 0.92) 0%,
+        rgba(255, 42, 68, 0.58) 38%,
+        rgba(156, 0, 22, 0.28) 68%,
         transparent 100%
       );
       opacity: 0;
@@ -2215,20 +2459,20 @@
       font-size: 0.88rem;
       color: var(--text-muted);
       max-width: 520px;
-      margin: 0 auto 28px;
+      margin: 0 auto 24px;
     }
 
     .ceremony-intrigue-crystal {
-      width: 196px;
-      height: 184px;
-      margin: 0 auto 28px;
-      animation: pulseCrystal 2.6s ease-in-out infinite;
+      width: 244px;
+      height: 228px;
+      margin: 0 auto 24px;
+      filter: drop-shadow(0 0 34px rgba(227, 6, 19, 0.56));
     }
 
     @media (min-width: 640px) {
       .ceremony-intrigue-crystal {
-        width: 230px;
-        height: 214px;
+        width: 274px;
+        height: 256px;
       }
     }
 
@@ -2281,7 +2525,7 @@
       display: flex;
       align-items: center;
       gap: 11px;
-      color: #ffe8c2;
+      color: #ffe8ec;
       pointer-events: auto;
       transition: opacity 0.28s ease, transform 0.28s ease;
     }
@@ -2292,7 +2536,7 @@
     }
 
     .site-footer {
-      border-top: 1px solid rgba(201, 90, 30, 0.2);
+      border-top: 1px solid rgba(227, 6, 19, 0.22);
       padding: 28px 16px 128px;
       text-align: center;
       font-size: 0.64rem;
@@ -2305,793 +2549,70 @@
       padding-bottom: 34px;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .crystal-float,
-      .hero-crystal-box,
-      .pulse-crystal-wrap,
-      .ceremony-intrigue-crystal {
-        animation: none !important;
-      }
-    }
-  
-    /* =========================================================================
-       16. РЕДИЗАЙН: ГЛУБОКИЙ КРАСНЫЙ «МАГНИТ» × ШАМПАНСКОЕ ЗОЛОТО + 3D HERO
-       ========================================================================= */
-    :root {
-      --amber-light: #ffe2e6;
-      --amber-mid: #ff2e47;
-      --ember-core: #e30613;
-      --ruby-deep: #7a0014;
-      --border-orange: #b80d26;
-      --border-soft: rgba(227, 6, 19, 0.34);
-    }
-
-    ::selection {
-      background: rgba(227, 6, 19, 0.52);
-      color: #ffffff;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #ff4d63 0%, #e30613 58%, #5e0010 100%);
-      box-shadow: 0 0 8px rgba(227, 6, 19, 0.78);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, #ff8594 0%, #ff243d 100%);
-    }
-
-    .title-fiery {
-      background: linear-gradient(180deg, #fff3e4 0%, #ff5c70 42%, #e30613 76%, #7d0014 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      filter: drop-shadow(0 2px 20px rgba(227, 6, 19, 0.4));
-    }
-
-    .title-fiery-soft {
-      background: linear-gradient(180deg, #ffecee 0%, #ff3b53 56%, #9c001a 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .bg-top-glow {
-      background: radial-gradient(
-        ellipse at center,
-        rgba(227, 6, 19, 0.34) 0%,
-        rgba(122, 0, 20, 0.14) 55%,
-        transparent 78%
-      );
-    }
-
-    .obsidian-panel {
-      border-color: var(--border-orange);
-      box-shadow:
-        inset 0 36px 68px -34px rgba(227, 6, 19, 0.38),
-        0 24px 70px rgba(0, 0, 0, 0.94);
-    }
-
-    .obsidian-panel::before,
-    .hof-showcase::before {
-      background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 138, 152, 0.9) 50%,
-        transparent 100%
-      );
-    }
-
-    .floating-dock {
-      border-top-color: var(--border-orange);
-      box-shadow:
-        inset 0 22px 42px -26px rgba(227, 6, 19, 0.36),
-        0 -16px 46px rgba(0, 0, 0, 0.95);
-    }
-
-    .brand-m-icon {
-      filter: drop-shadow(0 0 10px rgba(227, 6, 19, 0.72));
-    }
-
-    .sync-badge {
-      border-color: rgba(227, 6, 19, 0.38);
-    }
-
-    .preview-switcher {
-      border-color: rgba(227, 6, 19, 0.44);
-    }
-
-    .preview-tab.is-active {
-      background: linear-gradient(180deg, rgba(255, 46, 71, 0.32) 0%, rgba(152, 0, 24, 0.48) 100%);
-      color: #ffe6ea;
-      box-shadow: inset 0 0 0 1px rgba(255, 64, 88, 0.6);
-    }
-
-    .sound-btn {
-      border-color: rgba(227, 6, 19, 0.42);
-    }
-
-    /* Кнопки: глубокий рубиновый глянец */
-    .btn-ruby {
-      filter: drop-shadow(0 0 14px rgba(227, 6, 19, 0.52));
-    }
-
-    .btn-ruby:hover:not(:disabled) {
-      filter: drop-shadow(0 0 28px rgba(255, 46, 71, 0.85));
-    }
-
-    .btn-ruby-core {
-      background:
-        linear-gradient(124deg, rgba(255, 232, 236, 0.46) 0%, rgba(255, 46, 71, 0.14) 34%, transparent 35%),
-        linear-gradient(236deg, rgba(255, 178, 188, 0.32) 0%, transparent 42%),
-        linear-gradient(54deg, rgba(92, 0, 14, 0.82) 0%, transparent 45%),
-        linear-gradient(308deg, rgba(138, 0, 22, 0.7) 0%, transparent 48%),
-        radial-gradient(ellipse at 50% 38%, #ff7a8b 0%, #e30613 42%, #9e0018 76%, #4a000b 100%);
-      border-top-color: rgba(255, 206, 212, 0.9);
-      border-bottom-color: rgba(255, 58, 82, 0.74);
-    }
-
-    .btn-ruby-label {
-      text-shadow: 0 1px 6px rgba(48, 0, 8, 0.95), 0 0 12px rgba(255, 148, 162, 0.45);
-    }
-
-    .btn-stone:hover:not(:disabled) {
-      filter: drop-shadow(0 0 14px rgba(227, 6, 19, 0.54));
-    }
-
-    .btn-stone:hover:not(:disabled)::before {
-      background: linear-gradient(180deg, #ff7a8a 0%, #e30613 52%, #690012 100%);
-    }
-
-    .btn-stone:hover:not(:disabled) .btn-stone-inner {
-      background: radial-gradient(
-        ellipse at 50% 0%,
-        rgba(227, 6, 19, 0.36) 0%,
-        #1a0a0d 55%,
-        #0a0406 100%
-      );
-    }
-
-    .chevron-btn {
-      filter: drop-shadow(0 0 10px rgba(227, 6, 19, 0.48));
-    }
-
-    .chevron-btn:hover {
-      filter: drop-shadow(0 0 22px rgba(255, 46, 71, 0.92));
-    }
-
-    /* Hero-слайды + акценты */
-    .hero-slide {
-      background: radial-gradient(
-        circle at 50% 42%,
-        rgba(227, 6, 19, 0.3) 0%,
-        rgba(120, 0, 18, 0.22) 38%,
-        rgba(10, 4, 6, 0.94) 76%,
-        #050507 100%
-      );
-    }
-
-    .hero-ring-outer { border-color: rgba(255, 46, 71, 0.18); }
-    .hero-ring-inner { border-color: rgba(255, 200, 182, 0.14); }
-    .hero-crystal-box { display: none; }
-
-    .hero-dot.is-active,
-    .progress-pip.is-lit {
-      background: linear-gradient(90deg, #ffb8c1 0%, #ff2e47 52%, #a8001a 100%);
-      box-shadow: 0 0 12px rgba(255, 46, 71, 0.88);
-    }
-
-    .nom-card:hover .crystal-tilt-stage {
-      filter: drop-shadow(0 16px 42px rgba(227, 6, 19, 0.72));
-    }
-
-    .nom-card.is-voted .crystal-tilt-stage {
-      filter: drop-shadow(0 14px 40px rgba(255, 76, 98, 0.76));
-    }
-
-    .nominee-role,
-    .hof-winner-role,
-    .ballot-row-nom {
-      color: #ff4d63;
-    }
-
-    .nominee-divider {
-      background: linear-gradient(90deg, transparent, rgba(227, 6, 19, 0.58), transparent);
-    }
-
-    .dock-name-input {
-      border-color: rgba(227, 6, 19, 0.54);
-    }
-
-    .dock-name-input:focus {
-      border-color: var(--amber-mid);
-      box-shadow: 0 0 12px rgba(227, 6, 19, 0.32);
-    }
-
-    .ticket-badge,
-    .voters-total-badge,
-    .votes-badge,
-    .ballot-box {
-      border-color: rgba(227, 6, 19, 0.52);
-    }
-
-    .ballot-head,
-    .ballot-row,
-    .test-reset-row,
-    .site-footer {
-      border-color: rgba(227, 6, 19, 0.22);
-    }
-
-    .selected-pill {
-      background: linear-gradient(90deg, #8a0016 0%, #e30613 50%, #8a0016 100%);
-      border-color: #ffccd2;
-      box-shadow: 0 0 14px rgba(227, 6, 19, 0.78);
-    }
-
-    .portrait-halo {
-      background: radial-gradient(
-        circle at 50% 45%,
-        rgba(227, 6, 19, 0.34) 0%,
-        rgba(148, 0, 22, 0.2) 52%,
-        rgba(24, 4, 8, 0.05) 78%,
-        transparent 100%
-      );
-    }
-
-    .nominee-card:hover .portrait-halo {
-      background: radial-gradient(
-        circle at 50% 45%,
-        rgba(255, 52, 76, 0.48) 0%,
-        rgba(196, 6, 26, 0.28) 54%,
-        transparent 94%
-      );
-    }
-
-    .nominee-card.is-selected .portrait-halo,
-    .portrait-stage--winner .portrait-halo {
-      background: radial-gradient(
-        circle at 50% 44%,
-        rgba(255, 130, 146, 0.64) 0%,
-        rgba(227, 6, 19, 0.46) 52%,
-        rgba(122, 0, 20, 0.16) 76%,
-        transparent 94%
-      );
-      box-shadow: 0 0 42px rgba(227, 6, 19, 0.56);
-    }
-
-    .nominee-card.is-selected .portrait-ring,
-    .portrait-stage--winner .portrait-ring {
-      border-color: rgba(255, 140, 156, 0.9);
-      box-shadow:
-        0 0 22px rgba(227, 6, 19, 0.58),
-        inset 0 0 18px rgba(255, 46, 71, 0.36);
-    }
-
-    .hof-showcase {
-      border-color: var(--border-orange);
-      box-shadow:
-        inset 0 42px 84px -36px rgba(227, 6, 19, 0.4),
-        0 20px 58px rgba(0, 0, 0, 0.94);
-    }
-
-    .hof-showcase:hover {
-      border-color: rgba(255, 86, 108, 0.92);
-      box-shadow:
-        inset 0 48px 92px -34px rgba(255, 46, 71, 0.52),
-        0 22px 66px rgba(227, 6, 19, 0.28);
-    }
-
-    .tie-badge {
-      border-color: rgba(255, 140, 154, 0.55);
-      background: rgba(227, 6, 19, 0.22);
-      color: #ffe2e6;
-    }
-
-    .results-hero-glow {
-      background: radial-gradient(
-        ellipse at center,
-        rgba(227, 6, 19, 0.28) 0%,
-        rgba(140, 0, 22, 0.16) 45%,
-        transparent 76%
-      );
-    }
-
-    .ceremony-overlay {
-      background: radial-gradient(ellipse at 50% 35%, rgba(168, 0, 24, 0.28) 0%, #050507 66%);
-    }
-
-    .ceremony-flash {
-      background: radial-gradient(
-        circle at 50% 45%,
-        rgba(255, 224, 228, 0.92) 0%,
-        rgba(255, 42, 68, 0.58) 38%,
-        rgba(156, 0, 22, 0.28) 68%,
-        transparent 100%
-      );
-    }
-
-    .modal-close-btn {
-      filter: drop-shadow(0 0 10px rgba(227, 6, 19, 0.8));
-    }
-
-    .modal-close-btn:hover {
-      filter: drop-shadow(0 0 18px rgba(255, 64, 88, 0.98));
-    }
-
-    .toast-item {
-      color: #ffe8ec;
-    }
-
-    /* =========================================================================
-       17. 3D-СТАТУЭТКА / РУБИНОВЫЙ КРИСТАЛЛ С ОРБИТАМИ И ОСКОЛКАМИ (HERO)
-       ========================================================================= */
-    .hero-3d-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 4;
-      perspective: 1000px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-    }
-
-    .hero-3d-pivot {
-      position: relative;
-      width: 280px;
-      height: 280px;
-      margin-top: -32px;
-      transform-style: preserve-3d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      will-change: transform;
-    }
-
     @media (max-width: 639px) {
-      .hero-3d-pivot {
-        transform: scale(0.84);
+      .hero-section {
+        min-height: auto;
+        padding: 112px 14px 32px;
       }
-    }
 
-    .hero-3d-core-glow {
-      position: absolute;
-      width: 224px;
-      height: 224px;
-      border-radius: 50%;
-      background: radial-gradient(
-        circle,
-        rgba(255, 42, 68, 0.54) 0%,
-        rgba(176, 0, 24, 0.2) 48%,
-        transparent 74%
-      );
-      filter: blur(22px);
-      animation: heroGlowPulse 4.2s ease-in-out infinite;
-    }
+      .hero-vignette {
+        height: 236px;
+        min-height: 220px;
+      }
 
-    .hero-3d-pedestal {
-      position: absolute;
-      bottom: 24px;
-      width: 144px;
-      height: 144px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 196, 178, 0.34);
-      background: radial-gradient(
-        circle,
-        rgba(227, 6, 19, 0.32) 0%,
-        rgba(86, 0, 14, 0.12) 55%,
-        transparent 76%
-      );
-      transform: rotateX(78deg) translateZ(-28px);
-      box-shadow: 0 0 28px rgba(227, 6, 19, 0.45), inset 0 0 20px rgba(255, 110, 128, 0.25);
-    }
+      .hero-3d-pivot {
+        height: 230px;
+        min-height: 215px;
+        margin-top: -8px;
+      }
 
-    .crystal-3d-rig {
-      position: relative;
-      width: 84px;
-      height: 192px;
-      transform-style: preserve-3d;
-      animation: floatCrystal3d 4.6s ease-in-out infinite;
-    }
+      .hero-copy {
+        margin-top: -12px;
+      }
 
-    .crystal-3d {
-      position: relative;
-      width: 84px;
-      height: 192px;
-      transform-style: preserve-3d;
-      animation: spinCrystal3d 13s linear infinite;
-    }
+      .hero-title {
+        font-size: 1.65rem;
+        margin-bottom: 8px;
+      }
 
-    /* Внутреннее светящееся ядро рубина */
-    .crystal-core-heart {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 26px;
-      height: 54px;
-      margin-left: -13px;
-      margin-top: -27px;
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-      background: linear-gradient(180deg, #fff6e8 0%, #ff4d63 50%, #c8001e 100%);
-      filter: blur(1px) drop-shadow(0 0 18px rgba(255, 224, 210, 0.9));
-      transform: translateZ(0px);
-    }
+      .hero-subtitle {
+        font-size: 0.8rem;
+      }
 
-    .crystal-core-heart--cross {
-      transform: rotateY(90deg);
-    }
+      .hero-dots {
+        margin: 12px 0 12px;
+      }
 
-    /* Точная 3D-геометрия октаэдра: основание 84x84 (a=42), высота h=96, наклонная L=105, угол 23.63deg */
-    .pyr-top,
-    .pyr-bottom {
-      position: absolute;
-      left: 0;
-      width: 84px;
-      height: 105px;
-      transform-style: preserve-3d;
-    }
+      .floating-dock .dock-inner {
+        padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+        gap: 6px;
+      }
 
-    .pyr-top {
-      top: -9px; /* 96 - 105 = -9 -> нижнее ребро строго на экваторе y=96 */
-    }
+      .floating-dock .progress-pips {
+        flex-wrap: nowrap;
+        gap: 3px;
+        flex-shrink: 0;
+      }
 
-    .pyr-bottom {
-      top: 96px; /* верхнее ребро строго на экваторе y=96 */
-    }
+      .floating-dock .progress-pip {
+        width: 6px;
+        height: 10px;
+      }
 
-    .crystal-3d .face {
-      position: absolute;
-      width: 84px;
-      height: 105px;
-      backface-visibility: visible;
-    }
-
-    .pyr-top .face {
-      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      transform-origin: 50% 100%;
-      background: linear-gradient(
-        180deg,
-        rgba(255, 240, 226, 0.95) 0%,
-        rgba(255, 58, 82, 0.88) 32%,
-        rgba(214, 6, 24, 0.9) 68%,
-        rgba(96, 0, 16, 0.95) 100%
-      );
-      box-shadow: inset 0 -1px 0 rgba(255, 214, 218, 0.65);
-    }
-
-    .pyr-bottom .face {
-      clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-      transform-origin: 50% 0%;
-      background: linear-gradient(
-        180deg,
-        rgba(176, 0, 26, 0.94) 0%,
-        rgba(96, 0, 16, 0.96) 55%,
-        rgba(40, 0, 8, 0.98) 100%
-      );
-    }
-
-    .pyr-top .f1    { transform: rotateY(0deg)   translateZ(42px) rotateX(23.63deg); }
-    .pyr-top .f2    { transform: rotateY(90deg)  translateZ(42px) rotateX(23.63deg); filter: brightness(0.8); }
-    .pyr-top .f3    { transform: rotateY(180deg) translateZ(42px) rotateX(23.63deg); filter: brightness(0.62); }
-    .pyr-top .f4    { transform: rotateY(270deg) translateZ(42px) rotateX(23.63deg); filter: brightness(1.14); }
-
-    .pyr-bottom .f1 { transform: rotateY(0deg)   translateZ(42px) rotateX(-23.63deg); }
-    .pyr-bottom .f2 { transform: rotateY(90deg)  translateZ(42px) rotateX(-23.63deg); filter: brightness(0.76); }
-    .pyr-bottom .f3 { transform: rotateY(180deg) translateZ(42px) rotateX(-23.63deg); filter: brightness(0.58); }
-    .pyr-bottom .f4 { transform: rotateY(270deg) translateZ(42px) rotateX(-23.63deg); filter: brightness(1.06); }
-
-    /* Орбитальные 3D-кольца со световыми бусинами */
-    .orbit-ring {
-      position: absolute;
-      border-radius: 50%;
-      transform-style: preserve-3d;
-      border: 1px solid rgba(255, 214, 186, 0.38);
-      box-shadow: 0 0 16px rgba(227, 6, 19, 0.45);
-    }
-
-    .orbit-ring::before,
-    .orbit-ring::after {
-      content: '';
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #fff1e0;
-      box-shadow: 0 0 10px #ff2e47, 0 0 18px #e30613;
-    }
-
-    .orbit-ring::before {
-      top: -3px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .orbit-ring::after {
-      bottom: -3px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ff4d63;
-    }
-
-    .orbit-1 {
-      width: 204px;
-      height: 204px;
-      animation: spinOrbit1 15s linear infinite;
-    }
-
-    .orbit-2 {
-      width: 244px;
-      height: 244px;
-      border-color: rgba(255, 46, 71, 0.48);
-      animation: spinOrbit2 20s linear infinite;
-    }
-
-    /* Парящие 3D-осколки рубина в пространстве (с глубиной translateZ) */
-    .shard-3d-wrap {
-      position: absolute;
-      transform-style: preserve-3d;
-    }
-
-    .shard-3d-wrap--l {
-      left: -34px;
-      top: 56px;
-      transform: translateZ(34px);
-    }
-
-    .shard-3d-wrap--r {
-      right: -30px;
-      bottom: 62px;
-      transform: translateZ(-26px);
-    }
-
-    .shard-3d-wrap--t {
-      right: 12px;
-      top: 22px;
-      transform: translateZ(46px);
-    }
-
-    .shard-3d {
-      width: 22px;
-      height: 40px;
-      clip-path: polygon(50% 0%, 100% 42%, 50% 100%, 0% 42%);
-      background: linear-gradient(180deg, #ffe8dc 0%, #ff2e47 45%, #7a0014 100%);
-      filter: drop-shadow(0 0 14px rgba(227, 6, 19, 0.85));
-    }
-
-    .shard-3d--l {
-      animation: floatShardL 5.2s ease-in-out infinite;
-    }
-
-    .shard-3d--r {
-      width: 18px;
-      height: 32px;
-      animation: floatShardR 6.2s ease-in-out infinite;
-    }
-
-    .shard-3d--t {
-      width: 13px;
-      height: 24px;
-      opacity: 0.9;
-      animation: floatShardT 4.6s ease-in-out infinite;
-    }
-
-    @keyframes spinCrystal3d {
-      from { transform: rotateY(0deg) rotateZ(4deg); }
-      to   { transform: rotateY(360deg) rotateZ(4deg); }
-    }
-
-    @keyframes floatCrystal3d {
-      0%, 100% { transform: translateY(0px) rotateY(var(--slide-spin, 0deg)); }
-      50%      { transform: translateY(-12px) rotateY(var(--slide-spin, 0deg)); }
-    }
-
-    @keyframes spinOrbit1 {
-      from { transform: rotateX(72deg) rotateY(18deg) rotateZ(0deg); }
-      to   { transform: rotateX(72deg) rotateY(18deg) rotateZ(360deg); }
-    }
-
-    @keyframes spinOrbit2 {
-      from { transform: rotateX(66deg) rotateY(-28deg) rotateZ(360deg); }
-      to   { transform: rotateX(66deg) rotateY(-28deg) rotateZ(0deg); }
-    }
-
-    @keyframes floatShardL {
-      0%, 100% { transform: translateY(0) rotateY(0deg) rotateZ(-14deg); }
-      50%      { transform: translateY(-15px) rotateY(180deg) rotateZ(-6deg); }
-    }
-
-    @keyframes floatShardR {
-      0%, 100% { transform: translateY(0) rotateY(0deg) rotateZ(16deg); }
-      50%      { transform: translateY(13px) rotateY(-180deg) rotateZ(8deg); }
-    }
-
-    @keyframes floatShardT {
-      0%, 100% { transform: translateY(0) rotateY(0deg) rotateZ(12deg); }
-      50%      { transform: translateY(-10px) rotateY(180deg) rotateZ(22deg); }
-    }
-
-    @keyframes heroGlowPulse {
-      0%, 100% { opacity: 0.72; transform: scale(1); }
-      50%      { opacity: 1;    transform: scale(1.12); }
+      .floating-dock .dock-name-input {
+        padding: 8px 11px;
+        font-size: 0.74rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .crystal-3d,
-      .crystal-3d-rig,
-      .orbit-1,
-      .orbit-2,
-      .shard-3d {
+      .crystal-svg-fallback,
+      .hero-3d-fallback,
+      .hero-volumetric-rays,
+      .hero-3d-core-glow {
         animation: none !important;
       }
     }
-
-  
-    /* =========================================================================
-       18. КРИСТАЛЬНЫЕ МОНОГРАММЫ (МЕДАЛЬОНЫ) И АДАПТАЦИЯ ПОД 10 НОМИНАЦИЙ
-       ========================================================================= */
-    .nom-desc {
-      max-width: 390px;
-      color: var(--text-muted);
-      line-height: 1.5;
-      font-size: 0.79rem;
-    }
-
-    .progress-pips {
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-
-    .progress-pip {
-      width: 7px;
-      height: 11px;
-    }
-
-    .portrait-stage {
-      width: 126px;
-      height: 132px;
-      margin: 0 auto 10px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media (min-width: 640px) {
-      .portrait-stage {
-        width: 146px;
-        height: 152px;
-      }
-    }
-
-    .portrait-stage--lg {
-      width: 168px;
-      height: 174px;
-    }
-
-    .portrait-stage--tie {
-      width: 132px;
-      height: 138px;
-    }
-
-    @media (min-width: 640px) {
-      .portrait-stage--lg {
-        width: 188px;
-        height: 194px;
-      }
-      .portrait-stage--tie {
-        width: 150px;
-        height: 156px;
-      }
-    }
-
-    .portrait-halo {
-      top: 50%;
-      bottom: auto;
-      left: 50%;
-      width: 84%;
-      transform: translate(-50%, -50%);
-    }
-
-    .nominee-card:hover .portrait-halo {
-      transform: translate(-50%, -50%) scale(1.08);
-    }
-
-    .nominee-card.is-selected .portrait-halo,
-    .portrait-stage--winner .portrait-halo {
-      transform: translate(-50%, -50%) scale(1.14);
-    }
-
-    .portrait-ring {
-      top: 50%;
-      bottom: auto;
-      left: 50%;
-      width: 90%;
-      transform: translate(-50%, -50%) scale(0.88);
-    }
-
-    .nominee-card.is-selected .portrait-ring,
-    .portrait-stage--winner .portrait-ring {
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    .portrait-media {
-      width: 90%;
-      height: 90%;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
-    }
-
-    .portrait-stage--monogram .portrait-fade {
-      display: none;
-    }
-
-    .monogram-svg {
-      width: 100%;
-      height: 100%;
-      overflow: visible;
-      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 12px rgba(227, 6, 19, 0.25));
-      transition: transform 0.35s var(--ease-cinema), filter 0.35s ease;
-    }
-
-    .nominee-card:hover .monogram-svg {
-      transform: translateY(-4px) scale(1.045);
-      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 22px rgba(255, 46, 71, 0.56));
-    }
-
-    .nominee-card.is-selected .monogram-svg,
-    .portrait-stage--winner .monogram-svg {
-      transform: translateY(-2px) scale(1.055);
-      filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.92)) drop-shadow(0 0 28px rgba(255, 64, 88, 0.78));
-    }
-
-    .selected-pill {
-      top: -6px;
-    }
-
-  
-    /* =========================================================================
-       19. МУЛЬТИВЫБОР (ДО 2 ЧЕЛОВЕК) И ПЛАВНОЕ ОБНОВЛЕНИЕ МОДАЛКИ
-       ========================================================================= */
-    .modal-actions-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px 14px;
-    }
-
-    .modal-limit-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border: 1px solid rgba(227, 6, 19, 0.48);
-      background: #060305;
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--amber-light);
-      white-space: nowrap;
-    }
-
-    .modal-limit-badge.is-full {
-      border-color: rgba(255, 130, 146, 0.85);
-      background: rgba(227, 6, 19, 0.22);
-      color: #ffffff;
-    }
-
-    .nominee-card.no-anim {
-      animation: none;
-      opacity: 1;
-    }
-
-    .nominees-grid.is-max-picked .nominee-card:not(.is-selected) {
-      opacity: 0.56;
-      transition: opacity 0.25s ease;
-    }
-
-    .nominees-grid.is-max-picked .nominee-card:not(.is-selected):hover {
-      opacity: 0.85;
-    }
-
   </style>
 </head>
 
@@ -3112,71 +2633,97 @@
     </defs>
   </svg>
 
-  <!-- Атмосферный обсидиановый фон: свечение, скалы с рубинами по бокам и Canvas с углями -->
+  <!-- Атмосферный обсидиановый фон: свечение, гранитные/базальтовые скалы с рубинами и угли -->
   <div class="bg-atmosphere" aria-hidden="true">
     <div class="bg-top-glow"></div>
 
-    <!-- Левая вулканическая скала с рубиновыми кристаллами -->
-    <svg viewBox="0 0 220 640" class="side-rock side-rock--left" fill="none">
+    <!-- Левый скульптурный базальтовый монолит с золотыми жилами и рубиновым кластером -->
+    <svg viewBox="0 0 240 680" class="side-rock side-rock--left" fill="none">
       <defs>
         <linearGradient id="rockGradL" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#19100c" />
-          <stop offset="56%" stop-color="#0b0606" />
+          <stop offset="0%" stop-color="#1c1112" />
+          <stop offset="52%" stop-color="#0b0607" />
           <stop offset="100%" stop-color="#050507" />
         </linearGradient>
-        <linearGradient id="rockRimL" x1="1" y1="0.2" x2="0" y2="0.8">
-          <stop offset="0%" stop-color="#ff2e47" stop-opacity="0.52" />
-          <stop offset="48%" stop-color="#7a0014" stop-opacity="0.22" />
+        <linearGradient id="rockFacetL" x1="0.1" y1="0" x2="0.9" y2="1">
+          <stop offset="0%" stop-color="#28161a" />
+          <stop offset="100%" stop-color="#080507" />
+        </linearGradient>
+        <linearGradient id="rockRimL" x1="1" y1="0.1" x2="0" y2="0.9">
+          <stop offset="0%" stop-color="#ff4d63" stop-opacity="0.62" />
+          <stop offset="45%" stop-color="#e8b874" stop-opacity="0.34" />
           <stop offset="100%" stop-color="#050507" stop-opacity="0" />
         </linearGradient>
         <linearGradient id="rockRubyL" x1="0.2" y1="0" x2="0.8" y2="1">
-          <stop offset="0%" stop-color="#ffe0e4" />
-          <stop offset="42%" stop-color="#e30613" />
-          <stop offset="100%" stop-color="#5c0010" />
+          <stop offset="0%" stop-color="#ffecee" />
+          <stop offset="38%" stop-color="#ff2e47" />
+          <stop offset="100%" stop-color="#4d000c" />
+        </linearGradient>
+        <linearGradient id="rockGoldL" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#fff0cc" stop-opacity="0.7" />
+          <stop offset="100%" stop-color="#a86420" stop-opacity="0.1" />
         </linearGradient>
       </defs>
-      <path d="M-10 38 L50 118 L24 198 L88 286 L54 366 L124 452 L74 544 L112 640 L-10 640 Z" fill="url(#rockGradL)" />
-      <path d="M-10 38 L50 118 L24 198 L88 286 L54 366 L124 452 L74 544" stroke="url(#rockRimL)" stroke-width="1.4" />
-      <g filter="drop-shadow(0 0 18px rgba(227, 6, 19, 0.62))">
-        <polygon points="44,412 88,366 96,408 66,434" fill="url(#rockRubyL)" />
-        <polygon points="88,366 96,408 72,396" fill="#ffdce0" opacity="0.56" />
-        <polygon points="36,422 52,380 68,424 46,442" fill="#c8001e" />
-        <polygon points="62,432 104,418 112,438 74,450" fill="#ff2e47" />
-        <polygon points="24,250 56,224 60,256 32,268" fill="url(#rockRubyL)" opacity="0.72" />
+      <path d="M-12 24 L58 112 L28 196 L98 292 L58 378 L134 468 L82 562 L120 680 L-12 680 Z" fill="url(#rockGradL)" />
+      <polygon points="58,112 28,196 98,292 68,214" fill="url(#rockFacetL)" opacity="0.72" />
+      <polygon points="98,292 58,378 134,468 84,388" fill="#14090c" opacity="0.85" />
+      <path d="M-12 24 L58 112 L28 196 L98 292 L58 378 L134 468 L82 562 L120 680" stroke="url(#rockRimL)" stroke-width="1.3" />
+      <path d="M12 162 L66 218 L48 310 L96 382" stroke="url(#rockGoldL)" stroke-width="0.9" />
+      <g filter="drop-shadow(0 0 20px rgba(227, 6, 19, 0.65))">
+        <polygon points="44,412 96,360 106,412 72,442" fill="url(#rockRubyL)" stroke="#ffccd2" stroke-width="0.6" />
+        <polygon points="96,360 106,412 76,396" fill="#ffe6ea" opacity="0.62" />
+        <polygon points="34,426 54,376 72,428 48,448" fill="#c8001e" />
+        <polygon points="68,440 116,422 124,444 78,460" fill="#ff2e47" />
+        <polygon points="22,248 64,218 68,256 32,272" fill="url(#rockRubyL)" opacity="0.78" />
+        <polygon points="64,218 68,256 46,246" fill="#fff0e4" opacity="0.52" />
       </g>
     </svg>
 
-    <!-- Правая вулканическая скала с рубиновыми кристаллами -->
-    <svg viewBox="0 0 220 640" class="side-rock side-rock--right" fill="none">
+    <!-- Правый скульптурный базальтовый монолит с золотыми жилами и рубиновым кластером -->
+    <svg viewBox="0 0 240 680" class="side-rock side-rock--right" fill="none">
       <defs>
         <linearGradient id="rockGradR" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#19100c" />
-          <stop offset="56%" stop-color="#0b0606" />
+          <stop offset="0%" stop-color="#1c1112" />
+          <stop offset="52%" stop-color="#0b0607" />
           <stop offset="100%" stop-color="#050507" />
         </linearGradient>
-        <linearGradient id="rockRimR" x1="0" y1="0.2" x2="1" y2="0.8">
-          <stop offset="0%" stop-color="#ff2e47" stop-opacity="0.52" />
-          <stop offset="48%" stop-color="#7a0014" stop-opacity="0.22" />
+        <linearGradient id="rockFacetR" x1="0.9" y1="0" x2="0.1" y2="1">
+          <stop offset="0%" stop-color="#28161a" />
+          <stop offset="100%" stop-color="#080507" />
+        </linearGradient>
+        <linearGradient id="rockRimR" x1="0" y1="0.1" x2="1" y2="0.9">
+          <stop offset="0%" stop-color="#ff4d63" stop-opacity="0.62" />
+          <stop offset="45%" stop-color="#e8b874" stop-opacity="0.34" />
           <stop offset="100%" stop-color="#050507" stop-opacity="0" />
         </linearGradient>
         <linearGradient id="rockRubyR" x1="0.8" y1="0" x2="0.2" y2="1">
-          <stop offset="0%" stop-color="#ffe0e4" />
-          <stop offset="42%" stop-color="#e30613" />
-          <stop offset="100%" stop-color="#5c0010" />
+          <stop offset="0%" stop-color="#ffecee" />
+          <stop offset="38%" stop-color="#ff2e47" />
+          <stop offset="100%" stop-color="#4d000c" />
+        </linearGradient>
+        <linearGradient id="rockGoldR" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#fff0cc" stop-opacity="0.7" />
+          <stop offset="100%" stop-color="#a86420" stop-opacity="0.1" />
         </linearGradient>
       </defs>
-      <path d="M230 20 L170 108 L194 182 L132 274 L166 368 L108 468 L158 552 L122 640 L230 640 Z" fill="url(#rockGradR)" />
-      <path d="M230 20 L170 108 L194 182 L132 274 L166 368 L108 468 L158 552" stroke="url(#rockRimR)" stroke-width="1.4" />
-      <g filter="drop-shadow(0 0 18px rgba(227, 6, 19, 0.62))">
-        <polygon points="184,126 144,88 134,124 162,148" fill="url(#rockRubyR)" />
-        <polygon points="144,88 134,124 158,112" fill="#ffdce0" opacity="0.54" />
-        <polygon points="154,485 112,462 108,494 142,510" fill="url(#rockRubyR)" opacity="0.88" />
-        <polygon points="174,476 150,434 138,478 164,498" fill="#a8001a" />
+      <path d="M252 16 L180 108 L208 186 L138 282 L176 378 L112 480 L164 568 L128 680 L252 680 Z" fill="url(#rockGradR)" />
+      <polygon points="180,108 208,186 138,282 166,204" fill="url(#rockFacetR)" opacity="0.72" />
+      <polygon points="138,282 176,378 112,480 154,394" fill="#14090c" opacity="0.85" />
+      <path d="M252 16 L180 108 L208 186 L138 282 L176 378 L112 480 L164 568 L128 680" stroke="url(#rockRimR)" stroke-width="1.3" />
+      <path d="M226 244 L170 302 L190 388 L138 462" stroke="url(#rockGoldR)" stroke-width="0.9" />
+      <g filter="drop-shadow(0 0 20px rgba(227, 6, 19, 0.65))">
+        <polygon points="194,124 146,82 134,122 168,148" fill="url(#rockRubyR)" stroke="#ffccd2" stroke-width="0.6" />
+        <polygon points="146,82 134,122 162,108" fill="#ffe6ea" opacity="0.58" />
+        <polygon points="164,492 114,466 108,504 148,522" fill="url(#rockRubyR)" stroke="#ff9aa8" stroke-width="0.5" opacity="0.92" />
+        <polygon points="184,482 158,434 142,484 172,506" fill="#a8001a" />
       </g>
     </svg>
 
     <canvas id="ember-canvas"></canvas>
   </div>
+
+  <!-- Незаметная кинематографическая фактура, убирающая полосы градиента -->
+  <div class="cinema-grain" aria-hidden="true"></div>
 
   <!-- Полноэкранный Canvas для салюта и локальных вспышек искр -->
   <canvas id="fx-canvas" aria-hidden="true"></canvas>
@@ -3250,14 +2797,14 @@
   </header>
 
   <!-- =========================================================================
-       ОСНОВНОЙ КОНТЕНТ: РЕЖИМ OPEN ВИДЕН СРАЗУ (БЕЗ ЧЁРНОГО ЭКРАНА ЗАГРУЗКИ)
+       ОСНОВНОЙ КОНТЕНТ: РЕЖИМ OPEN ВИДЕН СРАЗУ
        ========================================================================= -->
   <main id="top">
 
     <!-- РЕЖИМ 1: OPEN (ГОЛОСОВАНИЕ + ЭКРАН «ТВОЙ ГОЛОС ПРИНЯТ») -->
     <div id="view-open">
       <div id="open-voting-wrap">
-        <!-- Hero-карусель -->
+        <!-- Hero-карусель с полнофункциональной 3D-статуэткой -->
         <section class="hero-section">
           <div class="hero-stage-row">
             <button id="hero-prev-btn" type="button" class="chevron-btn hero-prev" aria-label="Предыдущий слайд"></button>
@@ -3265,37 +2812,10 @@
               <div id="hero-slides-container" class="hero-vignette-mask"></div>
               <div class="hero-3d-overlay" aria-hidden="true">
                 <div class="hero-3d-pivot" id="hero3dPivot">
+                  <div class="hero-volumetric-rays"></div>
                   <div class="hero-3d-core-glow"></div>
-                  <div class="hero-3d-pedestal"></div>
-                  <div class="orbit-ring orbit-1"></div>
-                  <div class="orbit-ring orbit-2"></div>
-                  <div class="shard-3d-wrap shard-3d-wrap--l">
-                    <div class="shard-3d shard-3d--l"></div>
-                  </div>
-                  <div class="shard-3d-wrap shard-3d-wrap--r">
-                    <div class="shard-3d shard-3d--r"></div>
-                  </div>
-                  <div class="shard-3d-wrap shard-3d-wrap--t">
-                    <div class="shard-3d shard-3d--t"></div>
-                  </div>
-                  <div class="crystal-3d-rig">
-                    <div class="crystal-3d" id="hero3dCrystal">
-                      <div class="crystal-core-heart"></div>
-                      <div class="crystal-core-heart crystal-core-heart--cross"></div>
-                      <div class="pyr-top">
-                        <div class="face f1"></div>
-                        <div class="face f2"></div>
-                        <div class="face f3"></div>
-                        <div class="face f4"></div>
-                      </div>
-                      <div class="pyr-bottom">
-                        <div class="face f1"></div>
-                        <div class="face f2"></div>
-                        <div class="face f3"></div>
-                        <div class="face f4"></div>
-                      </div>
-                    </div>
-                  </div>
+                  <canvas id="hero-3d-canvas" class="hero-3d-canvas"></canvas>
+                  <div id="hero-3d-fallback" class="hero-3d-fallback"></div>
                 </div>
               </div>
               <div class="hero-bottom-fade"></div>
@@ -3515,10 +3035,8 @@
   <script>
     /**
      * =========================================================================
-     * 1. ГЛАВНЫЙ БЛОК НАСТРОЕК (CONFIG)
+     * 1. ГЛАВНЫЙ БЛОК НАСТРОЕК (CONFIG) — НЕ ТРОГАТЬ ССЫЛКИ И ЛОГИКУ
      * =========================================================================
-     * Все имена, описания, фото и параметры подключения собраны здесь.
-     * Перед отправкой ссылки коллегам просто поставьте testMode: false.
      */
     const EMPLOYEES = [
       {
@@ -3564,13 +3082,6 @@
         photo: "",
       },
       {
-        id: "kira",
-        name: "Кира",
-        role: "Продавец",
-        quote: "«Спокойствие, тактичность и неизменная вежливость в любой ситуации»",
-        photo: "",
-      },
-      {
         id: "mila",
         name: "Мила",
         role: "Продавец",
@@ -3606,11 +3117,11 @@
         {
           kicker: "ПРЕМИЯ ГОДА · КОМАНДА МАГАЗИНА",
           title: "МАГНИТ LEGENDS 2026 — ПРЕМИЯ ГОДА",
-          subtitle: "Главная премия нашего коллектива — выбери настоящих легенд смены",
+          subtitle: "Главная локальная премия нашего коллектива — выбери настоящих легенд смены",
           icon: "crown",
         },
         {
-          kicker: "ДЕСЯТЬ НОМИНАЦИЙ · ВОСЕМЬ ЛЕГЕНД",
+          kicker: "ДЕСЯТЬ НОМИНАЦИЙ · СЕМЬ ЛЕГЕНД",
           title: "ВЫБЕРИ ЛУЧШИХ В КАЖДОЙ КАТЕГОРИИ",
           subtitle: "От «Королевы Магнита» и «Золотого стандарта» до «Открытия года» и «Души коллектива»",
           icon: "trophy",
@@ -3623,8 +3134,6 @@
         },
       ],
 
-      /* 10 уникальных кристальных иконок:
-         "crown" | "trophy" | "shield" | "heart" | "wings" | "speech" | "diamond" | "lightning" | "star" | "promo" */
       nominations: [
         {
           id: "queen",
@@ -3698,15 +3207,14 @@
         },
       ],
 
-      /* Локальные демо-итоги для предпросмотра (если таблица ещё пуста или нет связи) */
-      demoTotalVoters: 8,
+      demoTotalVoters: 7,
       demoWinners: {
         queen: { names: ["Яна"], votes: 5 },
         legend: { names: ["Ксюша"], votes: 6 },
         gold: { names: ["Елена"], votes: 5 },
         soul: { names: ["Наташа"], votes: 6 },
         support: { names: ["Елена", "Мила"], votes: 4 },
-        comm: { names: ["Кира"], votes: 5 },
+        comm: { names: ["Наташа"], votes: 5 },
         master: { names: ["Ксюша"], votes: 6 },
         ahead: { names: ["Вика"], votes: 6 },
         discovery: { names: ["Мила"], votes: 5 },
@@ -3716,7 +3224,7 @@
 
     /**
      * =========================================================================
-     * 2. БЕЗОПАСНОЕ ХРАНИЛИЩЕ (ЗАЩИТА ОТ SecurityError В SANDBOX IFRAME)
+     * 2. БЕЗОПАСНОЕ ХРАНИЛИЩЕ И ТИХАЯ ТАКТИЛЬНАЯ ЗВУКОВАЯ СИСТЕМА
      * =========================================================================
      */
     const SafeStorage = (() => {
@@ -3735,9 +3243,7 @@
           memoryFallback[key] = String(value);
           try {
             window.localStorage.setItem(key, String(value));
-          } catch (_) {
-            // В sandbox iframe спокойно остаёмся на memoryFallback
-          }
+          } catch (_) {}
         },
         remove(key) {
           delete memoryFallback[key];
@@ -3748,12 +3254,6 @@
       };
     })();
 
-    /**
-     * =========================================================================
-     * 3. ТИХАЯ ТАКТИЛЬНАЯ ЗВУКОВАЯ СИСТЕМА (WEB AUDIO API)
-     * Без резкого звона, писков и озвучки наведения курсора
-     * =========================================================================
-     */
     const SoundFX = {
       ctx: null,
       noiseBuf: null,
@@ -3945,7 +3445,1779 @@
 
     /**
      * =========================================================================
-     * 4. 10 УНИКАЛЬНЫХ МНОГОГРАННЫХ РУБИНОВО-ЗОЛОТЫХ SVG-КРИСТАЛЛОВ
+     * 3. ДВИЖОК ЮВЕЛИРНОГО 3D (WebGL1 PBR + ОГРАНЁННЫЙ РУБИН + ШАМПАНСКОЕ ЗОЛОТО)
+     *    Один общий offscreen WebGL-контекст с переносом на видимые <canvas>
+     * =========================================================================
+     */
+    const Trophy3DEngine = (() => {
+      const MAX_SIZE = 768;
+      const MAT_RUBY = 0;
+      const MAT_GOLD = 1;
+      const MAT_OBSIDIAN = 2;
+      const MAT_CORE = 3;
+
+      /* ---------- Компактная матричная и векторная математика ---------- */
+      const v3sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+      const v3add = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
+      const v3scale = (a, s) => [a[0] * s, a[1] * s, a[2] * s];
+      const v3cross = (a, b) => [
+        a[1] * b[2] - a[2] * b[1],
+        a[2] * b[0] - a[0] * b[2],
+        a[0] * b[1] - a[1] * b[0],
+      ];
+      const v3dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+      function v3norm(v) {
+        const l = Math.hypot(v[0], v[1], v[2]);
+        return l > 1e-8 ? [v[0] / l, v[1] / l, v[2] / l] : [0, 1, 0];
+      }
+
+      function mat4Ident() {
+        return new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      }
+
+      function mat4Mul(a, b) {
+        const o = new Float32Array(16);
+        for (let c = 0; c < 4; c++) {
+          const b0 = b[c * 4], b1 = b[c * 4 + 1], b2 = b[c * 4 + 2], b3 = b[c * 4 + 3];
+          o[c * 4]     = a[0] * b0 + a[4] * b1 + a[8]  * b2 + a[12] * b3;
+          o[c * 4 + 1] = a[1] * b0 + a[5] * b1 + a[9]  * b2 + a[13] * b3;
+          o[c * 4 + 2] = a[2] * b0 + a[6] * b1 + a[10] * b2 + a[14] * b3;
+          o[c * 4 + 3] = a[3] * b0 + a[7] * b1 + a[11] * b2 + a[15] * b3;
+        }
+        return o;
+      }
+
+      function mat4Translate(x, y, z) {
+        const m = mat4Ident();
+        m[12] = x; m[13] = y; m[14] = z;
+        return m;
+      }
+
+      function mat4Scale(sx, sy, sz) {
+        const m = mat4Ident();
+        m[0] = sx; m[5] = sy; m[10] = sz;
+        return m;
+      }
+
+      function mat4RotX(a) {
+        const c = Math.cos(a), s = Math.sin(a);
+        return new Float32Array([1, 0, 0, 0, 0, c, s, 0, 0, -s, c, 0, 0, 0, 0, 1]);
+      }
+
+      function mat4RotY(a) {
+        const c = Math.cos(a), s = Math.sin(a);
+        return new Float32Array([c, 0, -s, 0, 0, 1, 0, 0, s, 0, c, 0, 0, 0, 0, 1]);
+      }
+
+      function mat4RotZ(a) {
+        const c = Math.cos(a), s = Math.sin(a);
+        return new Float32Array([c, s, 0, 0, -s, c, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      }
+
+      function mat4TRS(pos = [0, 0, 0], rot = [0, 0, 0], scl = [1, 1, 1]) {
+        let m = mat4Translate(pos[0], pos[1], pos[2]);
+        if (rot[1]) m = mat4Mul(m, mat4RotY(rot[1]));
+        if (rot[0]) m = mat4Mul(m, mat4RotX(rot[0]));
+        if (rot[2]) m = mat4Mul(m, mat4RotZ(rot[2]));
+        if (scl[0] !== 1 || scl[1] !== 1 || scl[2] !== 1) m = mat4Mul(m, mat4Scale(scl[0], scl[1], scl[2]));
+        return m;
+      }
+
+      function mat4Perspective(fovRad, aspect, near, far) {
+        const f = 1.0 / Math.tan(fovRad * 0.5);
+        const nf = 1 / (near - far);
+        return new Float32Array([
+          f / aspect, 0, 0, 0,
+          0, f, 0, 0,
+          0, 0, (far + near) * nf, -1,
+          0, 0, 2 * far * near * nf, 0,
+        ]);
+      }
+
+      function mat4LookAt(eye, target, up) {
+        const z = v3norm(v3sub(eye, target));
+        const x = v3norm(v3cross(up, z));
+        const y = v3cross(z, x);
+        return new Float32Array([
+          x[0], y[0], z[0], 0,
+          x[1], y[1], z[1], 0,
+          x[2], y[2], z[2], 0,
+          -v3dot(x, eye), -v3dot(y, eye), -v3dot(z, eye), 1,
+        ]);
+      }
+
+      function mat4NormalMat3(m) {
+        const a00 = m[0], a01 = m[1], a02 = m[2];
+        const a10 = m[4], a11 = m[5], a12 = m[6];
+        const a20 = m[8], a21 = m[9], a22 = m[10];
+        const b01 = a22 * a11 - a12 * a21;
+        const b11 = -a22 * a10 + a12 * a20;
+        const b21 = a21 * a10 - a11 * a20;
+        let det = a00 * b01 + a01 * b11 + a02 * b21;
+        if (Math.abs(det) < 1e-8) det = 1;
+        const id = 1.0 / det;
+        return new Float32Array([
+          b01 * id,
+          b11 * id,
+          b21 * id,
+          (-a22 * a01 + a02 * a21) * id,
+          (a22 * a00 - a02 * a20) * id,
+          (-a21 * a00 + a01 * a20) * id,
+          (a12 * a01 - a02 * a11) * id,
+          (-a12 * a00 + a02 * a10) * id,
+          (a11 * a00 - a01 * a10) * id,
+        ]);
+      }
+
+      function xformPt(m, p) {
+        return [
+          m[0] * p[0] + m[4] * p[1] + m[8]  * p[2] + m[12],
+          m[1] * p[0] + m[5] * p[1] + m[9]  * p[2] + m[13],
+          m[2] * p[0] + m[6] * p[1] + m[10] * p[2] + m[14],
+        ];
+      }
+
+      /* ---------- Процедурный построитель 3D-геометрии ---------- */
+      class MeshBuilder {
+        constructor() {
+          this.data = [];
+        }
+
+        _pushV(p, n, e, mat) {
+          this.data.push(p[0], p[1], p[2], n[0], n[1], n[2], e[0], e[1], e[2], mat);
+        }
+
+        addTri(a, b, c, mat, flatEdge = true) {
+          const ab = v3sub(b, a);
+          const ac = v3sub(c, a);
+          const cr = v3cross(ab, ac);
+          const len = Math.hypot(cr[0], cr[1], cr[2]);
+          if (len < 1e-7) return;
+          const n = [cr[0] / len, cr[1] / len, cr[2] / len];
+          if (flatEdge) {
+            this._pushV(a, n, [1, 0, 0], mat);
+            this._pushV(b, n, [0, 1, 0], mat);
+            this._pushV(c, n, [0, 0, 1], mat);
+          } else {
+            this._pushV(a, n, [1, 1, 1], mat);
+            this._pushV(b, n, [1, 1, 1], mat);
+            this._pushV(c, n, [1, 1, 1], mat);
+          }
+        }
+
+        addTriSmooth(a, na, b, nb, c, nc, mat, eA = [1, 1, 1], eB = [1, 1, 1], eC = [1, 1, 1]) {
+          this._pushV(a, v3norm(na), eA, mat);
+          this._pushV(b, v3norm(nb), eB, mat);
+          this._pushV(c, v3norm(nc), eC, mat);
+        }
+
+        addQuad(a, b, c, d, mat, flatEdge = true) {
+          const n1 = v3cross(v3sub(b, a), v3sub(c, a));
+          if (Math.hypot(n1[0], n1[1], n1[2]) >= 1e-7) {
+            const nn = v3norm(n1);
+            if (flatEdge) {
+              this._pushV(a, nn, [1, 1, 0], mat);
+              this._pushV(b, nn, [0, 1, 0], mat);
+              this._pushV(c, nn, [0, 1, 1], mat);
+            } else {
+              this._pushV(a, nn, [1, 1, 1], mat);
+              this._pushV(b, nn, [1, 1, 1], mat);
+              this._pushV(c, nn, [1, 1, 1], mat);
+            }
+          }
+          const n2 = v3cross(v3sub(c, a), v3sub(d, a));
+          if (Math.hypot(n2[0], n2[1], n2[2]) >= 1e-7) {
+            const nn = v3norm(n2);
+            if (flatEdge) {
+              this._pushV(a, nn, [1, 1, 0], mat);
+              this._pushV(c, nn, [0, 1, 1], mat);
+              this._pushV(d, nn, [0, 1, 0], mat);
+            } else {
+              this._pushV(a, nn, [1, 1, 1], mat);
+              this._pushV(c, nn, [1, 1, 1], mat);
+              this._pushV(d, nn, [1, 1, 1], mat);
+            }
+          }
+        }
+
+        addLathe(profile, segments, mat, flatShaded = true, tr = null) {
+          const m = tr || mat4Ident();
+          const nMat = mat4NormalMat3(m);
+          const xf = (p) => xformPt(m, p);
+          const xfn = (n) => v3norm([
+            nMat[0] * n[0] + nMat[3] * n[1] + nMat[6] * n[2],
+            nMat[1] * n[0] + nMat[4] * n[1] + nMat[7] * n[2],
+            nMat[2] * n[0] + nMat[5] * n[1] + nMat[8] * n[2],
+          ]);
+
+          for (let j = 0; j < profile.length - 1; j++) {
+            const [r0, y0] = profile[j];
+            const [r1, y1] = profile[j + 1];
+            const dr = r1 - r0;
+            const dy = y1 - y0;
+            const len = Math.hypot(dr, dy) || 1;
+            const ny = -dr / len;
+            const nr = dy / len;
+
+            for (let i = 0; i < segments; i++) {
+              const a0 = (i / segments) * Math.PI * 2;
+              const a1 = ((i + 1) / segments) * Math.PI * 2;
+              const c0 = Math.cos(a0), s0 = Math.sin(a0);
+              const c1 = Math.cos(a1), s1 = Math.sin(a1);
+
+              const p00 = xf([r0 * c0, y0, r0 * s0]);
+              const p10 = xf([r0 * c1, y0, r0 * s1]);
+              const p01 = xf([r1 * c0, y1, r1 * s0]);
+              const p11 = xf([r1 * c1, y1, r1 * s1]);
+
+              const isFlatCap = Math.abs(y1 - y0) < 1e-4;
+              if (r0 < 1e-5 && r1 > 1e-5) {
+                if (flatShaded) {
+                  if (isFlatCap) {
+                    const cr = v3cross(v3sub(p01, p00), v3sub(p11, p00));
+                    if (Math.hypot(cr[0], cr[1], cr[2]) >= 1e-7) {
+                      const fn = v3norm(cr);
+                      this._pushV(p00, fn, [1, 1, 1], mat);
+                      this._pushV(p01, fn, [0, 1, 1], mat);
+                      this._pushV(p11, fn, [0, 1, 1], mat);
+                    }
+                  } else {
+                    this.addTri(p00, p01, p11, mat, true);
+                  }
+                } else {
+                  const n0 = xfn([0, ny >= 0 ? 1 : -1, 0]);
+                  const n01 = xfn([nr * c0, ny, nr * s0]);
+                  const n11 = xfn([nr * c1, ny, nr * s1]);
+                  this.addTriSmooth(p00, n0, p01, n01, p11, n11, mat);
+                }
+              } else if (r1 < 1e-5 && r0 > 1e-5) {
+                if (flatShaded) {
+                  if (isFlatCap) {
+                    const cr = v3cross(v3sub(p01, p00), v3sub(p10, p00));
+                    if (Math.hypot(cr[0], cr[1], cr[2]) >= 1e-7) {
+                      const fn = v3norm(cr);
+                      this._pushV(p00, fn, [0, 1, 1], mat);
+                      this._pushV(p01, fn, [1, 1, 1], mat);
+                      this._pushV(p10, fn, [0, 1, 1], mat);
+                    }
+                  } else {
+                    this.addTri(p00, p01, p10, mat, true);
+                  }
+                } else {
+                  const n0 = xfn([0, ny >= 0 ? 1 : -1, 0]);
+                  const n00 = xfn([nr * c0, ny, nr * s0]);
+                  const n10 = xfn([nr * c1, ny, nr * s1]);
+                  this.addTriSmooth(p00, n00, p01, n0, p10, n10, mat);
+                }
+              } else if (r0 >= 1e-5 && r1 >= 1e-5) {
+                if (flatShaded) {
+                  this.addQuad(p00, p01, p11, p10, mat, true);
+                } else {
+                  const n00 = xfn([nr * c0, ny, nr * s0]);
+                  const n10 = xfn([nr * c1, ny, nr * s1]);
+                  const n01 = n00;
+                  const n11 = n10;
+                  this.addTriSmooth(p00, n00, p01, n01, p11, n11, mat);
+                  this.addTriSmooth(p00, n00, p11, n11, p10, n10, mat);
+                }
+              }
+            }
+          }
+        }
+
+        addTorus(R, r, segMajor, segMinor, mat, flatMinor = false, tr = null) {
+          const m = tr || mat4Ident();
+          const nMat = mat4NormalMat3(m);
+          const xf = (p) => xformPt(m, p);
+          const xfn = (n) => v3norm([
+            nMat[0] * n[0] + nMat[3] * n[1] + nMat[6] * n[2],
+            nMat[1] * n[0] + nMat[4] * n[1] + nMat[7] * n[2],
+            nMat[2] * n[0] + nMat[5] * n[1] + nMat[8] * n[2],
+          ]);
+
+          for (let i = 0; i < segMajor; i++) {
+            const u0 = (i / segMajor) * Math.PI * 2;
+            const u1 = ((i + 1) / segMajor) * Math.PI * 2;
+            const cu0 = Math.cos(u0), su0 = Math.sin(u0);
+            const cu1 = Math.cos(u1), su1 = Math.sin(u1);
+
+            for (let j = 0; j < segMinor; j++) {
+              const v0 = (j / segMinor) * Math.PI * 2 + (flatMinor ? Math.PI / segMinor : 0);
+              const v1 = ((j + 1) / segMinor) * Math.PI * 2 + (flatMinor ? Math.PI / segMinor : 0);
+              const cv0 = Math.cos(v0), sv0 = Math.sin(v0);
+              const cv1 = Math.cos(v1), sv1 = Math.sin(v1);
+
+              const p00 = xf([(R + r * cv0) * cu0, r * sv0, (R + r * cv0) * su0]);
+              const p10 = xf([(R + r * cv0) * cu1, r * sv0, (R + r * cv0) * su1]);
+              const p01 = xf([(R + r * cv1) * cu0, r * sv1, (R + r * cv1) * su0]);
+              const p11 = xf([(R + r * cv1) * cu1, r * sv1, (R + r * cv1) * su1]);
+
+              if (flatMinor) {
+                this.addQuad(p00, p10, p11, p01, mat, true);
+              } else {
+                const n00 = xfn([cv0 * cu0, sv0, cv0 * su0]);
+                const n10 = xfn([cv0 * cu1, sv0, cv0 * su1]);
+                const n01 = xfn([cv1 * cu0, sv1, cv1 * su0]);
+                const n11 = xfn([cv1 * cu1, sv1, cv1 * su1]);
+                this.addTriSmooth(p00, n00, p10, n10, p11, n11, mat);
+                this.addTriSmooth(p00, n00, p11, n11, p01, n01, mat);
+              }
+            }
+          }
+        }
+
+        addGemCut(sides, crownH, girdleH, pavH, tableR, girdleR, mat, tr = null) {
+          this.addLathe(
+            [
+              [0, -pavH],
+              [girdleR, -girdleH * 0.5],
+              [girdleR, girdleH * 0.5],
+              [tableR, crownH],
+              [0, crownH],
+            ],
+            sides,
+            mat,
+            true,
+            tr
+          );
+        }
+
+        addShard(len, rad, sides, mat, tr = null) {
+          this.addLathe(
+            [
+              [0, -len * 0.52],
+              [rad * 0.86, -len * 0.16],
+              [rad, len * 0.16],
+              [0, len * 0.52],
+            ],
+            sides,
+            mat,
+            true,
+            tr
+          );
+        }
+
+        addOctahedron(rx, ry, rz, mat, tr = null) {
+          const m = tr || mat4Ident();
+          const xf = (p) => xformPt(m, p);
+          const top = xf([0, ry, 0]);
+          const bot = xf([0, -ry, 0]);
+          const eq = [
+            xf([rx, 0, 0]),
+            xf([0, 0, rz]),
+            xf([-rx, 0, 0]),
+            xf([0, 0, -rz]),
+          ];
+          for (let i = 0; i < 4; i++) {
+            const j = (i + 1) % 4;
+            this.addTri(top, eq[j], eq[i], mat, true);
+            this.addTri(bot, eq[i], eq[j], mat, true);
+          }
+        }
+
+        addBox(w, h, d, bevel, mat, tr = null) {
+          const m = tr || mat4Ident();
+          const hw = w * 0.5, hh = h * 0.5, hd = d * 0.5;
+          const b = Math.min(bevel, hw * 0.4, hh * 0.4, hd * 0.4);
+          if (b <= 1e-4) {
+            const xf = (x, y, z) => xformPt(m, [x, y, z]);
+            const f0 = xf(-hw, -hh, hd), f1 = xf(hw, -hh, hd), f2 = xf(hw, hh, hd), f3 = xf(-hw, hh, hd);
+            const b0 = xf(-hw, -hh, -hd), b1 = xf(hw, -hh, -hd), b2 = xf(hw, hh, -hd), b3 = xf(-hw, hh, -hd);
+            this.addQuad(f0, f1, f2, f3, mat, true);
+            this.addQuad(b1, b0, b3, b2, mat, true);
+            this.addQuad(f3, f2, b2, b3, mat, true);
+            this.addQuad(b0, b1, f1, f0, mat, true);
+            this.addQuad(f1, b1, b2, f2, mat, true);
+            this.addQuad(b0, f0, f3, b3, mat, true);
+            return;
+          }
+          const contour = [
+            [-hw + b, -hh], [hw - b, -hh],
+            [hw, -hh + b], [hw, hh - b],
+            [hw - b, hh], [-hw + b, hh],
+            [-hw, hh - b], [-hw, -hh + b],
+          ];
+          this.addRidgedShape(contour, hd - b * 0.5, hd, mat, mat, mat, m, 1 - b / Math.max(hw, hh));
+        }
+
+        addRidgedShape(contour2D, halfGirdle, ridgeZ, matFront, matBevel, matSide, tr = null, insetScale = 0.86, centerXY = null) {
+          const m = tr || mat4Ident();
+          const xf = (p) => xformPt(m, p);
+          const n = contour2D.length;
+          let cx = 0, cy = 0;
+          if (centerXY) {
+            cx = centerXY[0]; cy = centerXY[1];
+          } else {
+            for (const p of contour2D) { cx += p[0]; cy += p[1]; }
+            cx /= n; cy /= n;
+          }
+
+          const gF = [], gB = [], bF = [], bB = [];
+          const bevelZ = halfGirdle + (ridgeZ - halfGirdle) * 0.45;
+          for (let i = 0; i < n; i++) {
+            const x = contour2D[i][0], y = contour2D[i][1];
+            const bx = cx + (x - cx) * insetScale;
+            const by = cy + (y - cy) * insetScale;
+            gF.push(xf([x, y, halfGirdle]));
+            gB.push(xf([x, y, -halfGirdle]));
+            bF.push(xf([bx, by, bevelZ]));
+            bB.push(xf([bx, by, -bevelZ]));
+          }
+          const apexF = xf([cx, cy, ridgeZ]);
+          const apexB = xf([cx, cy, -ridgeZ]);
+
+          for (let i = 0; i < n; i++) {
+            const j = (i + 1) % n;
+            this.addQuad(gF[i], gB[i], gB[j], gF[j], matSide, true);
+            this.addQuad(bF[i], gF[i], gF[j], bF[j], matBevel, true);
+            this.addQuad(gB[i], bB[i], bB[j], gB[j], matBevel, true);
+            this.addTri(apexF, bF[i], bF[j], matFront, true);
+            this.addTri(apexB, bB[j], bB[i], matFront, true);
+          }
+        }
+
+        addStar3D(points, outerR, innerR, ridgeZ, mat, tr = null, girdleZ = 0.025) {
+          const contour = [];
+          const total = points * 2;
+          for (let i = 0; i < total; i++) {
+            const a = Math.PI * 0.5 + (i / total) * Math.PI * 2;
+            const r = i % 2 === 0 ? outerR : innerR;
+            contour.push([Math.cos(a) * r, Math.sin(a) * r]);
+          }
+          this.addRidgedShape(contour, girdleZ, ridgeZ, mat, mat, mat, tr, 0.94, [0, 0]);
+        }
+
+        addTubePath(pts, radius, sides, mat, closed = false, tr = null) {
+          if (pts.length < 2) return;
+          const m = tr || mat4Ident();
+          const xf = (p) => xformPt(m, p);
+          const worldPts = pts.map(xf);
+          const rings = [];
+
+          let prevNormal = null;
+          for (let i = 0; i < worldPts.length; i++) {
+            let tang;
+            if (i === 0) tang = v3norm(v3sub(worldPts[1], worldPts[0]));
+            else if (i === worldPts.length - 1) tang = v3norm(v3sub(worldPts[i], worldPts[i - 1]));
+            else tang = v3norm(v3sub(worldPts[i + 1], worldPts[i - 1]));
+
+            let n1;
+            if (!prevNormal) {
+              const ref = Math.abs(tang[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0];
+              n1 = v3norm(v3cross(ref, tang));
+            } else {
+              n1 = v3norm(v3sub(prevNormal, v3scale(tang, v3dot(prevNormal, tang))));
+            }
+            prevNormal = n1;
+            const n2 = v3cross(tang, n1);
+
+            const rScale = Array.isArray(radius) ? radius[i] : radius;
+            const ring = [];
+            for (let s = 0; s < sides; s++) {
+              const a = (s / sides) * Math.PI * 2;
+              const off = v3add(v3scale(n1, Math.cos(a) * rScale), v3scale(n2, Math.sin(a) * rScale));
+              ring.push({ p: v3add(worldPts[i], off), n: v3norm(off) });
+            }
+            rings.push(ring);
+          }
+
+          for (let i = 0; i < rings.length - 1; i++) {
+            const rA = rings[i], rB = rings[i + 1];
+            for (let s = 0; s < sides; s++) {
+              const sn = (s + 1) % sides;
+              this.addTriSmooth(rA[s].p, rA[s].n, rB[s].p, rB[s].n, rB[sn].p, rB[sn].n, mat);
+              this.addTriSmooth(rA[s].p, rA[s].n, rB[sn].p, rB[sn].n, rA[sn].p, rA[sn].n, mat);
+            }
+          }
+
+          if (!closed) {
+            const t0 = v3norm(v3sub(worldPts[0], worldPts[1]));
+            const t1 = v3norm(v3sub(worldPts[worldPts.length - 1], worldPts[worldPts.length - 2]));
+            for (let s = 0; s < sides; s++) {
+              const sn = (s + 1) % sides;
+              this.addTriSmooth(worldPts[0], t0, rings[0][sn].p, t0, rings[0][s].p, t0, mat);
+              this.addTriSmooth(worldPts[worldPts.length - 1], t1, rings[rings.length - 1][s].p, t1, rings[rings.length - 1][sn].p, t1, mat);
+            }
+          }
+        }
+
+        normalize(targetRadius = 0.94, centerYBias = 0) {
+          let minX = Infinity, maxX = -Infinity;
+          let minY = Infinity, maxY = -Infinity;
+          let minZ = Infinity, maxZ = -Infinity;
+          for (let i = 0; i < this.data.length; i += 10) {
+            const x = this.data[i], y = this.data[i + 1], z = this.data[i + 2];
+            if (x < minX) minX = x; if (x > maxX) maxX = x;
+            if (y < minY) minY = y; if (y > maxY) maxY = y;
+            if (z < minZ) minZ = z; if (z > maxZ) maxZ = z;
+          }
+          if (!isFinite(minX)) return this;
+          const cx = (minX + maxX) * 0.5;
+          const cy = (minY + maxY) * 0.5 - centerYBias;
+          const cz = (minZ + maxZ) * 0.5;
+          let maxR = 1e-4;
+          for (let i = 0; i < this.data.length; i += 10) {
+            const dx = this.data[i] - cx;
+            const dy = this.data[i + 1] - cy;
+            const dz = this.data[i + 2] - cz;
+            const r = Math.hypot(dx, dy, dz);
+            if (r > maxR) maxR = r;
+          }
+          const s = targetRadius / maxR;
+          for (let i = 0; i < this.data.length; i += 10) {
+            this.data[i]     = (this.data[i] - cx) * s;
+            this.data[i + 1] = (this.data[i + 1] - cy) * s;
+            this.data[i + 2] = (this.data[i + 2] - cz) * s;
+          }
+          return this;
+        }
+
+        build(gl) {
+          const arr = new Float32Array(this.data);
+          const vbo = gl.createBuffer();
+          gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+          gl.bufferData(gl.ARRAY_BUFFER, arr, gl.STATIC_DRAW);
+          return { vbo, count: arr.length / 10 };
+        }
+      }
+
+      /* ---------- 10 СКУЛЬПТУРНЫХ 3D-МОДЕЛЕЙ НОМИНАЦИЙ + ЭЛЕМЕНТЫ HERO ---------- */
+
+      /* 1. КОРОЛЕВА МАГНИТА — Императорская рубиновая корона-тиара */
+      function buildCrownModel() {
+        const mb = new MeshBuilder();
+        // Обсидиано-золотое основание обода
+        mb.addLathe(
+          [
+            [0.64, -0.34],
+            [0.72, -0.34],
+            [0.75, -0.24],
+            [0.72, -0.14],
+            [0.76, -0.06],
+            [0.71, 0.02],
+            [0.63, 0.02],
+            [0.63, -0.34],
+          ],
+          16,
+          MAT_GOLD,
+          true
+        );
+        // Полоса тёмного обсидиана на нижнем ободе
+        mb.addLathe([[0.735, -0.25], [0.758, -0.21], [0.758, -0.16], [0.735, -0.13]], 16, MAT_OBSIDIAN, true);
+
+        // 5 величественных золотых шпилей (и 3 задних для идеального 360°-объёма)
+        const spires = [
+          { ang: 0,           h: 0.78, w: 0.19, rGem: 0.14, center: true },
+          { ang: 0.78,        h: 0.56, w: 0.14, rGem: 0.10 },
+          { ang: -0.78,       h: 0.56, w: 0.14, rGem: 0.10 },
+          { ang: 1.62,        h: 0.42, w: 0.12, rGem: 0.085 },
+          { ang: -1.62,       h: 0.42, w: 0.12, rGem: 0.085 },
+          { ang: 2.38,        h: 0.36, w: 0.11, rGem: 0.075 },
+          { ang: -2.38,       h: 0.36, w: 0.11, rGem: 0.075 },
+          { ang: Math.PI,     h: 0.44, w: 0.12, rGem: 0.085 },
+        ];
+        spires.forEach((sp) => {
+          const m = mat4TRS([0, 0, 0], [0, sp.ang, 0], [1, 1, 1]);
+          const lean = 0.09;
+          // Дуги филиграни для зубца
+          const leftArc = [
+            [-sp.w, -0.02, 0.69],
+            [-sp.w * 0.55, sp.h * 0.52, 0.71 + lean * 0.4],
+            [0, sp.h, 0.69 + lean],
+          ];
+          const rightArc = [
+            [sp.w, -0.02, 0.69],
+            [sp.w * 0.55, sp.h * 0.52, 0.71 + lean * 0.4],
+            [0, sp.h, 0.69 + lean],
+          ];
+          mb.addTubePath(leftArc, [0.036, 0.028, 0.02], 6, MAT_GOLD, false, m);
+          mb.addTubePath(rightArc, [0.036, 0.028, 0.02], 6, MAT_GOLD, false, m);
+          // Огранённый рубин в зубце
+          mb.addShard(
+            sp.h * 0.64,
+            sp.rGem,
+            6,
+            MAT_RUBY,
+            mat4Mul(m, mat4TRS([0, sp.h * 0.36, 0.68 + lean * 0.35], [0.1, 0, 0]))
+          );
+          // Золотая жемчужина-навершие на острие
+          mb.addOctahedron(
+            sp.center ? 0.065 : 0.045,
+            sp.center ? 0.085 : 0.055,
+            sp.center ? 0.065 : 0.045,
+            MAT_GOLD,
+            mat4Mul(m, mat4TRS([0, sp.h + 0.055, 0.69 + lean], [0, Math.PI * 0.25, 0]))
+          );
+          // Рубин в ободе под каждым зубцом
+          mb.addGemCut(
+            8, 0.04, 0.02, 0.04, 0.045, 0.072, MAT_RUBY,
+            mat4Mul(m, mat4TRS([0, -0.18, 0.76], [Math.PI * 0.5, 0, 0]))
+          );
+        });
+
+        // Парящий центральный императорский рубин над тиарой
+        mb.addShard(0.46, 0.16, 8, MAT_RUBY, mat4TRS([0, 0.52, 0], [0, 0, 0]));
+        mb.addOctahedron(0.08, 0.16, 0.08, MAT_CORE, mat4TRS([0, 0.52, 0]));
+
+        return mb.normalize(0.92);
+      }
+
+      /* 2. ЛЕГЕНДА МАГНИТА — Кристальный кубок легенды со звездой */
+      function buildTrophyModel() {
+        const mb = new MeshBuilder();
+        // Обсидиановый ступенчатый пьедестал + золотая пластина
+        mb.addLathe(
+          [
+            [0, -0.92],
+            [0.54, -0.92],
+            [0.54, -0.82],
+            [0.44, -0.78],
+            [0.44, -0.71],
+            [0, -0.71],
+          ],
+          8,
+          MAT_OBSIDIAN,
+          true
+        );
+        mb.addLathe([[0.46, -0.79], [0.49, -0.79], [0.49, -0.74], [0.44, -0.72]], 8, MAT_GOLD, true);
+
+        // Точёная ножка из шампанского золота
+        mb.addLathe(
+          [
+            [0.24, -0.71],
+            [0.20, -0.62],
+            [0.10, -0.50],
+            [0.16, -0.40],
+            [0.09, -0.28],
+            [0.18, -0.18],
+            [0.18, -0.12],
+          ],
+          16,
+          MAT_GOLD,
+          false
+        );
+
+        // 12-гранная рубиновая чаша кубка (снаружи и внутри)
+        mb.addLathe(
+          [
+            [0, -0.14],
+            [0.22, -0.12],
+            [0.40, 0.06],
+            [0.52, 0.34],
+            [0.58, 0.62],
+            [0.49, 0.62],
+            [0.42, 0.34],
+            [0.28, 0.06],
+            [0, 0.02],
+          ],
+          12,
+          MAT_RUBY,
+          true
+        );
+
+        // Золотой обод чаши + нижнее кольцо чаши
+        mb.addTorus(0.54, 0.036, 28, 10, MAT_GOLD, false, mat4TRS([0, 0.62, 0], [Math.PI * 0.5, 0, 0]));
+        mb.addTorus(0.20, 0.032, 20, 8, MAT_GOLD, false, mat4TRS([0, -0.12, 0], [Math.PI * 0.5, 0, 0]));
+
+        // 6 вертикальных золотых рёбер на чаше
+        for (let i = 0; i < 6; i++) {
+          const a = (i / 6) * Math.PI * 2;
+          const ribM = mat4TRS([0, 0, 0], [0, a, 0]);
+          mb.addTubePath(
+            [[0.22, -0.10, 0], [0.42, 0.08, 0], [0.54, 0.36, 0], [0.56, 0.61, 0]],
+            0.022,
+            6,
+            MAT_GOLD,
+            false,
+            ribM
+          );
+        }
+
+        // Две скульптурные S-образные ручки из шампанского золота
+        [-1, 1].forEach((side) => {
+          const pts = [
+            [side * 0.54, 0.55, 0],
+            [side * 0.80, 0.57, 0],
+            [side * 0.88, 0.36, 0],
+            [side * 0.72, 0.14, 0],
+            [side * 0.44, 0.04, 0],
+          ];
+          mb.addTubePath(pts, [0.034, 0.038, 0.034, 0.028, 0.026], 8, MAT_GOLD, false);
+        });
+
+        // Парящая 3D-звезда награды над чашей кубка
+        mb.addStar3D(5, 0.25, 0.105, 0.085, MAT_GOLD, mat4TRS([0, 0.84, 0], [0, 0, 0]), 0.015);
+        mb.addOctahedron(0.06, 0.06, 0.06, MAT_CORE, mat4TRS([0, 0.84, 0]));
+
+        return mb.normalize(0.95);
+      }
+
+      /* 3. ЗОЛОТОЙ СТАНДАРТ — Архитектурный 3D-щит из титана, рубина и золота */
+      function buildShieldModel() {
+        const mb = new MeshBuilder();
+        const outer = [
+          [0, 0.94],
+          [0.74, 0.68],
+          [0.64, -0.18],
+          [0.34, -0.64],
+          [0, -0.96],
+          [-0.34, -0.64],
+          [-0.64, -0.18],
+          [-0.74, 0.68],
+        ];
+        // Выпуклый обсидиано-титановый корпус щита (с лёгкой аркой глубины)
+        const n = outer.length;
+        const gF = [], gB = [], bF = [], bB = [];
+        for (let i = 0; i < n; i++) {
+          const [x, y] = outer[i];
+          const curve = 0.08 * (1 - x * x);
+          gF.push([x, y, 0.07 + curve]);
+          gB.push([x, y, -0.07 + curve * 0.35]);
+          bF.push([x * 0.84, y * 0.84, 0.14 + curve]);
+          bB.push([x * 0.84, y * 0.84, -0.13 + curve * 0.35]);
+        }
+        const spineF = [0, 0.04, 0.25];
+        const spineB = [0, 0.04, -0.18];
+
+        for (let i = 0; i < n; i++) {
+          const j = (i + 1) % n;
+          mb.addQuad(gF[i], gB[i], gB[j], gF[j], MAT_OBSIDIAN, true);
+          mb.addQuad(bF[i], gF[i], gF[j], bF[j], MAT_OBSIDIAN, true);
+          mb.addQuad(gB[i], bB[i], bB[j], gB[j], MAT_OBSIDIAN, true);
+          // Внутреннее рубиновое поле с гранёными лучами
+          mb.addTri(spineF, bF[i], bF[j], MAT_RUBY, true);
+          mb.addTri(spineB, bB[j], bB[i], MAT_RUBY, true);
+        }
+
+        // Рельефная золотая оправа (угловые заклёпки и центральный ромб-эталон)
+        for (let i = 0; i < n; i++) {
+          const [x, y] = outer[i];
+          const curve = 0.08 * (1 - x * x);
+          mb.addOctahedron(0.052, 0.052, 0.052, MAT_GOLD, mat4TRS([x * 0.90, y * 0.90, 0.13 + curve]));
+        }
+
+        // Выпуклый золотой ромб на передней и задней стороне
+        const crest = [[0, 0.44], [0.32, 0.02], [0, -0.44], [-0.32, 0.02]];
+        mb.addRidgedShape(crest, 0.04, 0.13, MAT_GOLD, MAT_GOLD, MAT_GOLD, mat4TRS([0, 0.02, 0.22]), 0.72, [0, 0]);
+        mb.addRidgedShape(crest, 0.04, 0.11, MAT_GOLD, MAT_GOLD, MAT_GOLD, mat4TRS([0, 0.02, -0.16]), 0.72, [0, 0]);
+
+        // Светящийся центр эталона
+        mb.addOctahedron(0.11, 0.16, 0.09, MAT_CORE, mat4TRS([0, 0.02, 0.34]));
+        mb.addOctahedron(0.10, 0.14, 0.08, MAT_CORE, mat4TRS([0, 0.02, -0.26]));
+
+        return mb.normalize(0.95);
+      }
+
+      /* 4. ДУША КОЛЛЕКТИВА — Объёмное огранённое сердце-рубин в золотых объятиях */
+      function buildHeartModel() {
+        const mb = new MeshBuilder();
+        const segs = 28;
+        const rings = 4;
+        const centerY = -0.10;
+
+        function heartPt(t) {
+          const s = Math.sin(t);
+          const x = 16 * s * s * s;
+          const y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+          return [x / 17.5, (y + 2.2) / 17.5];
+        }
+
+        const profile = [
+          { scale: 1.0,  z: 0.03, cleftScale: 0.4 },
+          { scale: 0.80, z: 0.22, cleftScale: 0.65 },
+          { scale: 0.48, z: 0.36, cleftScale: 0.85 },
+          { scale: 0.16, z: 0.41, cleftScale: 1.0 },
+        ];
+
+        const ringVertsF = [];
+        const ringVertsB = [];
+
+        for (let r = 0; r < rings; r++) {
+          const prof = profile[r];
+          const rF = [], rB = [];
+          for (let i = 0; i < segs; i++) {
+            const t = (i / segs) * Math.PI * 2;
+            const [hx, hy] = heartPt(t);
+            const px = hx * prof.scale;
+            const py = centerY + (hy - centerY) * prof.scale;
+            const cleftFactor = 1.0 - (1.0 - prof.cleftScale) * Math.pow(Math.max(0, Math.cos(t)), 2);
+            const pz = prof.z * cleftFactor;
+            rF.push([px, py, pz]);
+            rB.push([px, py, -pz]);
+          }
+          ringVertsF.push(rF);
+          ringVertsB.push(rB);
+        }
+
+        const apexF = [0, centerY + 0.04, 0.43];
+        const apexB = [0, centerY + 0.04, -0.43];
+
+        for (let i = 0; i < segs; i++) {
+          const j = (i + 1) % segs;
+          // Пояс рундиста (чёткая гранёная окантовка по краю сердца)
+          mb.addQuad(ringVertsF[0][i], ringVertsB[0][i], ringVertsB[0][j], ringVertsF[0][j], MAT_RUBY, true);
+
+          for (let r = 0; r < rings - 1; r++) {
+            mb.addQuad(ringVertsF[r][i], ringVertsF[r][j], ringVertsF[r + 1][j], ringVertsF[r + 1][i], MAT_RUBY, true);
+            mb.addQuad(ringVertsB[r][j], ringVertsB[r][i], ringVertsB[r + 1][i], ringVertsB[r + 1][j], MAT_RUBY, true);
+          }
+          // Корона-площадка сердца
+          mb.addTri(apexF, ringVertsF[rings - 1][i], ringVertsF[rings - 1][j], MAT_RUBY, true);
+          mb.addTri(apexB, ringVertsB[rings - 1][j], ringVertsB[rings - 1][i], MAT_RUBY, true);
+        }
+
+        // Изящная наклонённая золотая лента-орбита, обнимающая сердце
+        mb.addTorus(0.98, 0.036, 36, 10, MAT_GOLD, false, mat4TRS([0, -0.02, 0], [1.14, 0.34, -0.42]));
+        // Сияющая золотая искра в золотом кольце
+        mb.addOctahedron(0.08, 0.11, 0.08, MAT_CORE, mat4TRS([0.62, 0.56, 0.38]));
+        // Центральный тёплый золотой акцент-ромб
+        mb.addOctahedron(0.14, 0.21, 0.08, MAT_GOLD, mat4TRS([0, -0.04, 0.44]));
+        mb.addOctahedron(0.14, 0.21, 0.08, MAT_GOLD, mat4TRS([0, -0.04, -0.44]));
+
+        return mb.normalize(0.95);
+      }
+
+      /* 5. ВСЕГДА РЯДОМ — Кристальные крылья поддержки вокруг золотого ядра */
+      function buildWingsModel() {
+        const mb = new MeshBuilder();
+        // Высокий центральный рубиновый кристалл-оплот
+        mb.addShard(1.48, 0.25, 8, MAT_RUBY, mat4TRS([0, 0, 0]));
+        // Золотой пояс и ядро
+        mb.addTorus(0.245, 0.042, 16, 8, MAT_GOLD, false, mat4TRS([0, -0.02, 0], [Math.PI * 0.5, 0, 0]));
+        mb.addOctahedron(0.14, 0.24, 0.14, MAT_GOLD, mat4TRS([0, 0.02, 0.16]));
+        mb.addOctahedron(0.14, 0.24, 0.14, MAT_GOLD, mat4TRS([0, 0.02, -0.16]));
+        mb.addOctahedron(0.07, 0.13, 0.07, MAT_CORE, mat4TRS([0, 0.02, 0.25]));
+
+        // 3 яруса настоящих объёмных перьев с разворотом в 3D-пространстве
+        const tiers = [
+          {
+            pts: [[0.14, 0.04], [0.98, 0.66], [1.08, 0.44], [0.34, -0.06]],
+            mat: MAT_RUBY, bevel: MAT_GOLD, zOff: -0.08, yaw: -0.22,
+          },
+          {
+            pts: [[0.14, -0.04], [0.96, 0.16], [0.88, -0.10], [0.24, -0.22]],
+            mat: MAT_RUBY, bevel: MAT_RUBY, zOff: -0.14, yaw: -0.32,
+          },
+          {
+            pts: [[0.12, -0.18], [0.76, -0.26], [0.60, -0.48], [0.16, -0.34]],
+            mat: MAT_GOLD, bevel: MAT_GOLD, zOff: -0.20, yaw: -0.40,
+          },
+        ];
+
+        [-1, 1].forEach((side) => {
+          tiers.forEach((tier) => {
+            const contour = tier.pts.map(([x, y]) => [side * x, y]);
+            const tr = mat4TRS([0, 0, tier.zOff], [0, side * tier.yaw, 0]);
+            mb.addRidgedShape(contour, 0.032, 0.095, tier.mat, tier.bevel, tier.bevel, tr, 0.80);
+          });
+        });
+
+        return mb.normalize(0.95);
+      }
+
+      /* 6. ЭТАЛОН ОБЩЕНИЯ — Двухплановый кристальный диалог с золотыми искрами */
+      function buildSpeechModel() {
+        const mb = new MeshBuilder();
+
+        // Главный передний рубиновый кристалл диалога (z = +0.16)
+        const frontContour = [
+          [-0.64, 0.36], [0.46, 0.36],
+          [0.58, 0.24],  [0.58, -0.18],
+          [0.46, -0.30], [-0.14, -0.30],
+          [-0.44, -0.58], [-0.34, -0.30],
+          [-0.64, -0.30], [-0.74, -0.18],
+          [-0.74, 0.24],
+        ];
+        mb.addRidgedShape(
+          frontContour, 0.09, 0.20,
+          MAT_RUBY, MAT_RUBY, MAT_GOLD,
+          mat4TRS([0, 0, 0.14], [0, -0.06, 0]),
+          0.84, [-0.08, 0.03]
+        );
+
+        // Внутренняя углублённая золотая рамка-окно + 3 объёмных золотых ромба диалога
+        mb.addBox(0.76, 0.30, 0.06, 0.018, MAT_OBSIDIAN, mat4TRS([-0.08, 0.03, 0.34], [0, -0.06, 0]));
+        [-0.30, -0.08, 0.14].forEach((x, idx) => {
+          const s = idx === 1 ? 0.088 : 0.068;
+          mb.addOctahedron(s, s * 1.28, s, MAT_GOLD, mat4TRS([x, 0.03, 0.39], [0, 0, 0]));
+          mb.addOctahedron(s * 0.48, s * 0.65, s * 0.48, MAT_CORE, mat4TRS([x, 0.03, 0.42]));
+          // Дублируем золотые искры и с обратной стороны кристалла для 360°-объёма
+          mb.addOctahedron(s * 0.85, s * 1.1, s * 0.85, MAT_GOLD, mat4TRS([x, 0.03, -0.07]));
+        });
+
+        // Второй объёмный кристалл-эхо на заднем плане (обсидиан + золотая окантовка)
+        const backContour = [
+          [-0.44, 0.28], [0.48, 0.28],
+          [0.56, 0.18],  [0.56, -0.16],
+          [0.44, -0.26], [0.22, -0.26],
+          [0.34, -0.50], [0.08, -0.26],
+          [-0.44, -0.26], [-0.54, -0.16],
+          [-0.54, 0.18],
+        ];
+        mb.addRidgedShape(
+          backContour, 0.07, 0.16,
+          MAT_OBSIDIAN, MAT_GOLD, MAT_GOLD,
+          mat4TRS([0.28, 0.36, -0.22], [0, 0.08, 0]),
+          0.84, [0, 0.02]
+        );
+        mb.addOctahedron(0.06, 0.08, 0.06, MAT_GOLD, mat4TRS([0.16, 0.38, -0.39]));
+        mb.addOctahedron(0.06, 0.08, 0.06, MAT_GOLD, mat4TRS([0.38, 0.38, -0.39]));
+
+        return mb.normalize(0.95);
+      }
+
+      /* 7. МАСТЕР СВОЕГО ДЕЛА — Ювелирный бриллиант в 4 золотых крапанах */
+      function buildDiamondModel() {
+        const mb = new MeshBuilder();
+        const tilt = mat4TRS([0, 0.12, 0], [0.16, 0, -0.08]);
+
+        // 16-гранный классический рубиновый бриллиант (площадка, корона, рундист, глубокий павильон)
+        mb.addLathe(
+          [
+            [0, -0.74],
+            [0.38, -0.30],
+            [0.72, 0.02],
+            [0.72, 0.10],
+            [0.50, 0.34],
+            [0, 0.34],
+          ],
+          16,
+          MAT_RUBY,
+          true,
+          tilt
+        );
+        // Внутренний золотой огонёк-сердцевина, преломляющийся в верхней площадке
+        mb.addGemCut(8, 0.12, 0.04, 0.16, 0.14, 0.24, MAT_CORE, mat4Mul(tilt, mat4TRS([0, 0.24, 0])));
+
+        // Ювелирная золотая оправа: кольцо каста и 4 изящных крапана-лапки
+        mb.addTorus(0.46, 0.045, 24, 10, MAT_GOLD, false, mat4Mul(tilt, mat4TRS([0, -0.30, 0], [Math.PI * 0.5, 0, 0])));
+        mb.addTorus(0.24, 0.042, 20, 8, MAT_OBSIDIAN, false, mat4Mul(tilt, mat4TRS([0, -0.62, 0], [Math.PI * 0.5, 0, 0])));
+
+        for (let i = 0; i < 4; i++) {
+          const a = (i / 4) * Math.PI * 2 + Math.PI * 0.25;
+          const pm = mat4Mul(tilt, mat4TRS([0, 0, 0], [0, a, 0]));
+          mb.addTubePath(
+            [[0.22, -0.64, 0], [0.46, -0.30, 0], [0.73, 0.06, 0], [0.64, 0.28, 0]],
+            [0.032, 0.038, 0.040, 0.028],
+            8,
+            MAT_GOLD,
+            false,
+            pm
+          );
+          mb.addOctahedron(0.055, 0.055, 0.055, MAT_GOLD, mat4Mul(pm, mat4TRS([0.62, 0.31, 0])));
+        }
+
+        // Парящие золотые искры-сателлиты над бриллиантом
+        mb.addOctahedron(0.06, 0.12, 0.06, MAT_GOLD, mat4TRS([0, 0.80, 0]));
+        mb.addOctahedron(0.045, 0.085, 0.045, MAT_GOLD, mat4TRS([-0.68, 0.58, 0.20]));
+        mb.addOctahedron(0.045, 0.085, 0.045, MAT_GOLD, mat4TRS([0.68, 0.52, -0.20]));
+
+        return mb.normalize(0.94);
+      }
+
+      /* 8. ВСЕГДА НА ШАГ ВПЕРЕДИ — Острая 3D-молния с золотым кинетическим стержнем */
+      function buildLightningModel() {
+        const mb = new MeshBuilder();
+        const top = [0.30, 0.98, 0];
+        const bot = [-0.30, -0.98, 0];
+        const l1 = [-0.58, -0.05, 0];
+        const l2 = [-0.04, -0.07, 0];
+        const r1 = [0.05, 0.08, 0];
+        const r2 = [0.58, 0.07, 0];
+        const s1F = [-0.24, 0.02, 0.24], s1B = [-0.24, 0.02, -0.24];
+        const s2F = [0.24, -0.01, 0.24], s2B = [0.24, -0.01, -0.24];
+
+        // Верхнее лезвие
+        mb.addTri(top, l1, s1F, MAT_RUBY, true);
+        mb.addTri(top, s1F, r1, MAT_RUBY, true);
+        mb.addTri(top, s1B, l1, MAT_RUBY, true);
+        mb.addTri(top, r1, s1B, MAT_RUBY, true);
+
+        // Центральный Z-мост
+        mb.addTri(s1F, r1, r2, MAT_RUBY, true);
+        mb.addTri(s1F, r2, s2F, MAT_RUBY, true);
+        mb.addTri(s1F, s2F, l2, MAT_RUBY, true);
+        mb.addTri(s1F, l2, l1, MAT_RUBY, true);
+
+        mb.addTri(s1B, r2, r1, MAT_RUBY, true);
+        mb.addTri(s1B, s2B, r2, MAT_RUBY, true);
+        mb.addTri(s1B, l2, s2B, MAT_RUBY, true);
+        mb.addTri(s1B, l1, l2, MAT_RUBY, true);
+
+        // Нижнее лезвие
+        mb.addTri(l2, bot, s2F, MAT_RUBY, true);
+        mb.addTri(s2F, bot, r2, MAT_RUBY, true);
+        mb.addTri(l2, s2B, bot, MAT_RUBY, true);
+        mb.addTri(s2B, r2, bot, MAT_RUBY, true);
+
+        // Врезной золотой кинетический хребет, проходящий вдоль молнии
+        mb.addTubePath(
+          [[0.22, 0.78, 0], [-0.20, 0.04, 0.16], [0.20, -0.02, 0.16], [-0.22, -0.78, 0]],
+          [0.026, 0.048, 0.048, 0.026],
+          6,
+          MAT_GOLD,
+          false
+        );
+        mb.addTubePath(
+          [[0.22, 0.78, 0], [-0.20, 0.04, -0.16], [0.20, -0.02, -0.16], [-0.22, -0.78, 0]],
+          [0.026, 0.048, 0.048, 0.026],
+          6,
+          MAT_GOLD,
+          false
+        );
+        mb.addOctahedron(0.11, 0.14, 0.29, MAT_CORE, mat4TRS([0, 0.01, 0]));
+
+        // Кинетическое золотое кольцо скорости и 4 осколка-спутника
+        mb.addTorus(0.74, 0.026, 30, 8, MAT_GOLD, false, mat4TRS([0, 0, 0], [1.15, -0.35, 0.55]));
+        mb.addShard(0.32, 0.065, 6, MAT_GOLD, mat4TRS([-0.68, 0.52, 0.18], [0.2, 0, -0.6]));
+        mb.addShard(0.30, 0.060, 6, MAT_RUBY, mat4TRS([0.66, -0.48, -0.18], [-0.2, 0, -0.6]));
+        mb.addShard(0.24, 0.052, 6, MAT_GOLD, mat4TRS([0.56, 0.54, -0.22], [0.1, 0, 0.5]));
+        mb.addShard(0.24, 0.052, 6, MAT_RUBY, mat4TRS([-0.58, -0.52, 0.22], [-0.1, 0, 0.5]));
+
+        return mb.normalize(0.95);
+      }
+
+      /* 9. ОТКРЫТИЕ ГОДА — Суперновая звезда с золотыми лучами и орбитальными искрами */
+      function buildStarModel() {
+        const mb = new MeshBuilder();
+        // Главная 4-лучевая рубиновая звезда с высоким рельефом
+        mb.addStar3D(4, 0.96, 0.25, 0.32, MAT_RUBY, mat4Ident(), 0.022);
+        // Диагональная золотая 4-лучевая звезда второго порядка
+        mb.addStar3D(4, 0.62, 0.18, 0.21, MAT_GOLD, mat4TRS([0, 0, 0], [0, 0, Math.PI * 0.25]), 0.022);
+        // Ярчайшая сердцевина сверхновой
+        mb.addOctahedron(0.19, 0.22, 0.36, MAT_CORE, mat4Ident());
+
+        // Тонкий золотой орбитальный венец + 3 спутника-искры
+        const ringM = mat4TRS([0, 0, 0], [1.05, 0.42, -0.32]);
+        mb.addTorus(0.84, 0.026, 32, 8, MAT_GOLD, false, ringM);
+        [0, 2.1, 4.2].forEach((a, idx) => {
+          const pos = xformPt(ringM, [Math.cos(a) * 0.84, 0, Math.sin(a) * 0.84]);
+          mb.addOctahedron(0.065, 0.095, 0.065, idx === 0 ? MAT_RUBY : MAT_GOLD, mat4TRS(pos));
+        });
+
+        return mb.normalize(0.95);
+      }
+
+      /* 10. МАСТЕР ВЫГОДНЫХ ПРЕДЛОЖЕНИЙ — Ювелирная VIP-бирка с объёмным «%» и кольцом */
+      function buildPromoModel() {
+        const mb = new MeshBuilder();
+        const tagTilt = mat4TRS([0, -0.04, 0], [0, 0, -0.34]);
+
+        // Гранёная рубиновая VIP-бирка с плотной толщиной и золотыми бортами
+        const tagContour = [
+          [-0.44, -0.68],
+          [0.44, -0.68],
+          [0.44, 0.34],
+          [0.18, 0.72],
+          [-0.18, 0.72],
+          [-0.44, 0.34],
+        ];
+        mb.addRidgedShape(
+          tagContour, 0.08, 0.18,
+          MAT_RUBY, MAT_GOLD, MAT_OBSIDIAN,
+          tagTilt, 0.84, [0, -0.02]
+        );
+
+        // Люверс (золотое кольцо на самой бирке) + сцепленное кольцо-подвес сверху
+        mb.addTorus(0.095, 0.028, 16, 8, MAT_GOLD, false, mat4Mul(tagTilt, mat4TRS([0, 0.48, 0.14], [Math.PI * 0.5, 0, 0])));
+        mb.addTorus(0.095, 0.028, 16, 8, MAT_GOLD, false, mat4Mul(tagTilt, mat4TRS([0, 0.48, -0.14], [Math.PI * 0.5, 0, 0])));
+        mb.addTorus(0.20, 0.032, 24, 8, MAT_GOLD, false, mat4Mul(tagTilt, mat4TRS([0, 0.74, 0], [0.15, Math.PI * 0.45, 0])));
+
+        // Рельефный 3D-знак «%» из шампанского золота на обеих сторонах бирки
+        [-1, 1].forEach((side) => {
+          const z = side * 0.19;
+          const m = mat4Mul(tagTilt, mat4TRS([0, -0.12, z]));
+          mb.addTubePath(
+            [[-0.22, -0.26, 0], [0.22, 0.26, 0]],
+            0.036,
+            6,
+            MAT_GOLD,
+            false,
+            m
+          );
+          mb.addOctahedron(0.10, 0.10, 0.06, MAT_GOLD, mat4Mul(m, mat4TRS([-0.16, 0.17, 0])));
+          mb.addOctahedron(0.10, 0.10, 0.06, MAT_GOLD, mat4Mul(m, mat4TRS([0.16, -0.17, 0])));
+          mb.addOctahedron(0.045, 0.045, 0.045, MAT_CORE, mat4Mul(m, mat4TRS([-0.16, 0.17, side * 0.04])));
+          mb.addOctahedron(0.045, 0.045, 0.045, MAT_CORE, mat4Mul(m, mat4TRS([0.16, -0.17, side * 0.04])));
+        });
+
+        // Парящая золотая звезда выгоды сбоку
+        mb.addStar3D(4, 0.20, 0.07, 0.075, MAT_GOLD, mat4TRS([-0.58, 0.48, 0.18], [0.2, 0.3, 0.2]));
+
+        return mb.normalize(0.95);
+      }
+
+      /* ---------- Детали для составной многочастной Hero-сцены ---------- */
+      function buildHeroMonolithCore() {
+        const mb = new MeshBuilder();
+        // Главный 8-гранный королевский обелиск из огранённого рубина
+        mb.addLathe(
+          [
+            [0, -0.62],
+            [0.28, -0.26],
+            [0.31, 0.24],
+            [0.22, 0.48],
+            [0, 0.62],
+          ],
+          8,
+          MAT_RUBY,
+          true
+        );
+        // Внешний золотой пояс-оправа у нижнего яруса + 4 изящных золотых крапана без пересечения граней
+        mb.addTorus(0.34, 0.022, 28, 8, MAT_GOLD, false, mat4TRS([0, -0.26, 0], [Math.PI * 0.5, 0, 0]));
+        for (let i = 0; i < 4; i++) {
+          const a = (i / 4) * Math.PI * 2 + Math.PI * 0.25;
+          const m = mat4TRS([0, 0, 0], [0, a, 0]);
+          mb.addTubePath(
+            [[0.18, -0.46, 0], [0.345, -0.24, 0], [0.355, 0.22, 0], [0.25, 0.48, 0], [0.11, 0.59, 0]],
+            [0.016, 0.024, 0.022, 0.018, 0.012],
+            6,
+            MAT_GOLD,
+            false,
+            m
+          );
+        }
+        // Светящееся внутреннее сердце шампань-рубин
+        mb.addOctahedron(0.11, 0.28, 0.11, MAT_CORE, mat4Ident());
+        // Парящий 4-лучевой золотой венец над обелиском
+        mb.addStar3D(4, 0.17, 0.055, 0.055, MAT_GOLD, mat4TRS([0, 0.76, 0], [0, 0, 0]));
+        return mb.normalize(0.76);
+      }
+
+      function buildHeroPedestal() {
+        const mb = new MeshBuilder();
+        mb.addLathe(
+          [
+            [0, -0.14],
+            [0.74, -0.14],
+            [0.78, -0.07],
+            [0.64, 0.01],
+            [0.68, 0.05],
+            [0.54, 0.11],
+            [0, 0.11],
+          ],
+          8,
+          MAT_OBSIDIAN,
+          true
+        );
+        mb.addLathe([[0.64, 0.01], [0.70, 0.045], [0.64, 0.08]], 8, MAT_GOLD, true);
+        mb.addTorus(0.56, 0.02, 24, 6, MAT_RUBY, true, mat4TRS([0, 0.10, 0], [Math.PI * 0.5, 0, 0]));
+        return mb;
+      }
+
+      function buildHeroGyroRing(radius, matRing, matGems) {
+        const mb = new MeshBuilder();
+        mb.addTorus(radius, 0.017, 48, 10, matRing, false, mat4TRS([0, 0, 0], [Math.PI * 0.5, 0, 0]));
+        for (let i = 0; i < 4; i++) {
+          const a = (i / 4) * Math.PI * 2;
+          mb.addOctahedron(
+            0.048, 0.072, 0.048,
+            matGems,
+            mat4TRS([Math.cos(a) * radius, 0, Math.sin(a) * radius], [0, a, 0])
+          );
+        }
+        return mb;
+      }
+
+      function buildHeroShard(mat) {
+        const mb = new MeshBuilder();
+        mb.addShard(0.28, 0.068, 6, mat);
+        return mb;
+      }
+
+      /* ---------- Шейдеры WebGL1 (GLSL ES 1.00) ---------- */
+      const VS_SOURCE = `
+        attribute vec3 aPos;
+        attribute vec3 aNormal;
+        attribute vec3 aEdge;
+        attribute float aMat;
+
+        uniform mat4 uProj;
+        uniform mat4 uView;
+        uniform mat4 uModel;
+        uniform mat3 uNormalMat;
+
+        varying vec3 vWorldPos;
+        varying vec3 vLocalPos;
+        varying vec3 vNormal;
+        varying vec3 vEdge;
+        varying float vMat;
+
+        void main() {
+          vec4 wp = uModel * vec4(aPos, 1.0);
+          vWorldPos = wp.xyz;
+          vLocalPos = aPos;
+          vNormal = uNormalMat * aNormal;
+          vEdge = aEdge;
+          vMat = aMat;
+          gl_Position = uProj * uView * wp;
+        }
+      `;
+
+      const FS_SOURCE = `
+        #ifdef GL_FRAGMENT_PRECISION_HIGH
+          precision highp float;
+        #else
+          precision mediump float;
+        #endif
+
+        varying vec3 vWorldPos;
+        varying vec3 vLocalPos;
+        varying vec3 vNormal;
+        varying vec3 vEdge;
+        varying float vMat;
+
+        uniform vec3 uCamPos;
+        uniform float uBoost;
+        uniform float uTime;
+
+        vec3 sampleStudioEnv(vec3 R, float rough) {
+          vec3 dir = normalize(R);
+
+          // Тёмная ювелирная студия + тёплый горизонт для чёткого металлического глянца
+          vec3 env = vec3(0.015, 0.012, 0.018);
+          float horizon = pow(1.0 - abs(dir.y), 6.0);
+          env += vec3(0.28, 0.22, 0.16) * horizon;
+
+          // Главный верхне-правый софтбокс (тёплый белый/шампань)
+          vec3 Lkey = normalize(vec3(0.45, 0.80, 0.56));
+          float kDot = max(dot(dir, Lkey), 0.0);
+          env += vec3(2.90, 2.65, 2.35) * pow(kDot, mix(36.0, 3.6, rough));
+          env += vec3(1.90, 1.80, 1.70) * pow(kDot, mix(165.0, 10.0, rough));
+
+          // Мягкий передне-левый заполняющий свет (чтобы золото блестело золотом со всех сторон)
+          vec3 Lfill = normalize(vec3(-0.62, 0.45, 0.64));
+          env += vec3(1.45, 1.25, 1.02) * pow(max(dot(dir, Lfill), 0.0), mix(24.0, 3.2, rough));
+
+          // Акцентный рубиновый рефлекс слева-сзади (не заливает золото красным)
+          vec3 Lcrim = normalize(vec3(-0.92, -0.08, 0.22));
+          env += vec3(1.15, 0.05, 0.14) * pow(max(dot(dir, Lcrim), 0.0), mix(30.0, 3.5, rough));
+
+          // Правый стрип-бокс оттенка шампань
+          vec3 Lgold = normalize(vec3(0.90, 0.24, 0.35));
+          env += vec3(2.10, 1.65, 1.08) * pow(max(dot(dir, Lgold), 0.0), mix(30.0, 3.4, rough));
+
+          return env;
+        }
+
+        void main() {
+          vec3 N = normalize(vNormal);
+          if (!gl_FrontFacing) N = -N;
+          vec3 V = normalize(uCamPos - vWorldPos);
+          float NoV = clamp(dot(N, V), 0.0, 1.0);
+
+          vec3 R = reflect(-V, N);
+          vec3 Lkey = normalize(vec3(0.45, 0.80, 0.56));
+          vec3 Lfill = normalize(vec3(-0.62, 0.45, 0.64));
+
+          float edgeDist = min(vEdge.x, min(vEdge.y, vEdge.z));
+          float bevel = 1.0 - smoothstep(0.0, 0.019, edgeDist);
+          float keyFace = max(dot(N, Lkey), 0.0);
+          float bevelLight = pow(keyFace, 1.8) * (0.25 + 0.75 * NoV);
+
+          vec3 col = vec3(0.0);
+
+          if (vMat < 0.5) {
+            // === МАТЕРИАЛ 0: ГЛУБОКИЙ ОГРАНЁННЫЙ РУБИН (IOR 1.77) ===
+            float fres = 0.085 + 0.915 * pow(1.0 - NoV, 5.0);
+            vec3 R_in = refract(-V, N, 1.0 / 1.77);
+            if (dot(R_in, R_in) < 0.001) R_in = R;
+
+            vec3 bounce = normalize(-R_in + N * 0.52 + vLocalPos * 0.65);
+            float disp = 0.055;
+            float eR = sampleStudioEnv(normalize(bounce + vec3(disp, 0.0, 0.0)), 0.12).r;
+            float eG = sampleStudioEnv(bounce, 0.12).g;
+            float eB = sampleStudioEnv(normalize(bounce - vec3(disp, 0.0, 0.0)), 0.12).b;
+            vec3 internalSpec = vec3(eR, eG, eB);
+
+            float facetLit = max(dot(N, Lkey), 0.0) * 0.78 + max(dot(N, Lfill), 0.0) * 0.22;
+            float facetShimmer = 0.45 + 0.55 * abs(sin(dot(bounce, vec3(7.3, 11.1, 5.9))));
+            float depthGlow = exp(-length(vLocalPos) * 1.65);
+
+            vec3 deepRuby = vec3(0.14, 0.002, 0.02);
+            vec3 midRuby  = vec3(0.88, 0.015, 0.085);
+            vec3 hotRuby  = vec3(1.55, 0.06, 0.18);
+
+            float internalLum = clamp(dot(internalSpec, vec3(0.5, 0.3, 0.2)) * facetShimmer, 0.0, 1.5);
+            vec3 rubyTone = mix(deepRuby, midRuby, clamp(0.18 + facetLit * 0.85, 0.0, 1.0));
+            rubyTone = mix(rubyTone, hotRuby, clamp(internalLum * 0.55 + depthGlow * (0.16 + 0.18 * uBoost), 0.0, 1.0));
+
+            vec3 surfaceSpec = sampleStudioEnv(R, 0.032) * (1.0 + 0.35 * uBoost);
+            col = mix(rubyTone, surfaceSpec, fres * 0.95);
+
+            // Тончайший бриллиантовый блик по светлым рёбрам огранки
+            col += vec3(1.35, 0.82, 0.86) * bevel * bevelLight * (0.32 + 0.25 * uBoost);
+          } else if (vMat < 1.5) {
+            // === МАТЕРИАЛ 1: ДРАГОЦЕННОЕ ШАМПАНСКОЕ ЗОЛОТО 18K ===
+            vec3 goldF0 = vec3(1.0, 0.84, 0.54);
+            vec3 fres = goldF0 + (vec3(1.0) - goldF0) * pow(1.0 - NoV, 5.0);
+            vec3 spec = sampleStudioEnv(R, 0.14) * fres * (1.15 + 0.25 * uBoost);
+            vec3 dome = goldF0 * mix(vec3(0.16, 0.12, 0.07), vec3(0.42, 0.34, 0.22), 0.5 + 0.5 * N.y);
+            col = dome + spec + vec3(0.95, 0.08, 0.14) * max(-N.y * 0.5 + 0.5, 0.0) * 0.03;
+            col += vec3(1.52, 1.32, 0.94) * bevel * bevelLight * 0.30;
+          } else if (vMat < 2.5) {
+            // === МАТЕРИАЛ 2: ПОЛИРОВАННЫЙ ОБСИДИАН / ТЁМНЫЙ ТИТАН ===
+            float fres = 0.11 + 0.89 * pow(1.0 - NoV, 5.0);
+            vec3 spec = sampleStudioEnv(R, 0.11) * (0.24 + 0.94 * fres);
+            vec3 diff = vec3(0.040, 0.042, 0.055) * sampleStudioEnv(N, 0.85);
+            col = diff + spec;
+            col += vec3(0.86, 0.90, 0.98) * bevel * bevelLight * 0.24;
+          } else {
+            // === МАТЕРИАЛ 3: СИЯЮЩЕЕ ЯДРО ШАМПАНЬ-РУБИН ===
+            float pulse = 1.0 + 0.08 * sin(uTime * 3.1);
+            col = mix(vec3(1.65, 0.14, 0.24), vec3(2.25, 1.95, 1.60), pow(NoV, 0.65)) * pulse * (1.0 + 0.35 * uBoost);
+          }
+
+          // Цветосохраняющий фильмовый тонмэппинг (глубокий рубин без выцветания в розовый)
+          float lum = dot(col, vec3(0.2126, 0.7152, 0.0722));
+          float mappedLum = (lum * (1.85 * lum + 0.04)) / (lum * (1.75 * lum + 0.62) + 0.15);
+          col = col * (mappedLum / max(lum, 1e-4));
+          float peak = smoothstep(1.35, 3.2, lum);
+          col = mix(col, vec3(1.0, 0.96, 0.92), peak * 0.45);
+          col = clamp(col, 0.0, 1.0);
+          col = pow(col, vec3(1.0 / 2.2));
+          gl_FragColor = vec4(col, 1.0);
+        }
+      `;
+
+      let glCanvas = null;
+      let gl = null;
+      let prog = null;
+      let locs = null;
+      let meshes = {};
+      let initialized = false;
+      let webglAvailable = true;
+      let rafId = null;
+      let targets = [];
+      let heroTarget = null;
+      let heroSlideTransition = 0;
+      let prevHeroSlide = 0;
+
+      const heroState = {
+        dragYaw: 0,
+        dragPitch: 0,
+        velYaw: 0,
+        velPitch: 0,
+        dragging: false,
+        lastX: 0,
+        lastY: 0,
+        hoverX: 0,
+        hoverY: 0,
+        hovered: false,
+        boost: 0,
+      };
+
+      const cardHoverMap = new WeakMap();
+
+      function compileShader(type, src) {
+        const sh = gl.createShader(type);
+        gl.shaderSource(sh, src);
+        gl.compileShader(sh);
+        if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
+          const log = gl.getShaderInfoLog(sh);
+          gl.deleteShader(sh);
+          throw new Error('Shader error: ' + log);
+        }
+        return sh;
+      }
+
+      function ensureGL() {
+        if (initialized) return webglAvailable;
+        initialized = true;
+        try {
+          glCanvas = document.createElement('canvas');
+          glCanvas.width = MAX_SIZE;
+          glCanvas.height = MAX_SIZE;
+          const opts = {
+            alpha: true,
+            antialias: true,
+            depth: true,
+            premultipliedAlpha: true,
+            preserveDrawingBuffer: true,
+          };
+          gl = glCanvas.getContext('webgl', opts) || glCanvas.getContext('experimental-webgl', opts);
+          if (!gl) {
+            webglAvailable = false;
+            return false;
+          }
+
+          const vs = compileShader(gl.VERTEX_SHADER, VS_SOURCE);
+          const fs = compileShader(gl.FRAGMENT_SHADER, FS_SOURCE);
+          prog = gl.createProgram();
+          gl.attachShader(prog, vs);
+          gl.attachShader(prog, fs);
+          gl.linkProgram(prog);
+          if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+            throw new Error('Link error: ' + gl.getProgramInfoLog(prog));
+          }
+
+          gl.useProgram(prog);
+          locs = {
+            aPos: gl.getAttribLocation(prog, 'aPos'),
+            aNormal: gl.getAttribLocation(prog, 'aNormal'),
+            aEdge: gl.getAttribLocation(prog, 'aEdge'),
+            aMat: gl.getAttribLocation(prog, 'aMat'),
+            uProj: gl.getUniformLocation(prog, 'uProj'),
+            uView: gl.getUniformLocation(prog, 'uView'),
+            uModel: gl.getUniformLocation(prog, 'uModel'),
+            uNormalMat: gl.getUniformLocation(prog, 'uNormalMat'),
+            uCamPos: gl.getUniformLocation(prog, 'uCamPos'),
+            uBoost: gl.getUniformLocation(prog, 'uBoost'),
+            uTime: gl.getUniformLocation(prog, 'uTime'),
+          };
+
+          gl.enableVertexAttribArray(locs.aPos);
+          gl.enableVertexAttribArray(locs.aNormal);
+          gl.enableVertexAttribArray(locs.aEdge);
+          gl.enableVertexAttribArray(locs.aMat);
+
+          gl.enable(gl.DEPTH_TEST);
+          gl.depthFunc(gl.LEQUAL);
+          gl.disable(gl.CULL_FACE);
+          gl.enable(gl.SCISSOR_TEST);
+
+          meshes = {
+            crown: buildCrownModel().build(gl),
+            trophy: buildTrophyModel().build(gl),
+            shield: buildShieldModel().build(gl),
+            heart: buildHeartModel().build(gl),
+            wings: buildWingsModel().build(gl),
+            speech: buildSpeechModel().build(gl),
+            diamond: buildDiamondModel().build(gl),
+            lightning: buildLightningModel().build(gl),
+            star: buildStarModel().build(gl),
+            promo: buildPromoModel().build(gl),
+            heroMonolith: buildHeroMonolithCore().build(gl),
+            heroPedestal: buildHeroPedestal().build(gl),
+            heroGyro1: buildHeroGyroRing(0.98, MAT_GOLD, MAT_RUBY).build(gl),
+            heroGyro2: buildHeroGyroRing(0.81, MAT_OBSIDIAN, MAT_GOLD).build(gl),
+            heroShardRuby: buildHeroShard(MAT_RUBY).build(gl),
+            heroShardGold: buildHeroShard(MAT_GOLD).build(gl),
+          };
+          meshes.bolt = meshes.lightning;
+
+          return true;
+        } catch (err) {
+          console.warn('WebGL 3D fallback active:', err);
+          webglAvailable = false;
+          return false;
+        }
+      }
+
+      function drawMesh(mesh, modelMat, boost, timeSec) {
+        if (!mesh || !mesh.count) return;
+        gl.bindBuffer(gl.ARRAY_BUFFER, mesh.vbo);
+        const stride = 40;
+        gl.vertexAttribPointer(locs.aPos, 3, gl.FLOAT, false, stride, 0);
+        gl.vertexAttribPointer(locs.aNormal, 3, gl.FLOAT, false, stride, 12);
+        gl.vertexAttribPointer(locs.aEdge, 3, gl.FLOAT, false, stride, 24);
+        gl.vertexAttribPointer(locs.aMat, 1, gl.FLOAT, false, stride, 36);
+
+        gl.uniformMatrix4fv(locs.uModel, false, modelMat);
+        gl.uniformMatrix3fv(locs.uNormalMat, false, mat4NormalMat3(modelMat));
+        gl.uniform1f(locs.uBoost, boost);
+        gl.uniform1f(locs.uTime, timeSec);
+        gl.drawArrays(gl.TRIANGLES, 0, mesh.count);
+      }
+
+      function setupViewportAndCam(tw, th, camDist = 3.22, camY = 0.24) {
+        gl.scissor(0, MAX_SIZE - th, tw, th);
+        gl.viewport(0, MAX_SIZE - th, tw, th);
+        gl.clearColor(0, 0, 0, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+        const aspect = tw / th;
+        const proj = mat4Perspective((38 * Math.PI) / 180, aspect, 0.1, 20.0);
+        const eye = [0, camY, camDist];
+        const view = mat4LookAt(eye, [0, 0, 0], [0, 1, 0]);
+        gl.uniformMatrix4fv(locs.uProj, false, proj);
+        gl.uniformMatrix4fv(locs.uView, false, view);
+        gl.uniform3f(locs.uCamPos, eye[0], eye[1], eye[2]);
+      }
+
+      function blitToCanvas(canvas, tw, th) {
+        if (canvas.width !== tw || canvas.height !== th) {
+          canvas.width = tw;
+          canvas.height = th;
+        }
+        const ctx2d = canvas.getContext('2d');
+        if (!ctx2d) return false;
+        ctx2d.clearRect(0, 0, tw, th);
+        ctx2d.drawImage(glCanvas, 0, 0, tw, th, 0, 0, tw, th);
+        return true;
+      }
+
+      function renderHero(canvas, tw, th, timeSec) {
+        setupViewportAndCam(tw, th, 3.68, 0.24);
+
+        const slideIdx = typeof state !== 'undefined' ? state.heroIndex : 0;
+        if (slideIdx !== prevHeroSlide) {
+          prevHeroSlide = slideIdx;
+          heroSlideTransition = 1.0;
+        }
+        heroSlideTransition *= 0.90;
+
+        if (!heroState.dragging) {
+          heroState.dragYaw += heroState.velYaw;
+          heroState.dragPitch += heroState.velPitch;
+          heroState.velYaw *= 0.92;
+          heroState.velPitch *= 0.92;
+          heroState.dragPitch *= 0.96;
+        }
+        heroState.boost += ((heroState.hovered ? 0.65 : 0.18) - heroState.boost) * 0.08;
+
+        const basePitch = 0.08 + heroState.hoverY * 0.16 + heroState.dragPitch;
+        const baseYaw = heroState.hoverX * 0.28 + heroState.dragYaw;
+        const rootRot = mat4TRS([0, 0.02, 0], [basePitch, baseYaw, 0]);
+
+        // 1. Парящий обсидиано-золотой пьедестал
+        const pedY = -0.92 + Math.sin(timeSec * 1.1) * 0.018;
+        const pedM = mat4Mul(rootRot, mat4TRS([0, pedY, 0], [0, timeSec * 0.22, 0], [0.76, 0.76, 0.76]));
+        drawMesh(meshes.heroPedestal, pedM, heroState.boost * 0.5, timeSec);
+
+        // 2. Двойные встречно-вращающиеся гироскопические кольца
+        const g1M = mat4Mul(
+          rootRot,
+          mat4TRS([0, 0.12, 0], [0.34 + Math.sin(timeSec * 0.5) * 0.06, timeSec * 0.36, 0.22])
+        );
+        drawMesh(meshes.heroGyro1, g1M, heroState.boost * 0.7, timeSec);
+
+        const g2M = mat4Mul(
+          rootRot,
+          mat4TRS([0, 0.12, 0], [-0.36 + Math.cos(timeSec * 0.45) * 0.06, -timeSec * 0.48, -0.25])
+        );
+        drawMesh(meshes.heroGyro2, g2M, heroState.boost * 0.7, timeSec);
+
+        // 3. 6 орбитальных 3D-осколков рубина и золота
+        for (let i = 0; i < 6; i++) {
+          const ang = (i / 6) * Math.PI * 2 + timeSec * (i % 2 === 0 ? 0.26 : -0.22);
+          const rad = i % 2 === 0 ? 1.12 : 0.94;
+          const sy = 0.10 + Math.sin(timeSec * 1.35 + i * 1.2) * 0.22 + (i % 3 - 1) * 0.20;
+          const sm = mat4Mul(
+            rootRot,
+            mat4TRS(
+              [Math.cos(ang) * rad, sy, Math.sin(ang) * rad],
+              [0.35 + i * 0.3, timeSec * 0.9 + i, 0.25],
+              [0.60, 0.60, 0.60]
+            )
+          );
+          drawMesh(i % 2 === 0 ? meshes.heroShardRuby : meshes.heroShardGold, sm, heroState.boost, timeSec);
+        }
+
+        // 4. Центральный главный трофей в зависимости от активного слайда
+        const slideModels = [meshes.heroMonolith, meshes.trophy, meshes.heart];
+        const centerMesh = slideModels[slideIdx % slideModels.length] || meshes.heroMonolith;
+        const spinBurst = heroSlideTransition * Math.PI * 1.25;
+        const floatY = 0.14 + Math.sin(timeSec * 1.4) * 0.04;
+        const centerScale = slideIdx === 0 ? 0.96 : 0.78;
+        const centerM = mat4Mul(
+          rootRot,
+          mat4TRS(
+            [0, floatY, 0],
+            [Math.sin(timeSec * 0.7) * 0.05, timeSec * 0.55 + spinBurst, Math.cos(timeSec * 0.6) * 0.03],
+            [centerScale, centerScale, centerScale]
+          )
+        );
+        drawMesh(centerMesh, centerM, 0.3 + heroState.boost, timeSec);
+
+        if (blitToCanvas(canvas, tw, th)) {
+          canvas.parentElement?.classList.add('is-3d-ready');
+        }
+      }
+
+      function renderSingleTarget(item, timeSec) {
+        const { canvas, modelName, variant, idx } = item;
+        const mesh = meshes[modelName] || meshes.crown;
+        if (!mesh) return;
+
+        const rect = canvas.getBoundingClientRect();
+        if (rect.width < 4 || rect.height < 4) return;
+        if (rect.bottom < -90 || rect.top > window.innerHeight + 90) return;
+
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const tw = Math.min(MAX_SIZE, Math.max(2, Math.round(rect.width * dpr)));
+        const th = Math.min(MAX_SIZE, Math.max(2, Math.round(rect.height * dpr)));
+
+        if (variant === 'hero') {
+          renderHero(canvas, tw, th, timeSec);
+          return;
+        }
+
+        const camDist = variant === 'ceremony' ? 3.08 : variant === 'modal' ? 3.12 : 3.22;
+        setupViewportAndCam(tw, th, camDist, variant === 'hof-mini' ? 0.14 : 0.22);
+
+        const phase = idx * 0.95;
+        const hover = cardHoverMap.get(canvas) || { rx: 0, ry: 0, targetRx: 0, targetRy: 0, boost: 0, targetBoost: 0 };
+        hover.rx += (hover.targetRx - hover.rx) * 0.12;
+        hover.ry += (hover.targetRy - hover.ry) * 0.12;
+        hover.boost += (hover.targetBoost - hover.boost) * 0.10;
+        cardHoverMap.set(canvas, hover);
+
+        const isVoted = canvas.getAttribute('data-voted') === '1';
+        let speed = 0.52;
+        let floatAmp = 0.036;
+        if (variant === 'hof-mini') {
+          speed = 0.62;
+          floatAmp = 0.025;
+        } else if (variant === 'ceremony') {
+          speed = 0.48;
+          floatAmp = 0.045;
+        } else if (variant === 'waiting') {
+          speed = 0.44;
+          floatAmp = 0.04;
+        }
+
+        // Для плоских/фронтальных силуэтов (щит, диалог, молния, промо-бирка, сердце) — элегантное 3D-покачивание + полный оборот при наведении
+        const frontOriented = ['shield', 'speech', 'lightning', 'promo', 'heart', 'wings'].includes(modelName);
+        const yaw = frontOriented
+          ? Math.sin(timeSec * 0.82 + phase) * 0.54 + hover.ry
+          : timeSec * speed + phase + hover.ry;
+        const pitch = Math.sin(timeSec * 0.68 + phase) * 0.06 + hover.rx;
+        const floatY = Math.sin(timeSec * 1.4 + phase) * floatAmp;
+        const scl = 1 + hover.boost * 0.055;
+
+        const m = mat4TRS([0, floatY, 0], [pitch, yaw, 0], [scl, scl, scl]);
+        const totalBoost = Math.min(1.2, (isVoted ? 0.55 : 0.12) + hover.boost * 0.75 + (variant === 'ceremony' ? 0.35 : 0));
+
+        drawMesh(mesh, m, totalBoost, timeSec);
+        if (blitToCanvas(canvas, tw, th)) {
+          canvas.closest('.crystal-3d-shell')?.classList.add('is-3d-ready');
+        }
+      }
+
+      function frame(nowMs) {
+        rafId = null;
+        if (document.hidden) return;
+
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const timeSec = reduceMotion ? 0.85 : nowMs * 0.001;
+
+        if (heroTarget && heroTarget.canvas.isConnected) {
+          renderSingleTarget(heroTarget, timeSec);
+        }
+
+        for (let i = 0; i < targets.length; i++) {
+          const item = targets[i];
+          if (!item.canvas.isConnected) continue;
+          if (item.canvas.closest('.modal-backdrop:not(.is-open), .ceremony-overlay:not(.is-open)')) continue;
+          renderSingleTarget(item, timeSec);
+        }
+
+        if (!reduceMotion && (targets.length > 0 || heroTarget)) {
+          rafId = requestAnimationFrame(frame);
+        }
+      }
+
+      function startLoop() {
+        if (rafId !== null) return;
+        rafId = requestAnimationFrame(frame);
+      }
+
+      function bindHeroInteractions() {
+        const heroCanvas = document.getElementById('hero-3d-canvas');
+        if (!heroCanvas || heroCanvas.dataset.boundHero) return;
+        heroCanvas.dataset.boundHero = '1';
+
+        heroCanvas.addEventListener('pointerdown', (e) => {
+          if (e.pointerType !== 'mouse') return;
+          heroState.dragging = true;
+          heroState.lastX = e.clientX;
+          heroState.lastY = e.clientY;
+          heroCanvas.setPointerCapture?.(e.pointerId);
+        });
+
+        window.addEventListener('pointermove', (e) => {
+          if (heroState.dragging) {
+            const dx = e.clientX - heroState.lastX;
+            const dy = e.clientY - heroState.lastY;
+            heroState.lastX = e.clientX;
+            heroState.lastY = e.clientY;
+            heroState.velYaw = dx * 0.009;
+            heroState.velPitch = dy * 0.006;
+            heroState.dragYaw += heroState.velYaw;
+            heroState.dragPitch = Math.max(-0.55, Math.min(0.55, heroState.dragPitch + heroState.velPitch));
+          } else if (e.pointerType === 'mouse') {
+            heroState.hoverX = e.clientX / window.innerWidth - 0.5;
+            heroState.hoverY = e.clientY / window.innerHeight - 0.5;
+          }
+        }, { passive: true });
+
+        window.addEventListener('pointerup', () => {
+          heroState.dragging = false;
+        });
+
+        heroCanvas.addEventListener('mouseenter', () => {
+          heroState.hovered = true;
+        });
+        heroCanvas.addEventListener('mouseleave', () => {
+          heroState.hovered = false;
+        });
+      }
+
+      function bindCardHover(canvas) {
+        const wrap = canvas.closest('.crystal-tilt-wrap');
+        if (!wrap || wrap.dataset.bound3dHover) return;
+        wrap.dataset.bound3dHover = '1';
+
+        if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+
+        wrap.addEventListener('mousemove', (e) => {
+          const r = wrap.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          const st = cardHoverMap.get(canvas) || { rx: 0, ry: 0, targetRx: 0, targetRy: 0, boost: 0, targetBoost: 0 };
+          st.targetRy = px * 0.95;
+          st.targetRx = py * 0.52;
+          st.targetBoost = 1.0;
+          cardHoverMap.set(canvas, st);
+        });
+
+        wrap.addEventListener('mouseleave', () => {
+          const st = cardHoverMap.get(canvas);
+          if (st) {
+            st.targetRy = 0;
+            st.targetRx = 0;
+            st.targetBoost = 0;
+          }
+        });
+      }
+
+      function refreshTargets() {
+        if (!ensureGL()) return;
+        bindHeroInteractions();
+
+        const heroCanvas = document.getElementById('hero-3d-canvas');
+        heroTarget = heroCanvas ? { canvas: heroCanvas, modelName: 'hero', variant: 'hero', idx: 0 } : null;
+
+        const list = Array.from(document.querySelectorAll('canvas.trophy-3d-canvas'));
+        targets = list.map((canvas, idx) => {
+          bindCardHover(canvas);
+          return {
+            canvas,
+            modelName: canvas.getAttribute('data-model') || 'crown',
+            variant: canvas.getAttribute('data-variant') || 'card',
+            idx,
+          };
+        });
+
+        startLoop();
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && initialized && webglAvailable) {
+          startLoop();
+        }
+      });
+
+      return {
+        refreshTargets,
+        isReady: () => webglAvailable,
+      };
+    })();
+
+    /**
+     * =========================================================================
+     * 4. РЕЗЕРВНЫЕ SVG-КРИСТАЛЛЫ И ОБЁРТКА 3D-ХОЛСТА
      * =========================================================================
      */
     let svgUidSeq = 0;
@@ -3985,7 +5257,6 @@
       `;
 
       switch (icon) {
-        /* 1. КОРОЛЕВА МАГНИТА — Императорская рубиновая корона-тиара */
         case 'crown':
           return `
             <svg viewBox="0 0 220 200" style="width:100%;height:100%;overflow:visible;" fill="none">
@@ -4010,7 +5281,6 @@
             </svg>
           `;
 
-        /* 2. ЛЕГЕНДА МАГНИТА — Кристальный кубок легенды с парящей звездой */
         case 'trophy':
           return `
             <svg viewBox="0 0 220 200" style="width:100%;height:100%;overflow:visible;" fill="none">
@@ -4032,7 +5302,6 @@
             </svg>
           `;
 
-        /* 3. ЗОЛОТОЙ СТАНДАРТ — Обсидианово-рубиновый щит с золотым эталоном */
         case 'shield':
           return `
             <svg viewBox="0 0 220 200" style="width:100%;height:100%;overflow:visible;" fill="none">
@@ -4056,7 +5325,6 @@
             </svg>
           `;
 
-        /* 4. ДУША КОЛЛЕКТИВА — Многогранное рубиновое сердце */
         case 'heart':
           return `
             <svg viewBox="0 0 220 200" style="width:100%;height:100%;overflow:visible;" fill="none">
@@ -4083,22 +5351,18 @@
             </svg>
           `;
 
-        /* 5. ВСЕГДА РЯДОМ — Кристальные крылья поддержки вокруг золотого ядра */
         case 'wings':
           return `
             <svg viewBox="0 0 220 200" style="width:100%;height:100%;overflow:visible;" fill="none">
               ${defs}
-              <!-- Левое крыло (3 гранёных пера) -->
               <polygon points="94,96 22,36 14,68 78,108" fill="url(#${p}b)" stroke="#ffccd2" stroke-width="0.95" />
               <polygon points="22,36 58,72 14,68" fill="url(#${p}sp)" opacity="0.62" />
               <polygon points="90,108 18,86 24,116 82,126" fill="url(#${p}d)" stroke="#ff8294" stroke-width="0.9" />
               <polygon points="88,124 38,128 52,152 94,142" fill="url(#${p}g)" stroke="#ffefc4" stroke-width="0.9" />
-              <!-- Правое крыло (3 гранёных пера) -->
               <polygon points="126,96 198,36 206,68 142,108" fill="url(#${p}b)" stroke="#ffccd2" stroke-width="0.95" />
               <polygon points="198,36 162,72 206,68" fill="url(#${p}d)" opacity="0.72" />
               <polygon points="130,108 202,86 196,116 138,126" fill="url(#${p}d)" stroke="#ff8294" stroke-width="0.9" />
               <polygon points="132,124 182,128 168,152 126,142" fill="url(#${p}g)" stroke="#ffefc4" stroke-width="0.9" />
-              <!-- Центральный кристальный оплот -->
               <polygon points="110,40 138,104 110,174 82,104" fill="url(#${p}d)" stroke="#ffe6d0" stroke-width="1.15" />
               <polygon points="110,40 110,174 82,104" fill="url(#${p}b)" />
               <polygon points="110,40 94,96 110,104" fill="url(#${p}sp)" opacity="0.62" />
@@ -4107,15 +5371,12 @@
             </svg>
           `;
 
-        /* 6. ЭТАЛОН ОБЩЕНИЯ — Гранёный кристалл диалога с золотыми искрами */
         case 'speech':
           return `
             <svg viewBox="0 0 220 200" style="width:100%;height:100%;overflow:visible;" fill="none">
               ${defs}
-              <!-- Заднее обсидианово-золотое облачко -->
               <polygon points="94,30 192,30 202,68 188,112 158,112 166,134 138,112 96,112 86,70" fill="url(#${p}st)" stroke="#e8b874" stroke-width="1" opacity="0.92" />
               <polygon points="94,30 192,30 184,42 102,42" fill="url(#${p}g)" opacity="0.45" />
-              <!-- Главный рубиновый кристалл диалога -->
               <polygon points="28,56 154,56 168,96 154,142 86,142 52,178 60,142 30,142 18,98" fill="url(#${p}d)" stroke="#ffb8c2" stroke-width="1.15" />
               <polygon points="28,56 92,56 76,100 18,98" fill="url(#${p}b)" />
               <polygon points="28,56 76,100 44,82" fill="url(#${p}sp)" opacity="0.58" />
@@ -4123,38 +5384,31 @@
               <polygon points="18,98 76,100 60,142 30,142" fill="#8a0016" opacity="0.88" />
               <polygon points="76,100 168,96 154,142 86,142" fill="#54000d" opacity="0.82" />
               <polygon points="60,142 86,142 52,178" fill="url(#${p}g)" stroke="#fff2cc" stroke-width="0.9" />
-              <!-- Три золотых ромба-искры общения -->
               <polygon points="64,84 74,98 64,112 54,98" fill="url(#${p}g)" stroke="#fff6da" stroke-width="0.9" />
               <polygon points="94,80 106,98 94,116 82,98" fill="url(#${p}g)" stroke="#fff6da" stroke-width="1" />
               <polygon points="124,84 134,98 124,112 114,98" fill="url(#${p}g)" stroke="#fff6da" stroke-width="0.9" />
             </svg>
           `;
 
-        /* 7. МАСТЕР СВОЕГО ДЕЛА — Эталонный бриллиант мастерства в золотой оправе */
         case 'diamond':
           return `
             <svg viewBox="0 0 220 200" style="width:100%;height:100%;overflow:visible;" fill="none">
               ${defs}
-              <!-- Золотые лучи оправы -->
               <polygon points="110,8 118,32 102,32" fill="url(#${p}g)" stroke="#fff4d2" stroke-width="0.8" />
               <polygon points="14,76 38,68 38,84" fill="url(#${p}g)" stroke="#fff4d2" stroke-width="0.8" />
               <polygon points="206,76 182,68 182,84" fill="url(#${p}g)" stroke="#fff4d2" stroke-width="0.8" />
-              <!-- Верхняя площадка бриллианта -->
               <polygon points="62,40 158,40 192,80 110,184 28,80" fill="url(#${p}d)" stroke="#ffc4cc" stroke-width="1.2" />
               <polygon points="62,40 158,40 140,80 80,80" fill="url(#${p}b)" stroke="#ffe0e4" stroke-width="0.8" />
               <polygon points="62,40 80,80 28,80" fill="url(#${p}sp)" opacity="0.68" />
               <polygon points="158,40 192,80 140,80" fill="#7d0014" stroke="#ff7a8a" stroke-width="0.7" />
-              <!-- Нижние грани павильона -->
               <polygon points="28,80 80,80 110,184" fill="url(#${p}b)" stroke="#ff8294" stroke-width="0.75" />
               <polygon points="80,80 140,80 110,184" fill="url(#${p}d)" stroke="#ffb3bd" stroke-width="0.85" />
               <polygon points="140,80 192,80 110,184" fill="#47000b" stroke="#c80422" stroke-width="0.75" />
-              <!-- Внутренний золотой граненый блик -->
               <polygon points="110,50 132,80 110,128 88,80" fill="url(#${p}g)" opacity="0.88" stroke="#fff6da" stroke-width="1" />
               <polygon points="110,50 110,128 88,80" fill="#ffffff" opacity="0.46" />
             </svg>
           `;
 
-        /* 8. ВСЕГДА НА ШАГ ВПЕРЕДИ — Кристальная молния опережения */
         case 'lightning':
         case 'bolt':
           return `
@@ -4176,64 +5430,69 @@
             </svg>
           `;
 
-        /* 9. ОТКРЫТИЕ ГОДА — Восходящая суперновая звезда с орбитальными искрами */
         case 'star':
           return `
             <svg viewBox="0 0 220 200" style="width:100%;height:100%;overflow:visible;" fill="none">
               ${defs}
-              <!-- Малые спутники-искры -->
               <polygon points="46,42 52,54 64,60 52,66 46,78 40,66 28,60 40,54" fill="url(#${p}g)" stroke="#fff4d2" stroke-width="0.7" />
               <polygon points="176,130 181,140 191,145 181,150 176,160 171,150 161,145 171,140" fill="url(#${p}g)" stroke="#fff4d2" stroke-width="0.7" />
               <polygon points="174,38 182,48 174,58 166,48" fill="url(#${p}b)" stroke="#ffccd2" stroke-width="0.7" />
-              <!-- Диагональные рубиновые лучи -->
               <polygon points="110,100 54,44 92,76" fill="url(#${p}d)" stroke="#ff8294" stroke-width="0.8" />
               <polygon points="110,100 166,44 128,76" fill="url(#${p}d)" stroke="#ff8294" stroke-width="0.8" />
               <polygon points="110,100 166,156 128,124" fill="#5e0010" stroke="#c80422" stroke-width="0.8" />
               <polygon points="110,100 54,156 92,124" fill="url(#${p}d)" stroke="#ff8294" stroke-width="0.8" />
-              <!-- Главная 4-лучевая звезда -->
               <polygon points="110,10 130,80 200,100 130,120 110,190 90,120 20,100 90,80" fill="url(#${p}b)" stroke="#ffe2e6" stroke-width="1.15" />
               <polygon points="110,10 110,100 90,80" fill="url(#${p}sp)" opacity="0.72" />
               <polygon points="110,10 130,80 110,100" fill="url(#${p}d)" opacity="0.65" />
               <polygon points="20,100 90,80 110,100" fill="url(#${p}sp)" opacity="0.48" />
               <polygon points="200,100 130,120 110,100" fill="#4f000d" opacity="0.78" />
               <polygon points="110,190 130,120 110,100" fill="#5e0010" opacity="0.82" />
-              <!-- Золотое ядро вспышки -->
               <polygon points="110,66 136,100 110,134 84,100" fill="url(#${p}g)" stroke="#fff6da" stroke-width="1.15" />
               <polygon points="110,66 110,134 84,100" fill="#ffffff" opacity="0.48" />
             </svg>
           `;
 
-        /* 10. МАСТЕР ВЫГОДНЫХ ПРЕДЛОЖЕНИЙ — Ювелирная VIP-бирка с золотым знаком выгоды */
         case 'promo':
         default:
           return `
             <svg viewBox="0 0 220 200" style="width:100%;height:100%;overflow:visible;" fill="none">
               ${defs}
-              <!-- Золотое кольцо крепления -->
               <polygon points="146,16 174,16 184,38 164,54 142,40" fill="none" stroke="url(#${p}g)" stroke-width="3.2" />
-              <!-- Главная гранёная рубиновая VIP-бирка -->
               <polygon points="104,26 168,26 176,88 94,174 34,114" fill="url(#${p}d)" stroke="#ffb8c2" stroke-width="1.2" />
               <polygon points="104,26 168,26 112,92 34,114" fill="url(#${p}b)" />
               <polygon points="104,26 138,26 94,76 62,86" fill="url(#${p}sp)" opacity="0.55" />
               <polygon points="168,26 176,88 112,92" fill="#820015" opacity="0.85" />
               <polygon points="34,114 112,92 94,174" fill="url(#${p}b)" opacity="0.82" />
               <polygon points="112,92 176,88 94,174" fill="#4f000d" opacity="0.88" />
-              <!-- Отверстие-оправа в углу -->
               <polygon points="146,44 156,54 146,64 136,54" fill="#080506" stroke="#fff0c4" stroke-width="1.5" />
-              <!-- Золотой символ % (геометрический, дорогой) -->
               <polygon points="84,84 96,96 84,108 72,96" fill="url(#${p}g)" stroke="#fff6da" stroke-width="1" />
               <polygon points="118,116 130,128 118,140 106,128" fill="url(#${p}g)" stroke="#fff6da" stroke-width="1" />
               <polygon points="122,82 130,88 80,142 72,136" fill="url(#${p}g)" stroke="#fff6da" stroke-width="0.95" />
-              <!-- Внешняя золотая искра выгоды -->
               <polygon points="44,44 50,58 64,64 50,70 44,84 38,70 24,64 38,58" fill="url(#${p}g)" stroke="#fff6da" stroke-width="0.8" />
             </svg>
           `;
       }
     }
 
+    function createCrystal3DHTML(icon, variant = 'card', { voted = false, floorGlow = false } = {}) {
+      return `
+        <div class="crystal-3d-shell">
+          ${floorGlow ? '<div class="crystal-floor-glow" aria-hidden="true"></div>' : ''}
+          <canvas
+            class="trophy-3d-canvas"
+            data-model="${escapeHtml(icon)}"
+            data-variant="${escapeHtml(variant)}"
+            data-voted="${voted ? '1' : '0'}"
+            aria-hidden="true"
+          ></canvas>
+          <div class="crystal-svg-fallback">${createCrystalSVG(icon)}</div>
+        </div>
+      `;
+    }
+
     /**
      * =========================================================================
-     * 5. ГЕНЕРАТОРЫ КНОПОК, ШЕВРОНОВ И ПОРТРЕТОВ
+     * 5. ГЕНЕРАТОРЫ КНОПОК, ШЕВРОНОВ И ЮВЕЛИРНЫХ МЕДАЛЬОНОВ
      * =========================================================================
      */
     function createChevronSVG(direction = 'left') {
@@ -4327,21 +5586,36 @@
       return cleaned ? cleaned[0].toUpperCase() : 'М';
     }
 
-    function buildCrystalMonogramSVG(name) {
+    function buildCrystalMonogramSVG(name, { isWinner = false } = {}) {
       const uid = `mng${++svgUidSeq}`;
       const letter = escapeHtml(getMonogramLetter(name));
+
+      const cornerPins = [
+        [90, 18], [141, 39], [162, 90], [141, 141],
+        [90, 162], [39, 141], [18, 90], [39, 39],
+      ].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="1.9" fill="#fff2cc" stroke="#a86420" stroke-width="0.6" />`).join('');
+
+      const winnerCrown = isWinner
+        ? `
+          <g transform="translate(90,-2)">
+            <polygon points="-14,6 -8,-5 0,2 8,-5 14,6" fill="url(#${uid}rim)" stroke="#fff6da" stroke-width="0.7" />
+            <polygon points="0,-10 4,-3 0,3 -4,-3" fill="url(#${uid}ruby)" stroke="#fff0e4" stroke-width="0.6" />
+          </g>
+        `
+        : '';
+
       return `
         <svg viewBox="0 0 180 180" class="monogram-svg" fill="none">
           <defs>
             <linearGradient id="${uid}obs" x1="0.15" y1="0" x2="0.85" y2="1">
-              <stop offset="0%" stop-color="#290c12" />
+              <stop offset="0%" stop-color="#2b0d14" />
               <stop offset="48%" stop-color="#110609" />
               <stop offset="100%" stop-color="#050305" />
             </linearGradient>
             <linearGradient id="${uid}rim" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#fff0cc" />
+              <stop offset="0%" stop-color="#fff4d6" />
               <stop offset="35%" stop-color="#e8b874" />
-              <stop offset="72%" stop-color="#e30613" />
+              <stop offset="70%" stop-color="#e30613" />
               <stop offset="100%" stop-color="#ff9ea9" />
             </linearGradient>
             <linearGradient id="${uid}ruby" x1="0.1" y1="0" x2="0.9" y2="1">
@@ -4352,22 +5626,23 @@
             </linearGradient>
             <linearGradient id="${uid}txt" x1="0.5" y1="0" x2="0.5" y2="1">
               <stop offset="0%" stop-color="#ffffff" />
-              <stop offset="48%" stop-color="#ffe8c2" />
-              <stop offset="100%" stop-color="#e3a85c" />
+              <stop offset="42%" stop-color="#ffeed0" />
+              <stop offset="100%" stop-color="#d8923e" />
             </linearGradient>
-            <linearGradient id="${uid}sheen" x1="0" y1="0" x2="0.7" y2="0.8">
-              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28" />
-              <stop offset="45%" stop-color="#ff4d63" stop-opacity="0.12" />
+            <linearGradient id="${uid}sheen" x1="0" y1="0" x2="0.75" y2="0.85">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.34" />
+              <stop offset="45%" stop-color="#ff4d63" stop-opacity="0.14" />
               <stop offset="100%" stop-color="#e30613" stop-opacity="0" />
             </linearGradient>
           </defs>
 
-          <!-- Внешний тонкий контур благородного золота -->
+          <!-- Внешнее тонкое ювелирное кольцо-линия + 8 микропинов -->
+          <circle cx="90" cy="90" r="82" stroke="url(#${uid}rim)" stroke-opacity="0.24" stroke-width="0.9" stroke-dasharray="3 5" />
           <polygon
             points="90,8 148,32 172,90 148,148 90,172 32,148 8,90 32,32"
             fill="none"
             stroke="url(#${uid}rim)"
-            stroke-opacity="0.46"
+            stroke-opacity="0.52"
             stroke-width="1"
           />
 
@@ -4379,35 +5654,54 @@
             stroke-width="1.5"
           />
 
-          <!-- Кристальные грани по периметру (эффект ювелирной огранки) -->
-          <polygon points="90,18 141,39 128,52 90,36" fill="url(#${uid}ruby)" opacity="0.55" />
+          <!-- Кристальные грани фаски по периметру -->
+          <polygon points="90,18 141,39 128,52 90,36" fill="url(#${uid}ruby)" opacity="0.58" />
           <polygon points="90,18 39,39 52,52 90,36" fill="url(#${uid}sheen)" opacity="0.95" />
-          <polygon points="18,90 39,39 52,52 36,90" fill="url(#${uid}ruby)" opacity="0.34" />
-          <polygon points="162,90 141,141 128,128 144,90" fill="#42000a" opacity="0.82" />
-          <polygon points="90,162 141,141 128,128 90,144" fill="url(#${uid}ruby)" opacity="0.42" />
-          <polygon points="90,162 39,141 52,128 90,144" fill="#300008" opacity="0.85" />
+          <polygon points="18,90 39,39 52,52 36,90" fill="url(#${uid}ruby)" opacity="0.38" />
+          <polygon points="162,90 141,39 128,52 144,90" fill="#820015" opacity="0.65" />
+          <polygon points="162,90 141,141 128,128 144,90" fill="#42000a" opacity="0.86" />
+          <polygon points="90,162 141,141 128,128 90,144" fill="url(#${uid}ruby)" opacity="0.46" />
+          <polygon points="90,162 39,141 52,128 90,144" fill="#300008" opacity="0.88" />
+          <polygon points="18,90 39,141 52,128 36,90" fill="#220005" opacity="0.84" />
 
-          <!-- Внутренний утопленный обсидиановый октагон -->
+          <!-- Внутренний утопленный обсидиановый октагон и гильош-круг -->
           <polygon
             points="90,36 128,52 144,90 128,128 90,144 52,128 36,90 52,52"
             fill="#070406"
             stroke="url(#${uid}rim)"
-            stroke-opacity="0.62"
+            stroke-opacity="0.68"
             stroke-width="1"
           />
+          <circle cx="90" cy="90" r="46" stroke="#e8b874" stroke-opacity="0.22" stroke-width="0.8" />
+          <circle cx="90" cy="90" r="41" stroke="#ff4d63" stroke-opacity="0.18" stroke-width="0.6" stroke-dasharray="2 3" />
           <polygon
             points="90,36 128,52 90,90 36,90 52,52"
             fill="url(#${uid}sheen)"
-            opacity="0.7"
+            opacity="0.72"
           />
 
-          <!-- 4 рубиновых кристалла-акцента по сторонам света -->
-          <polygon points="90,4 97,16 90,26 83,16" fill="url(#${uid}ruby)" stroke="#ffe8cc" stroke-width="0.8" />
-          <polygon points="90,154 97,164 90,176 83,164" fill="url(#${uid}ruby)" stroke="#ffe8cc" stroke-width="0.8" />
-          <polygon points="4,90 15,84 24,90 15,96" fill="url(#${uid}ruby)" stroke="#ffccd2" stroke-width="0.7" />
-          <polygon points="176,90 165,84 156,90 165,96" fill="url(#${uid}ruby)" stroke="#ffccd2" stroke-width="0.7" />
+          ${cornerPins}
 
-          <!-- Крупная монограмма шрифтом Forum -->
+          <!-- 4 огранённых рубиновых кристалла-акцента по сторонам света -->
+          <polygon points="90,3 97,15 90,26 83,15" fill="url(#${uid}ruby)" stroke="#fff0cc" stroke-width="0.85" />
+          <polygon points="90,154 97,165 90,177 83,165" fill="url(#${uid}ruby)" stroke="#fff0cc" stroke-width="0.85" />
+          <polygon points="3,90 15,83 25,90 15,97" fill="url(#${uid}ruby)" stroke="#ffccd2" stroke-width="0.75" />
+          <polygon points="177,90 165,83 155,90 165,97" fill="url(#${uid}ruby)" stroke="#ffccd2" stroke-width="0.75" />
+
+          ${winnerCrown}
+
+          <!-- Крупная рельефная монограмма шрифтом Forum -->
+          <text
+            x="90"
+            y="109"
+            text-anchor="middle"
+            fill="#000000"
+            fill-opacity="0.65"
+            font-family="Forum, Georgia, serif"
+            font-size="60"
+            font-weight="400"
+            transform="translate(0, 2)"
+          >${letter}</text>
           <text
             x="90"
             y="109"
@@ -4439,9 +5733,9 @@
             class="portrait-photo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
           />
-          <div style="display:none;width:100%;height:100%;">${buildCrystalMonogramSVG(name)}</div>
+          <div style="display:none;width:100%;height:100%;">${buildCrystalMonogramSVG(name, { isWinner })}</div>
         `
-        : buildCrystalMonogramSVG(name);
+        : buildCrystalMonogramSVG(name, { isWinner });
 
       return `
         <div
@@ -4456,6 +5750,26 @@
           <div class="portrait-fade"></div>
         </div>
       `;
+    }
+
+    function bindMedallionTilt(container) {
+      if (!container || !window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+      container.querySelectorAll('.portrait-stage').forEach((stage) => {
+        if (stage.dataset.boundMedallion) return;
+        stage.dataset.boundMedallion = '1';
+        const media = stage.querySelector('.portrait-media');
+        if (!media) return;
+
+        stage.addEventListener('mousemove', (e) => {
+          const r = stage.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          media.style.transform = `rotateX(${(-py * 20).toFixed(1)}deg) rotateY(${(px * 22).toFixed(1)}deg) translateZ(6px)`;
+        });
+        stage.addEventListener('mouseleave', () => {
+          media.style.transform = '';
+        });
+      });
     }
 
     function pluralVotes(n) {
@@ -4474,11 +5788,11 @@
      * =========================================================================
      */
     const state = {
-      mode: 'OPEN', // 'OPEN' | 'WAITING' | 'RESULTS'
+      mode: 'OPEN',
       serverConnected: false,
       totalVoters: null,
-      winners: {}, // { [nomId]: { names: [...], votes: number|null } }
-      votes: {}, // { [nomId]: string[] } (до 2 кандидатов в каждой номинации)
+      winners: {},
+      votes: {},
       voterName: '',
       hasSubmitted: false,
       ticketCode: '',
@@ -4536,7 +5850,11 @@
 
         if (data.votes && typeof data.votes === 'object') {
           CONFIG.nominations.forEach((nom) => {
-            const list = normalizeVotesValue(data.votes[nom.id]);
+            let list = normalizeVotesValue(data.votes[nom.id]);
+            if (!data.hasSubmitted) {
+              const validNames = new Set(nom.candidates.map((c) => c.name));
+              list = list.filter((name) => validNames.has(name));
+            }
             if (list.length > 0) {
               state.votes[nom.id] = list;
             }
@@ -4854,6 +6172,8 @@
         renderResultsMode();
         document.getElementById('floating-dock').classList.remove('is-visible');
       }
+
+      Trophy3DEngine.refreshTargets();
     }
 
     /**
@@ -4880,6 +6200,7 @@
       }
 
       renderFloatingDock();
+      Trophy3DEngine.refreshTargets();
     }
 
     function renderHeroCarousel() {
@@ -4895,11 +6216,15 @@
           <div class="hero-slide ${idx === state.heroIndex ? 'is-active' : ''}" data-slide="${idx}">
             <div class="hero-ring-outer"></div>
             <div class="hero-ring-inner"></div>
-            <div class="hero-crystal-box">${createCrystalSVG(slide.icon)}</div>
           </div>
         `
         )
         .join('');
+
+      const fallbackEl = document.getElementById('hero-3d-fallback');
+      if (fallbackEl && CONFIG.heroSlides[state.heroIndex]) {
+        fallbackEl.innerHTML = createCrystalSVG(CONFIG.heroSlides[state.heroIndex].icon);
+      }
 
       dotsEl.innerHTML = CONFIG.heroSlides
         .map(
@@ -4918,6 +6243,10 @@
       document.getElementById('hero-kicker').textContent = slide.kicker;
       document.getElementById('hero-title').textContent = slide.title;
       document.getElementById('hero-subtitle').textContent = slide.subtitle;
+      const fallbackEl = document.getElementById('hero-3d-fallback');
+      if (fallbackEl) {
+        fallbackEl.innerHTML = createCrystalSVG(slide.icon);
+      }
     }
 
     function goToHeroSlide(idx, withSound = false) {
@@ -4950,7 +6279,7 @@
       if (!grid) return;
 
       grid.innerHTML = CONFIG.nominations
-        .map((nom, idx) => {
+        .map((nom) => {
           const chosenList = getVotesList(nom.id);
           const chosenText = chosenList.join(', ');
           const statusHTML = chosenText
@@ -4965,12 +6294,7 @@
           return `
             <article class="nom-card ${chosenText ? 'is-voted' : ''}">
               <div class="crystal-tilt-wrap" data-open-nom="${escapeHtml(nom.id)}">
-                <div class="crystal-tilt-stage">
-                  <div class="crystal-float" style="animation-delay:${idx * 0.52}s;">
-                    ${createCrystalSVG(nom.icon)}
-                  </div>
-                  <div class="crystal-tilt-glint"></div>
-                </div>
+                ${createCrystal3DHTML(nom.icon, 'card', { voted: Boolean(chosenText), floorGlow: true })}
               </div>
               <h3 class="title-fiery-soft nom-title">${escapeHtml(nom.title)}</h3>
               <p class="nom-desc">${escapeHtml(nom.desc)}</p>
@@ -4981,34 +6305,7 @@
         })
         .join('');
 
-      bindCrystalTilt();
-    }
-
-    function bindCrystalTilt() {
-      if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
-      document.querySelectorAll('.crystal-tilt-wrap').forEach((wrap) => {
-        const stage = wrap.querySelector('.crystal-tilt-stage');
-        const glint = wrap.querySelector('.crystal-tilt-glint');
-        if (!stage) return;
-
-        wrap.addEventListener('mousemove', (e) => {
-          const r = wrap.getBoundingClientRect();
-          const px = (e.clientX - r.left) / r.width;
-          const py = (e.clientY - r.top) / r.height;
-          const rotY = (px - 0.5) * 22;
-          const rotX = -(py - 0.5) * 18;
-          stage.style.transform = `rotateX(${rotX.toFixed(1)}deg) rotateY(${rotY.toFixed(1)}deg) scale(1.06)`;
-          if (glint) {
-            glint.style.opacity = '0.42';
-            glint.style.background = `radial-gradient(circle at ${(px * 100).toFixed(0)}% ${(py * 100).toFixed(0)}%, rgba(255, 238, 178, 0.72) 0%, transparent 56%)`;
-          }
-        });
-
-        wrap.addEventListener('mouseleave', () => {
-          stage.style.transform = '';
-          if (glint) glint.style.opacity = '0';
-        });
-      });
+      Trophy3DEngine.refreshTargets();
     }
 
     function renderFloatingDock() {
@@ -5125,10 +6422,10 @@
 
       state.activeNominationId = nomId;
       SoundFX.click();
-      renderModalContent(nom, true);
 
       document.getElementById('nomination-modal').classList.add('is-open');
       document.body.classList.add('lock-scroll');
+      renderModalContent(nom, true);
       renderFloatingDock();
 
       const scrollEl = document.getElementById('modal-scroll-area');
@@ -5141,6 +6438,7 @@
       document.getElementById('nomination-modal').classList.remove('is-open');
       if (!state.ceremonyOpen) document.body.classList.remove('lock-scroll');
       renderFloatingDock();
+      Trophy3DEngine.refreshTargets();
       if (withSound) SoundFX.click();
     }
 
@@ -5152,7 +6450,7 @@
       document.getElementById('modal-nom-title').textContent =
         `ВЫБЕРИ ДО ${maxVotes} ЛЕГЕНД В НОМИНАЦИИ «${nom.title}»`;
       document.getElementById('modal-nom-desc').textContent = nom.desc;
-      document.getElementById('modal-crystal-right').innerHTML = createCrystalSVG(nom.icon);
+      document.getElementById('modal-crystal-right').innerHTML = createCrystal3DHTML(nom.icon, 'modal');
 
       const badgeText =
         selectedList.length === 0
@@ -5214,6 +6512,9 @@
           `;
         })
         .join('');
+
+      bindMedallionTilt(gridEl);
+      Trophy3DEngine.refreshTargets();
     }
 
     function toggleCandidatePick(nomId, candName) {
@@ -5253,12 +6554,13 @@
      * =========================================================================
      */
     function renderWaitingMode() {
-      document.getElementById('waiting-crystal').innerHTML = createCrystalSVG('crown');
+      document.getElementById('waiting-crystal').innerHTML = createCrystal3DHTML('crown', 'waiting', { floorGlow: true });
       document.getElementById('waiting-refresh-mount').innerHTML = btnRubyHTML({
         label: state.isCheckingStatus ? 'ОБНОВЛЯЕМ...' : 'ОБНОВИТЬ СТАТУС',
         loading: state.isCheckingStatus,
         attrs: `id="waiting-refresh-btn" ${state.isCheckingStatus ? 'disabled' : ''}`,
       });
+      Trophy3DEngine.refreshTargets();
     }
 
     /**
@@ -5333,7 +6635,7 @@
           return `
             <article class="hof-showcase" data-hof-spark="true">
               <div class="hof-head">
-                <div class="hof-mini-crystal">${createCrystalSVG(nom.icon)}</div>
+                <div class="hof-mini-crystal">${createCrystal3DHTML(nom.icon, 'hof-mini', { voted: true })}</div>
                 <div class="hof-nom-title">${escapeHtml(nom.title)}</div>
               </div>
               ${metaHTML}
@@ -5342,6 +6644,9 @@
           `;
         })
         .join('');
+
+      bindMedallionTilt(grid);
+      Trophy3DEngine.refreshTargets();
     }
 
     function openCeremony(startIdx = 0) {
@@ -5353,9 +6658,9 @@
       document.getElementById('ceremony-prev-btn').innerHTML = createChevronSVG('left');
       document.getElementById('ceremony-next-btn').innerHTML = createChevronSVG('right');
 
-      renderCeremonyStage();
       document.getElementById('ceremony-overlay').classList.add('is-open');
       document.body.classList.add('lock-scroll');
+      renderCeremonyStage();
     }
 
     function closeCeremony(withSound = true) {
@@ -5363,6 +6668,7 @@
       state.ceremonyOpen = false;
       document.getElementById('ceremony-overlay').classList.remove('is-open');
       if (!state.activeNominationId) document.body.classList.remove('lock-scroll');
+      Trophy3DEngine.refreshTargets();
       if (withSound) SoundFX.click();
     }
 
@@ -5404,7 +6710,7 @@
           <div class="ceremony-nom-kicker">ЦЕРЕМОНИЯ НАГРАЖДЕНИЯ 2026</div>
           <h2 class="title-fiery ceremony-nom-title">${escapeHtml(nom.title)}</h2>
           <p class="ceremony-nom-desc">${escapeHtml(nom.desc)}</p>
-          <div class="ceremony-intrigue-crystal">${createCrystalSVG(nom.icon)}</div>
+          <div class="ceremony-intrigue-crystal">${createCrystal3DHTML(nom.icon, 'ceremony', { floorGlow: true })}</div>
           <div>
             ${btnRubyHTML({
               label: 'ВСКРЫТЬ КОНВЕРТ',
@@ -5467,6 +6773,9 @@
           </div>
         `;
       }
+
+      bindMedallionTilt(center);
+      Trophy3DEngine.refreshTargets();
     }
 
     /**
@@ -5488,7 +6797,7 @@
 
         function spawn(randomY = false) {
           const bokeh = Math.random() < 0.2;
-          const colors = ['255, 224, 228', '255, 58, 82', '227, 6, 19', '156, 0, 24'];
+          const colors = ['255, 224, 228', '255, 58, 82', '227, 6, 19', '232, 184, 116'];
           return {
             x: Math.random() * w,
             y: randomY ? Math.random() * h : h + Math.random() * 50,
@@ -5577,7 +6886,7 @@
 
       addBurst(x, y, count = 42, speedScale = 1, spreadUp = false) {
         if (!this.ensure()) return;
-        const palette = ['#ffe6ea', '#ff4d63', '#e30613', '#a8001a', '#ffffff', '#ff9ca8'];
+        const palette = ['#ffe6ea', '#ff4d63', '#e30613', '#e8b874', '#ffffff', '#ff9ca8'];
         for (let i = 0; i < count; i++) {
           const ang = spreadUp
             ? -Math.PI / 2 + (Math.random() - 0.5) * 1.45
@@ -5875,6 +7184,7 @@
         updatePreviewSwitcherUI();
         renderOpenMode();
         initEmberCanvas();
+        Trophy3DEngine.refreshTargets();
         // Фоновая синхронизация с Google Таблицей (никогда не блокирует экран)
         syncWithScript({ manual: false });
       } catch (err) {
@@ -5887,67 +7197,6 @@
     } else {
       bootstrapApp();
     }
-
-    /**
-     * =========================================================================
-     * 16. ПЛАВНЫЙ 3D-ПАРАЛЛАКС СТАТУЭТКИ В ШАПКЕ (DESKTOP + MOBILE)
-     * =========================================================================
-     */
-    (function initHero3DParallax() {
-      const pivot = document.getElementById('hero3dPivot');
-      const crystal = document.getElementById('hero3dCrystal');
-      if (!pivot) return;
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      const isFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
-      let targetX = 0;
-      let targetY = 0;
-      let currentX = 0;
-      let currentY = 0;
-
-      if (isFinePointer) {
-        window.addEventListener('mousemove', (e) => {
-          targetY = (e.clientX / window.innerWidth - 0.5) * 30;
-          targetX = (e.clientY / window.innerHeight - 0.5) * -22;
-        }, { passive: true });
-
-        window.addEventListener('mouseleave', () => {
-          targetX = 0;
-          targetY = 0;
-        });
-      }
-
-      // Плавный поворотный импульс при переключении слайда в Hero (без рывков CSS-анимации)
-      let spinOffsetTarget = 0;
-      let spinOffsetCurrent = 0;
-      const rig = pivot.querySelector('.crystal-3d-rig');
-
-      document.getElementById('hero-prev-btn')?.addEventListener('click', () => {
-        spinOffsetTarget -= 90;
-      });
-      document.getElementById('hero-next-btn')?.addEventListener('click', () => {
-        spinOffsetTarget += 90;
-      });
-      document.getElementById('hero-dots')?.addEventListener('click', () => {
-        spinOffsetTarget += 90;
-      });
-
-      function animatePivot() {
-        currentX += (targetX - currentX) * 0.08;
-        currentY += (targetY - currentY) * 0.08;
-        spinOffsetCurrent += (spinOffsetTarget - spinOffsetCurrent) * 0.07;
-
-        const baseScale = window.innerWidth < 640 ? 0.84 : 1;
-        pivot.style.transform = `scale(${baseScale}) rotateX(${currentX.toFixed(2)}deg) rotateY(${currentY.toFixed(2)}deg)`;
-        if (rig && Math.abs(spinOffsetTarget - spinOffsetCurrent) > 0.05) {
-          rig.style.setProperty('--slide-spin', `${spinOffsetCurrent.toFixed(2)}deg`);
-        }
-        requestAnimationFrame(animatePivot);
-      }
-
-      requestAnimationFrame(animatePivot);
-    })();
-
   </script>
 </body>
 </html>
